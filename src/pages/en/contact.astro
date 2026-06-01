@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Contact us | Sonvice Group" description="Fill in our contact form to request a free quote for moving, cleaning, or other household services in Stockholm. Fast response!">
+<main class="bg-surface-body py-12 md:py-24 bg-grid-pattern relative">
+	<!-- Ambient lights -->
+	<div class="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+	<div class="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none"></div>
+
+	<div class="max-w-6xl mx-auto px-6 relative">
+		
+		<!-- Split-screen glowing container card -->
+		<div class="glow-card grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white">
+			
+			<!-- Left: Dark Info Panel (col-span-2) -->
+			<div class="lg:col-span-2 bg-surface-dark p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+				<div class="absolute -right-16 -top-16 w-36 h-36 bg-glow-teal rounded-full blur-2xl opacity-20 pointer-events-none"></div>
+				
+				<div class="relative z-10 space-y-10">
+					<div>
+						<span class="text-xs font-bold text-accent uppercase tracking-widest bg-teal-900/40 border border-teal-800/60 px-2.5 py-1 rounded">Contact</span>
+						<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-4 mb-4">Contact us</h1>
+						<p class="text-slate-400 text-sm md:text-base leading-relaxed">Fill in the form to request a free quote. We normally respond within 24 hours.</p>
+					</div>
+					
+					<!-- Contact details -->
+					<div class="space-y-6">
+						<div class="flex items-start gap-4 group">
+							<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0 group-hover:border-accent transition-colors duration-300">
+								<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+							</div>
+							<div>
+								<div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Email</div>
+								<a href="mailto:info@sonvicegroup.se" class="text-sm font-semibold text-white hover:text-accent transition-colors">info@sonvicegroup.se</a>
+							</div>
+						</div>
+						
+						<div class="flex items-start gap-4 group">
+							<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0 group-hover:border-accent transition-colors duration-300">
+								<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+							</div>
+							<div>
+								<div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Phone</div>
+								<a href="tel:081234567" class="text-sm font-semibold text-white hover:text-accent transition-colors">08-123 45 67</a>
+							</div>
+						</div>
+						
+						<div class="flex items-start gap-4 group">
+							<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0 group-hover:border-accent transition-colors duration-300">
+								<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+							</div>
+							<div>
+								<div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Hours</div>
+								<div class="text-sm text-slate-300">Mon–Fri 08–18 · Sat 09–15</div>
+								<div class="text-xs text-slate-500 mt-1">Sunday: Closed (On-call support available)</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Tip Box -->
+				<div class="relative z-10 mt-12 p-5 rounded-lg bg-surface-dark-raised border border-slate-800/80 text-sm text-slate-400 leading-relaxed">
+					<strong class="text-slate-200">Tip:</strong> Please specify the area (sqm), number of rooms, and preferred date in your message to help us give you a more accurate quote directly.
+				</div>
+			</div>
+			
+			<!-- Right: Form Panel (col-span-3) -->
+			<div class="lg:col-span-3 bg-white p-8 md:p-12">
+				<form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! We have received your request and will contact you shortly.');">
+					
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div>
+							<label for="name" class="text-sm font-semibold text-slate-700 mb-2 block">Full name *</label>
+							<input 
+								type="text" 
+								id="name" 
+								required 
+								placeholder="Your name" 
+								class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+							/>
+						</div>
+						
+						<div>
+							<label for="email" class="text-sm font-semibold text-slate-700 mb-2 block">Email address *</label>
+							<input 
+								type="email" 
+								id="email" 
+								required 
+								placeholder="name@example.com" 
+								class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+							/>
+						</div>
+					</div>
+					
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div>
+							<label for="phone" class="text-sm font-semibold text-slate-700 mb-2 block">Phone number</label>
+							<input 
+								type="tel" 
+								id="phone" 
+								placeholder="070-123 45 67" 
+								class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+							/>
+						</div>
+						
+						<div>
+							<label for="service" class="text-sm font-semibold text-slate-700 mb-2 block">Desired service *</label>
+							<select 
+								id="service" 
+								required 
+								class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
+							>
+								<option value="" disabled selected>Choose a service...</option>
+								<option value="flytt">Moving Services</option>
+								<option value="hemstadning">Home Cleaning</option>
+								<option value="fonsterputs">Window Cleaning</option>
+								<option value="takrengoring">Roof Cleaning</option>
+								<option value="tradgard">Gardening</option>
+								<option value="annat">Other / General Inquiry</option>
+							</select>
+						</div>
+					</div>
+					
+					<div>
+						<label for="message" class="text-sm font-semibold text-slate-700 mb-2 block">Description of assignment *</label>
+						<textarea 
+							id="message" 
+							rows="5" 
+							required 
+							placeholder="Describe the area (sqm), number of rooms, any heavy items, and preferred date for a faster response." 
+							class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all resize-none text-sm text-text-heading placeholder-text-muted"
+						></textarea>
+					</div>
+					
+					<button 
+						type="submit" 
+						class="w-full py-4 rounded-lg bg-accent hover:bg-accent-hover text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.98]"
+					>
+						Send Enquiry
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</button>
+				</form>
+			</div>
+			
+		</div>
+		
+	</div>
+</main>
+<!-- Mouse Spotlight Follow script initialization -->
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.initGlowCards) {
+			window.initGlowCards();
+		}
+	});
+</script>
+</Layout>

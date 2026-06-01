@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import flyttImg from '../images/Flyttjänster.png';
+import hemstadningImg from '../images/Hemstädning.jpg';
+import fonsterputsningImg from '../images/Fönsterputsning.jpg';
+import takrengoringImg from '../images/Takrengöring.jpg';
+---
+
+<Layout title="Om oss | Sonvice Group - Din Servicepartner i Stockholm" description="Lär känna Sonvice Group. Vi erbjuder professionell flytt, städning, fönsterputs och takvård i Stockholm med full försäkring och nöjd-garanti.">
+<main class="relative overflow-hidden">
+
+	<!-- HERO: Left-aligned, warm bg with grid patterns -->
+	<section class="relative bg-surface-warm py-20 md:py-28 bg-grid-pattern">
+		<div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+		
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="max-w-2xl reveal-on-scroll space-y-4">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Vilka är vi?</span>
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-heading leading-[1.08]">
+					Om Sonvice Group
+				</h1>
+				<p class="text-lg md:text-xl text-text-body leading-relaxed">
+					Vi är din trygga partner för hushållsnära tjänster och flytthjälp i hela Stockholmsområdet. Med erfaren personal och full ansvarsförsäkring gör vi din vardag enklare.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- STORY: White bg, 2-col editorial -->
+	<section class="bg-white py-20 md:py-28 relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+				
+				<!-- Left Column: Story & Count-Up Stats -->
+				<div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+					<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight">Vår historia & vision</h2>
+					<p class="text-base text-text-body leading-relaxed">
+						Sonvice Group grundades med en enkel vision: att göra vardagen enklare för Stockholmare genom att erbjuda högkvalitativa tjänster under ett och samma tak. Vi förstår att din tid är värdefull, och att släppa in någon i ditt hem kräver stort förtroende.
+					</p>
+					<p class="text-base text-text-body leading-relaxed mb-8">
+						Därför arbetar vi uteslutande med utbildad personal, erbjuder fulla ansvarsförsäkringar via Trygg-Hansa och garanterar nöjd-kund-garanti på samtliga utförda arbeten. Oavsett om du behöver hjälp med en stor bohagsflytt eller regelbunden hemstädning kan du lita på oss.
+					</p>
+					
+					<!-- Interactive Stats row with dynamic JS Count-Up hooks -->
+					<div class="grid grid-cols-3 gap-4 pt-4">
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="100" data-count-suffix="%">0%</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Nöjd-garanti</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="10" data-count-suffix="M">0M</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Försäkrad</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="50" data-count-suffix="+">0+</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Utbildade</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Values Card -->
+				<div class="lg:col-span-5 p-8 rounded-2xl bg-surface-warm border border-border-warm space-y-6 reveal-on-scroll delay-200">
+					<h3 class="text-xl font-bold text-text-heading border-b border-border-warm pb-4">Våra kärnvärden</h3>
+					
+					<div class="space-y-6">
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Pålitlighet</h4>
+							<p class="text-sm text-text-body leading-relaxed">Vi håller vad vi lovar, kommer på utsatt tid och utför arbetet med högsta noggrannhet.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Miljömedvetenhet</h4>
+							<p class="text-sm text-text-body leading-relaxed">Vi använder miljömärkta rengöringsprodukter för att skydda både ditt hem och vår natur.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Omtanke</h4>
+							<p class="text-sm text-text-body leading-relaxed">Vi behandlar dina ägodelar och ditt hem med samma respekt och försiktighet som om det vore vårt eget.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- IMAGES: Bento grid on cool bg with glow cards -->
+	<section class="bg-surface-cool py-20 md:py-28 relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Bilder</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-2">Vår verksamhet i bilder</h2>
+				<p class="text-text-body text-base mt-2">Professionella tjänster vi levererar dagligen till nöjda kunder.</p>
+			</div>
+			
+			<!-- Asymmetric bento grid with mouse spotlight glow borders and 3D tilt -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				
+				<!-- Card 1 -->
+				<div class="md:col-span-2 glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[16/9] w-full overflow-hidden">
+						<img src={flyttImg.src} alt="Flyttjänster" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Professionell Flytthjälp</h3>
+							<p class="text-white/80 text-sm mt-1">Trygg och försäkrad flytt för hem och företag</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 2 -->
+				<div class="glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[3/4] md:aspect-auto md:h-full w-full overflow-hidden">
+						<img src={hemstadningImg.src} alt="Hemstädning" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Hemstädning</h3>
+							<p class="text-white/80 text-sm mt-1">Noggrann städning av utbildad personal</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 3 -->
+				<div class="glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[3/4] md:aspect-auto md:h-[260px] w-full overflow-hidden">
+						<img src={fonsterputsningImg.src} alt="Fönsterputsning" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Fönsterputsning</h3>
+							<p class="text-white/80 text-sm mt-1">Kristallklara fönster utan ränder</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 4 -->
+				<div class="md:col-span-2 glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[16/7] w-full overflow-hidden">
+						<img src={takrengoringImg.src} alt="Takrengöring" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Skonsam Takrengöring</h3>
+							<p class="text-white/80 text-sm mt-1">Avlägsnar mossa och alger för att skydda taket</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA: Dark bg -->
+	<section class="bg-surface-dark py-20 md:py-28 relative bg-grid-pattern-dark">
+		<div class="absolute top-[20%] right-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] pointer-events-none opacity-30"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 relative">
+			<div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+				<div class="lg:col-span-3 reveal-on-scroll">
+					<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Vill du boka en tjänst?</h2>
+					<p class="text-slate-400 text-base leading-relaxed max-w-lg">Kontakta oss för en kostnadsfri offert. Våra rådgivare hjälper dig hitta rätt lösning.</p>
+				</div>
+				<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col gap-4 reveal-on-scroll delay-200">
+					<a href="/contact" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors shadow-sm">
+						Kontakta oss 
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+					<a href="tel:081234567" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-slate-600 text-slate-200 font-semibold text-sm hover:bg-surface-dark-raised transition-colors">Ring 08-123 45 67</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+</Layout>

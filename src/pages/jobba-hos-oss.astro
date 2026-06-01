@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Jobba hos oss | Sonvice Group" description="Bli en del av Sonvice Group. Sök lediga jobb inom flytt, hemstädning och takvård i Stockholm. Skicka din ansökan idag.">
+<main class="bg-surface-body bg-grid-pattern relative pb-20">
+	<!-- Ambient lights -->
+	<div class="absolute top-[10%] left-[20%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+	<div class="absolute bottom-[30%] right-[10%] w-[300px] h-[300px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none"></div>
+
+	<!-- HERO: Warm bg banner -->
+	<section class="py-16 md:py-24 max-w-6xl mx-auto px-6 reveal-on-scroll">
+		<div class="max-w-2xl space-y-4">
+			<span class="inline-flex items-center gap-2 text-sm font-bold text-accent">
+				<span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+				Vi expanderar i Stockholm
+			</span>
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-heading leading-[1.08]">
+				Jobba hos oss
+			</h1>
+			<p class="text-lg md:text-xl text-text-body leading-relaxed">
+				Vi söker engagerade och noggranna medarbetare till våra flytt- och städteam. Skicka din ansökan och bli en del av en rolig arbetsplats!
+			</p>
+		</div>
+	</section>
+
+	<!-- PERKS: Horizontal perks bar -->
+	<section class="max-w-6xl mx-auto px-6 mb-20 reveal-on-scroll delay-100">
+		<div class="glass-panel bg-white/70 rounded-2xl p-8 border border-slate-200/60 shadow-xs grid grid-cols-1 md:grid-cols-3 gap-8">
+			
+			<div class="flex items-start gap-4">
+				<div class="w-10 h-10 rounded-lg bg-accent-soft border border-accent/15 flex items-center justify-center flex-shrink-0">
+					<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+				</div>
+				<div>
+					<h3 class="font-bold text-text-heading text-sm mb-1">Trygga villkor</h3>
+					<p class="text-xs text-text-body leading-relaxed">Rättvisa löner, kollektivavtalsliknande villkor och ansvarsförsäkring under arbetstid.</p>
+				</div>
+			</div>
+
+			<div class="flex items-start gap-4">
+				<div class="w-10 h-10 rounded-lg bg-accent-soft border border-accent/15 flex items-center justify-center flex-shrink-0">
+					<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+				</div>
+				<div>
+					<h3 class="font-bold text-text-heading text-sm mb-1">Ett stöttande team</h3>
+					<p class="text-xs text-text-body leading-relaxed">Vi hjälper varandra att leverera högsta kvalitet och skapar god sammanhållning.</p>
+				</div>
+			</div>
+
+			<div class="flex items-start gap-4">
+				<div class="w-10 h-10 rounded-lg bg-accent-soft border border-accent/15 flex items-center justify-center flex-shrink-0">
+					<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+				</div>
+				<div>
+					<h3 class="font-bold text-text-heading text-sm mb-1">Flexibla arbetstider</h3>
+					<p class="text-xs text-text-body leading-relaxed">Anställning på heltid, deltid eller extrapass under helger och kvällar.</p>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<!-- MAIN CONTENT: Split Screen Grid -->
+	<section class="max-w-6xl mx-auto px-6">
+		<div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+			
+			<!-- Left: Job listings (col-span-2) -->
+			<div class="lg:col-span-2 space-y-4 reveal-on-scroll">
+				<h2 class="text-xl font-bold text-text-heading mb-6">Lediga tjänster</h2>
+				
+				<!-- Job Card 1 -->
+				<div class="glow-card glass-panel bg-white/95 rounded-xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all group">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="font-bold text-text-heading text-base group-hover:text-accent transition-colors">Flyttmedarbetare / Chaufför</h3>
+					</div>
+					<div class="text-xs text-text-muted font-semibold mb-3">Stockholm · Heltid / Deltid</div>
+					<p class="text-xs text-text-body leading-relaxed mb-4">Söker dig som gillar fysiskt arbete, är serviceinriktad och har C- eller B-körkort.</p>
+					<a href="#ansok" class="inline-flex items-center gap-1 text-xs font-bold text-accent hover:text-accent-hover">Ansök nu <span class="group-hover:translate-x-0.5 transition-transform">→</span></a>
+				</div>
+
+				<!-- Job Card 2 -->
+				<div class="glow-card glass-panel bg-white/95 rounded-xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all group">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="font-bold text-text-heading text-base group-hover:text-accent transition-colors">Hemstädare / Städpersonal</h3>
+					</div>
+					<div class="text-xs text-text-muted font-semibold mb-3">Stockholm · Extra / Varannan vecka</div>
+					<p class="text-xs text-text-body leading-relaxed mb-4">Söker noggrann personal med ett öga för renlighet och nöjda kunder.</p>
+					<a href="#ansok" class="inline-flex items-center gap-1 text-xs font-bold text-accent hover:text-accent-hover">Ansök nu <span class="group-hover:translate-x-0.5 transition-transform">→</span></a>
+				</div>
+
+				<!-- Job Card 3 -->
+				<div class="glow-card glass-panel bg-white/95 rounded-xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all group">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="font-bold text-text-heading text-base group-hover:text-accent transition-colors">Fönsterputsare / Takvårdare</h3>
+					</div>
+					<div class="text-xs text-text-muted font-semibold mb-3">Stockholm · Säsongsanställning</div>
+					<p class="text-xs text-text-body leading-relaxed mb-4">Erfarenhet av höghöjdsarbeten eller fönsterputs är starkt meriterande.</p>
+					<a href="#ansok" class="inline-flex items-center gap-1 text-xs font-bold text-accent hover:text-accent-hover">Ansök nu <span class="group-hover:translate-x-0.5 transition-transform">→</span></a>
+				</div>
+			</div>
+
+			<!-- Right: Application form (col-span-3) -->
+			<div id="ansok" class="lg:col-span-3 scroll-mt-24 reveal-on-scroll delay-200">
+				<!-- Form Card Spotlighting cursor border-glow -->
+				<div class="glow-card glass-panel bg-white rounded-2xl p-8 md:p-10 border border-slate-200/60 shadow-md">
+					<h2 class="text-2xl font-bold text-text-heading mb-2">Skicka din ansökan</h2>
+					<p class="text-sm text-text-body leading-relaxed mb-6">Fyll i dina uppgifter och bifoga ditt CV nedan, så återkopplar vi inom kort.</p>
+					
+					<form class="space-y-5" onsubmit="event.preventDefault(); alert('Tack för din ansökan! Vår rekryteringsansvarig kommer att granska ditt CV och återkomma inom kort.');">
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+							<div>
+								<label for="name" class="text-sm font-semibold text-slate-700 mb-2 block">Fullständigt namn *</label>
+								<input 
+									type="text" 
+									id="name" 
+									required 
+									placeholder="Ditt namn" 
+									class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+								/>
+							</div>
+							
+							<div>
+								<label for="email" class="text-sm font-semibold text-slate-700 mb-2 block">E-postadress *</label>
+								<input 
+									type="email" 
+									id="email" 
+									required 
+									placeholder="namn@exempel.se" 
+									class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+								/>
+							</div>
+						</div>
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+							<div>
+								<label for="phone" class="text-sm font-semibold text-slate-700 mb-2 block">Telefonnummer *</label>
+								<input 
+									type="tel" 
+									id="phone" 
+									required 
+									placeholder="070-123 45 67" 
+									class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
+								/>
+							</div>
+							
+							<div>
+								<label for="job" class="text-sm font-semibold text-slate-700 mb-2 block">Sökt tjänst *</label>
+								<select 
+									id="job" 
+									required 
+									class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
+								>
+									<option value="" disabled selected>Välj en tjänst...</option>
+									<option value="flytt">Flyttmedarbetare / Chaufför</option>
+									<option value="hemstadning">Hemstädare / Städpersonal</option>
+									<option value="fonsterputs">Fönsterputsare / Takvårdare</option>
+									<option value="spontan">Spontanansökan</option>
+								</select>
+							</div>
+						</div>
+						
+						<div>
+							<label for="intro" class="text-sm font-semibold text-slate-700 mb-2 block">Kort presentation *</label>
+							<textarea 
+								id="intro" 
+								rows="4" 
+								required 
+								placeholder="Berätta kort om din erfarenhet och varför du vill jobba med oss..." 
+								class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all resize-none text-sm text-text-heading placeholder-text-muted"
+							></textarea>
+						</div>
+						
+						<div>
+							<label class="text-sm font-semibold text-slate-700 mb-2 block">CV (PDF, DOCX) *</label>
+							<div class="p-5 rounded-lg bg-surface-cool border border-dashed border-slate-300 flex flex-col items-center justify-center text-center">
+								<input 
+									type="file" 
+									required 
+									accept=".pdf,.doc,.docx" 
+									class="w-full text-sm text-text-muted file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-accent-soft file:text-accent hover:file:bg-accent-light file:cursor-pointer cursor-pointer" 
+								/>
+								<span class="text-xs text-text-muted mt-2">Max 10 MB. PDF- eller Word-format.</span>
+							</div>
+						</div>
+						
+						<button 
+							type="submit" 
+							class="w-full py-4 rounded-lg bg-accent hover:bg-accent-hover text-white font-bold text-sm transition-all cursor-pointer shadow-xs active:scale-[0.98]"
+						>
+							Skicka ansökan
+						</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+</main>
+<!-- Mouse Spotlight Follow script initialization -->
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.initGlowCards) {
+			window.initGlowCards();
+		}
+	});
+</script>
+</Layout>

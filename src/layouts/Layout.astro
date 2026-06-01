@@ -1,0 +1,486 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Sonvice Group | Flytt- och städtjänster i Stockholm",
+	description = "Professionella flyttjänster, hemstädning, fönsterputsning och takrengöring i Stockholm. 100% nöjd-kund-garanti."
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isEn = pathname.startsWith('/en') || pathname.startsWith('en');
+
+const getLangSwitchUrl = () => {
+	const cleanPath = pathname.replace(/\/$/, "");
+	if (isEn) {
+		if (cleanPath === "/en") return "/";
+		if (cleanPath === "/en/about-us") return "/om-oss";
+		if (cleanPath === "/en/contact") return "/contact";
+		if (cleanPath === "/en/careers") return "/jobba-hos-oss";
+		return "/";
+	} else {
+		if (cleanPath === "" || cleanPath === "/") return "/en";
+		if (cleanPath === "/om-oss") return "/en/about-us";
+		if (cleanPath === "/contact") return "/en/contact";
+		if (cleanPath === "/jobba-hos-oss") return "/en/careers";
+		return "/en";
+	}
+};
+const switchUrl = getLangSwitchUrl();
+
+const isActive = (path: string) => {
+	const current = pathname.replace(/\/$/, "");
+	const target = path.replace(/\/$/, "");
+	return current === target;
+};
+
+const t = isEn ? {
+	home: 'Home',
+	about: 'About us',
+	contact: 'Contact',
+	careers: 'Careers',
+	callUs: 'Call us',
+	footerDesc: 'Your reliable partner for professional moving, cleaning, window washing, gardening, and roof maintenance across the Stockholm region.',
+	footerServices: 'Services',
+	footerCompany: 'Company',
+	footerHours: 'Hours',
+	svcMoving: 'Moving',
+	svcCleaning: 'Cleaning',
+	svcWindows: 'Window cleaning',
+	svcRoof: 'Roof care',
+	svcGarden: 'Gardening',
+	weekdays: 'Mon – Fri',
+	saturday: 'Saturday',
+	sunday: 'Sunday',
+	closed: 'Closed (Emergency)',
+	whatsappTooltip: 'Chat with us',
+	langLabel: 'SV',
+	contactUs: 'Contact us'
+} : {
+	home: 'Hem',
+	about: 'Om oss',
+	contact: 'Kontakt',
+	careers: 'Karriär',
+	callUs: 'Ring oss',
+	footerDesc: 'Din pålitliga partner för professionell flytt, hemstädning, fönsterputsning, trädgårdsvård och takrengöring i hela Stockholmsområdet.',
+	footerServices: 'Tjänster',
+	footerCompany: 'Företag',
+	footerHours: 'Öppettider',
+	svcMoving: 'Flyttjänster',
+	svcCleaning: 'Hemstädning',
+	svcWindows: 'Fönsterputsning',
+	svcRoof: 'Takrengöring',
+	svcGarden: 'Trädgårdsvård',
+	weekdays: 'Mån – Fre',
+	saturday: 'Lördag',
+	sunday: 'Söndag',
+	closed: 'Stängt (Jour)',
+	whatsappTooltip: 'Chatta med oss',
+	langLabel: 'EN',
+	contactUs: 'Kontakta oss'
+};
+---
+
+<html lang={isEn ? "en" : "sv"}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-surface-body text-text-body min-h-screen flex flex-col overflow-x-hidden selection:bg-accent selection:text-white">
+
+		<!-- ═══ Activity Toast ═══ -->
+		<div id="activity-toast">
+			<div class="toast-inner">
+				<div class="toast-avatar" id="toast-emoji">🏠</div>
+				<div>
+					<p class="text-xs font-bold text-slate-800" id="toast-name">Anna K.</p>
+					<p class="text-[11px] text-slate-500 leading-tight mt-0.5" id="toast-msg">bokade hemstädning</p>
+					<p class="text-[10px] text-slate-400 mt-1 flex items-center gap-1">
+						<span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
+						<span id="toast-time">nyligen</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scroll Progress Bar -->
+		<div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-accent via-teal-400 to-emerald-500 z-[9999] transition-all duration-75" style="width: 0%"></div>
+
+		<!-- ═══ HEADER (Scroll-based transparent to glassmorphic transition) ═══ -->
+		<header id="main-header" class="fixed top-[3px] left-0 right-0 z-50 w-full bg-transparent border-b border-transparent py-4 transition-all duration-300">
+			<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+				<!-- Logo -->
+				<a href={isEn ? "/en" : "/"} class="flex items-center gap-3">
+					<img src="/mi-logo.png" alt="Sonvice Group" class="h-10 md:h-12 w-auto object-contain transition-transform" />
+					<span class="text-lg font-bold tracking-tight text-text-heading">Sonvice Group</span>
+				</a>
+
+				<!-- Desktop nav -->
+				<nav class="hidden lg:flex items-center gap-8">
+					<a href={isEn ? "/en" : "/"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en" : "") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+						{t.home}
+					</a>
+					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+						{t.about}
+					</a>
+					<a href={isEn ? "/en/contact" : "/contact"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/contact" : "/contact") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+						{t.contact}
+					</a>
+					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+						{t.careers}
+					</a>
+
+					<div class="w-px h-5 bg-slate-200"></div>
+
+					<!-- Language toggle -->
+					<a href={switchUrl} class="text-[13px] font-bold text-slate-400 hover:text-text-heading transition-colors tracking-wide">
+						{t.langLabel}
+					</a>
+
+					<!-- CTA Button -->
+					<a href={isEn ? "/en/contact" : "/contact"} class="ml-2 inline-flex items-center gap-2 text-[13px] font-bold px-5 py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm active:scale-[0.98]">
+						{t.contactUs}
+						<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+				</nav>
+
+				<!-- Mobile toggle -->
+				<button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-text-heading hover:bg-slate-100/50 transition-all outline-none" aria-label="Menu">
+					<svg id="menu-svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</button>
+			</div>
+
+			<!-- Mobile nav -->
+			<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-lg absolute top-full left-0 right-0">
+				<div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-1">
+					<a href={isEn ? "/en" : "/"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.home}
+					</a>
+					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.about}
+					</a>
+					<a href={isEn ? "/en/contact" : "/contact"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/contact" : "/contact") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.contact}
+					</a>
+					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.careers}
+					</a>
+
+					<div class="border-t border-slate-100 mt-3 pt-3 flex items-center justify-between px-3">
+						<a href={switchUrl} class="text-sm font-semibold text-slate-500 hover:text-text-heading transition-colors">
+							{isEn ? '🇸🇪 Svenska' : '🇬🇧 English'}
+						</a>
+					</div>
+
+					<a href={isEn ? "/en/contact" : "/contact"} class="mt-3 flex items-center justify-center gap-2 py-3.5 rounded-lg bg-accent text-white text-sm font-bold hover:bg-accent-hover transition-colors">
+						{t.contactUs}
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<!-- Page content -->
+		<div class="flex-grow w-full pt-[72px]">
+			<slot />
+		</div>
+
+		<!-- ═══ FOOTER (High Contrast Dark Navy) ═══ -->
+		<footer class="w-full bg-[#020617] text-slate-400 border-t border-slate-900 relative">
+			<!-- Top accent gradient divider line -->
+			<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+			
+			<div class="max-w-6xl mx-auto px-6 py-16">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+					<!-- Col 1: Brand -->
+					<div class="md:col-span-2 lg:col-span-1">
+						<div class="flex items-center gap-3 mb-5">
+							<img src="/mi-logo.png" alt="Sonvice Group" class="h-10 w-auto object-contain brightness-0 invert" />
+							<span class="text-base font-bold text-white tracking-tight">Sonvice Group</span>
+						</div>
+						<p class="text-sm text-slate-400 leading-relaxed max-w-xs">
+							{t.footerDesc}
+						</p>
+					</div>
+
+					<!-- Col 2: Services -->
+					<div>
+						<h4 class="text-[11px] font-extrabold text-white uppercase tracking-[0.2em] mb-5">{t.footerServices}</h4>
+						<ul class="space-y-3.5 text-sm">
+							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcMoving}</a></li>
+							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcCleaning}</a></li>
+							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcWindows}</a></li>
+							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcRoof}</a></li>
+							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcGarden}</a></li>
+						</ul>
+					</div>
+
+					<!-- Col 3: Company -->
+					<div>
+						<h4 class="text-[11px] font-extrabold text-white uppercase tracking-[0.2em] mb-5">{t.footerCompany}</h4>
+						<ul class="space-y-3.5 text-sm">
+							<li><a href={isEn ? "/en/about-us" : "/om-oss"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.about}</a></li>
+							<li><a href={isEn ? "/en/contact" : "/contact"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.contact}</a></li>
+							<li><a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.careers}</a></li>
+							<li><a href="mailto:info@sonvicegroup.se" class="text-slate-400 hover:text-accent font-medium transition-colors">info@sonvicegroup.se</a></li>
+							<li><a href="tel:081234567" class="text-slate-400 hover:text-accent font-medium transition-colors">08-123 45 67</a></li>
+						</ul>
+					</div>
+
+					<!-- Col 4: Hours -->
+					<div>
+						<h4 class="text-[11px] font-extrabold text-white uppercase tracking-[0.2em] mb-5">{t.footerHours}</h4>
+						<ul class="space-y-3.5 text-sm text-slate-400">
+							<li class="flex justify-between">
+								<span>{t.weekdays}</span>
+								<span class="text-slate-200 font-semibold">08:00 – 18:00</span>
+							</li>
+							<li class="flex justify-between">
+								<span>{t.saturday}</span>
+								<span class="text-slate-200 font-semibold">09:00 – 15:00</span>
+							</li>
+							<li class="flex justify-between">
+								<span>{t.sunday}</span>
+								<span class="text-slate-200 font-semibold text-accent">{t.closed}</span>
+							</li>
+						</ul>
+						<div class="mt-6 pt-4 border-t border-slate-800">
+							<span class="text-xs text-slate-500">Stockholm, Sverige</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bottom bar -->
+			<div class="border-t border-slate-900 bg-primary-dark/20">
+				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-500">
+					<p>© {new Date().getFullYear()} Sonvice Group AB · Org.nr 559XXX-XXXX · Innehar F-skattsedel</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- WhatsApp floating button -->
+		<a href="https://wa.me/34688249310" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[999]">
+			<div class="w-12 h-12 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">
+					<path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.91 1.12-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.77.36-.26.29-1 1-.97 2.44.03 1.44 1.03 2.83 1.18 3.03.15.19 2.03 3.1 4.92 4.35.69.29 1.22.46 1.64.59.69.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM16.02 3C8.84 3 3 8.82 3 16c0 2.53.74 4.98 2.13 7.09L3 29l6.11-2.02A12.94 12.94 0 0016.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.67c-2.14 0-4.23-.57-6.06-1.66l-.43-.26-3.63 1.2 1.19-3.54-.28-.46a10.63 10.63 0 01-1.63-5.64c0-5.89 4.79-10.68 10.68-10.68S26.7 10.42 26.7 16.3s-4.79 10.37-10.68 10.37z"/>
+				</svg>
+			</div>
+		</a>
+
+		<!-- Scripts -->
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				// --- 1. Header scroll effect ---
+				const header = document.getElementById('main-header');
+				if (header) {
+					const checkScroll = () => {
+						if (window.scrollY > 24) {
+							header.classList.add('bg-white/85', 'backdrop-blur-md', 'border-border', 'shadow-xs', 'py-2');
+							header.classList.remove('bg-transparent', 'border-transparent', 'py-4');
+						} else {
+							header.classList.remove('bg-white/85', 'backdrop-blur-md', 'border-border', 'shadow-xs', 'py-2');
+							header.classList.add('bg-transparent', 'border-transparent', 'py-4');
+						}
+					};
+					window.addEventListener('scroll', checkScroll);
+					checkScroll();
+				}
+
+				// --- 2. Scroll Progress Bar ---
+				const progress = document.getElementById('scroll-progress');
+				if (progress) {
+					window.addEventListener('scroll', () => {
+						const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+						if (scrollHeight > 0) {
+							const scrolled = (window.scrollY / scrollHeight) * 100;
+							progress.style.width = scrolled + '%';
+						}
+					});
+				}
+
+				// --- 3. Mobile Menu toggle ---
+				const menuToggle = document.getElementById('menu-toggle');
+				const mobileMenu = document.getElementById('mobile-menu');
+				const menuIcon = document.getElementById('menu-icon');
+				if (menuToggle && mobileMenu) {
+					menuToggle.addEventListener('click', (e) => {
+						e.stopPropagation();
+						mobileMenu.classList.toggle('hidden');
+						const isOpen = !mobileMenu.classList.contains('hidden');
+						menuIcon.setAttribute('d', isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+					});
+					
+					document.addEventListener('click', (e) => {
+						if (!mobileMenu.classList.contains('hidden') && !menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+							mobileMenu.classList.add('hidden');
+							menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+						}
+					});
+				}
+
+				// --- 4. Scroll Reveal observer ---
+				const revealEls = document.querySelectorAll('.reveal-on-scroll');
+				if (revealEls.length) {
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('active');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+					
+					revealEls.forEach(el => observer.observe(el));
+				}
+
+				// --- 5. Count-Up Stats ---
+				const countUpEls = document.querySelectorAll('[data-count-to]');
+				if (countUpEls.length) {
+					const counterObserver = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								const el = entry.target;
+								const targetVal = parseInt(el.getAttribute('data-count-to'), 10);
+								const suffix = el.getAttribute('data-count-suffix') || '';
+								let current = 0;
+								const duration = 1200; // ms
+								const stepTime = Math.max(Math.floor(duration / targetVal), 15);
+								
+								const timer = setInterval(() => {
+									current += Math.ceil(targetVal / (duration / stepTime));
+									if (current >= targetVal) {
+										el.textContent = targetVal + suffix;
+										clearInterval(timer);
+									} else {
+										el.textContent = current + suffix;
+									}
+								}, stepTime);
+								
+								counterObserver.unobserve(el);
+							}
+						});
+					}, { threshold: 0.2 });
+					
+					countUpEls.forEach(el => counterObserver.observe(el));
+				}
+
+				// --- 6. Mouse Spotlight Spotlight Follow ---
+				const handleMouseMove = (e) => {
+					const card = e.currentTarget;
+					const rect = card.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+					card.style.setProperty('--mouse-x', `${x}px`);
+					card.style.setProperty('--mouse-y', `${y}px`);
+				};
+				
+				window.initGlowCards = () => {
+					document.querySelectorAll('.glow-card').forEach(card => {
+						card.removeEventListener('mousemove', handleMouseMove);
+						card.addEventListener('mousemove', handleMouseMove);
+					});
+				};
+				
+				window.initGlowCards();
+
+				// --- 7. 3D Card Tilt Effect ---
+				const handleCardTilt = (e) => {
+					const card = e.currentTarget;
+					const rect = card.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+					
+					const centerX = rect.width / 2;
+					const centerY = rect.height / 2;
+					
+					const rotateX = ((y - centerY) / centerY) * -8; // Max 8 degrees tilt
+					const rotateY = ((x - centerX) / centerX) * 8;
+					
+					card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+				};
+				
+				const handleCardReset = (e) => {
+					const card = e.currentTarget;
+					card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+				};
+				
+				window.initTiltCards = () => {
+					document.querySelectorAll('.tilt-card').forEach(card => {
+						card.removeEventListener('mousemove', handleCardTilt);
+						card.removeEventListener('mouseleave', handleCardReset);
+						card.addEventListener('mousemove', handleCardTilt);
+						card.addEventListener('mouseleave', handleCardReset);
+					});
+				};
+				window.initTiltCards();
+
+			// ─── 9. Activity Toast System ───
+			const toastEl = document.getElementById('activity-toast');
+			const toastName = document.getElementById('toast-name');
+			const toastMsg = document.getElementById('toast-msg');
+			const toastTime = document.getElementById('toast-time');
+			const toastEmoji = document.getElementById('toast-emoji');
+			const isEnLang = document.documentElement.lang === 'en';
+
+			const toastsSV = [
+				{ name: 'Anna K.', msg: 'bokade hemstädning', time: 'för 2 timmar sedan', emoji: '✨' },
+				{ name: 'Erik L.', msg: 'begärde offert för flytt', time: 'för 4 timmar sedan', emoji: '📦' },
+				{ name: 'Maria S.', msg: 'bokade fönsterputsning', time: 'i morse', emoji: '🪟' },
+				{ name: 'Johan B.', msg: 'bekräftade takrengöring', time: 'igår', emoji: '🏠' },
+				{ name: 'Sara N.', msg: 'lämnade 5-stjärnig recension', time: 'för 1 dag sedan', emoji: '⭐' },
+				{ name: 'Mikael A.', msg: 'beställde kombinationspaket', time: 'för 3 timmar sedan', emoji: '🎯' },
+			];
+
+			const toastsEN = [
+				{ name: 'Anna K.', msg: 'booked home cleaning', time: '2 hours ago', emoji: '✨' },
+				{ name: 'Erik L.', msg: 'requested a moving quote', time: '4 hours ago', emoji: '📦' },
+				{ name: 'Maria S.', msg: 'booked window washing', time: 'this morning', emoji: '🪟' },
+				{ name: 'Johan B.', msg: 'confirmed roof cleaning', time: 'yesterday', emoji: '🏠' },
+				{ name: 'Sara N.', msg: 'left a 5-star review', time: '1 day ago', emoji: '⭐' },
+				{ name: 'Mikael A.', msg: 'ordered combo package', time: '3 hours ago', emoji: '🎯' },
+			];
+
+			const toasts = isEnLang ? toastsEN : toastsSV;
+
+			if (toastEl && toastName && toastMsg && toastTime && toastEmoji) {
+				let toastIdx = 0;
+
+				const showToast = () => {
+					const t = toasts[toastIdx % toasts.length];
+					toastName.textContent = t.name;
+					toastMsg.textContent = t.msg;
+					toastTime.textContent = t.time;
+					toastEmoji.textContent = t.emoji;
+					toastIdx++;
+
+					toastEl.classList.add('toast-visible');
+					setTimeout(() => {
+						toastEl.classList.remove('toast-visible');
+					}, 4500);
+				};
+
+				// First toast after 5s, then every 18s
+				setTimeout(() => {
+					showToast();
+					setInterval(showToast, 18000);
+				}, 5000);
+			}
+		});
+		</script>
+	</body>
+</html>

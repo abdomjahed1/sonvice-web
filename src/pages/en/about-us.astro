@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import flyttImg from '../../images/Flyttjänster.png';
+import hemstadningImg from '../../images/Hemstädning.jpg';
+import fonsterputsningImg from '../../images/Fönsterputsning.jpg';
+import takrengoringImg from '../../images/Takrengöring.jpg';
+---
+
+<Layout title="About us | Sonvice Group" description="Learn more about Sonvice Group. We are a professional moving and cleaning company in Stockholm, committed to reliability and care.">
+<main class="relative overflow-hidden">
+
+	<!-- HERO: Left-aligned, warm bg with grid patterns -->
+	<section class="relative bg-surface-warm py-20 md:py-28 bg-grid-pattern">
+		<div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+		
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="max-w-2xl reveal-on-scroll space-y-4">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Who are we?</span>
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-heading leading-[1.08]">
+					About Sonvice Group
+				</h1>
+				<p class="text-lg md:text-xl text-text-body leading-relaxed">
+					We are your reliable partner for household services and relocation in the Stockholm area. With trained staff and comprehensive liability insurance, we make your life simpler.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- STORY: White bg, 2-col editorial -->
+	<section class="bg-white py-20 md:py-28 relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+				
+				<!-- Left Column: Story & Count-Up Stats -->
+				<div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+					<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight">Our history & vision</h2>
+					<p class="text-base text-text-body leading-relaxed">
+						Sonvice Group was founded with a simple vision: to make everyday life easier for Stockholmers by offering high-quality services under one roof. We understand that your time is valuable, and letting someone into your home requires great trust.
+					</p>
+					<p class="text-base text-text-body leading-relaxed mb-8">
+						That is why we work exclusively with trained staff, offer comprehensive insurance through Trygg-Hansa, and guarantee satisfaction on all completed tasks. Whether you need help with a large residential move or regular house cleaning, you can trust us.
+					</p>
+					
+					<!-- Interactive Stats row with dynamic JS Count-Up hooks -->
+					<div class="grid grid-cols-3 gap-4 pt-4">
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="100" data-count-suffix="%">0%</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Satisfaction</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="10" data-count-suffix="M">0M</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Fully Insured</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent" data-count-to="50" data-count-suffix="+">0+</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Trained Staff</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Values Card -->
+				<div class="lg:col-span-5 p-8 rounded-2xl bg-surface-warm border border-border-warm space-y-6 reveal-on-scroll delay-200">
+					<h3 class="text-xl font-bold text-text-heading border-b border-border-warm pb-4">Our core values</h3>
+					
+					<div class="space-y-6">
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Reliability</h4>
+							<p class="text-sm text-text-body leading-relaxed">We keep our promises, arrive on time, and perform our work with the highest precision.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Environmental Awareness</h4>
+							<p class="text-sm text-text-body leading-relaxed">We use eco-labelled cleaning products to protect both your home and our nature.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Care</h4>
+							<p class="text-sm text-text-body leading-relaxed">We treat your belongings and your home with the same respect and care as if it were our own.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- IMAGES: Bento grid on cool bg with glow cards -->
+	<section class="bg-surface-cool py-20 md:py-28 relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Gallery</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-2">Our business in pictures</h2>
+				<p class="text-text-body text-base mt-2">Professional services we deliver daily to happy customers.</p>
+			</div>
+			
+			<!-- Asymmetric bento grid with mouse spotlight glow borders and 3D tilt -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				
+				<!-- Card 1 -->
+				<div class="md:col-span-2 glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[16/9] w-full overflow-hidden">
+						<img src={flyttImg.src} alt="Moving services" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Professional Moving</h3>
+							<p class="text-white/80 text-sm mt-1">Safe and insured relocation for homes and offices</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 2 -->
+				<div class="glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[3/4] md:aspect-auto md:h-full w-full overflow-hidden">
+						<img src={hemstadningImg.src} alt="Home cleaning" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Home Cleaning</h3>
+							<p class="text-white/80 text-sm mt-1">Thorough cleaning by trained professional staff</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 3 -->
+				<div class="glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[3/4] md:aspect-auto md:h-[260px] w-full overflow-hidden">
+						<img src={fonsterputsningImg.src} alt="Window cleaning" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Window Cleaning</h3>
+							<p class="text-white/80 text-sm mt-1">Crystal clear windows without streaks</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Card 4 -->
+				<div class="md:col-span-2 glow-card tilt-card glass-panel bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all group cursor-default">
+					<div class="relative aspect-[16/7] w-full overflow-hidden">
+						<img src={takrengoringImg.src} alt="Roof cleaning" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 tilt-inner" />
+						<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+							<h3 class="text-white font-bold text-xl">Gentle Roof Cleaning</h3>
+							<p class="text-white/80 text-sm mt-1">Removes moss and algae to protect the roof's lifespan</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA: Dark bg -->
+	<section class="bg-surface-dark py-20 md:py-28 relative bg-grid-pattern-dark">
+		<div class="absolute top-[20%] right-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] pointer-events-none opacity-30"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 relative">
+			<div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+				<div class="lg:col-span-3 reveal-on-scroll">
+					<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Want to book a service?</h2>
+					<p class="text-slate-400 text-base leading-relaxed max-w-lg">Contact us for a free quote. Our advisors will help you find the right solution.</p>
+				</div>
+				<div class="lg:col-span-2 flex flex-col sm:flex-row lg:flex-col gap-4 reveal-on-scroll delay-200">
+					<a href="/en/contact" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors shadow-sm">
+						Contact us 
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+					<a href="tel:081234567" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-slate-600 text-slate-200 font-semibold text-sm hover:bg-surface-dark-raised transition-colors">Call 08-123 45 67</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+</Layout>
