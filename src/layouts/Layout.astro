@@ -22,6 +22,11 @@ const getLangSwitchUrl = () => {
 		if (cleanPath === "/en/contact") return "/contact";
 		if (cleanPath === "/en/careers") return "/jobba-hos-oss";
 		if (cleanPath === "/en/truck-rental") return "/lastbilsuthyrning";
+		if (cleanPath === "/en/moving-services") return "/flyttjanster";
+		if (cleanPath === "/en/home-cleaning") return "/hemstadning";
+		if (cleanPath === "/en/window-cleaning") return "/fonsterputsning";
+		if (cleanPath === "/en/roof-cleaning") return "/takrengoring";
+		if (cleanPath === "/en/gardening") return "/tradgardsvard";
 		return "/";
 	} else {
 		if (cleanPath === "" || cleanPath === "/") return "/en";
@@ -29,12 +34,28 @@ const getLangSwitchUrl = () => {
 		if (cleanPath === "/contact") return "/en/contact";
 		if (cleanPath === "/jobba-hos-oss") return "/en/careers";
 		if (cleanPath === "/lastbilsuthyrning") return "/en/truck-rental";
+		if (cleanPath === "/flyttjanster") return "/en/moving-services";
+		if (cleanPath === "/hemstadning") return "/en/home-cleaning";
+		if (cleanPath === "/fonsterputsning") return "/en/window-cleaning";
+		if (cleanPath === "/takrengoring") return "/en/roof-cleaning";
+		if (cleanPath === "/tradgardsvard") return "/en/gardening";
 		return "/en";
 	}
 };
 const switchUrl = getLangSwitchUrl();
 
-const SITE_URL = "https://sonvicegroup.se"; // Cambiar por el dominio final del cliente
+// --- Global Business Configuration Metadata ---
+const COMPANY = {
+	name: "Sonvice Group AB",
+	orgNr: "559XXX-XXXX", // Ändra till riktigt org.nr vid lansering
+	phone: "08-123 45 67",
+	phoneLink: "tel:081234567",
+	email: "info@sonvicegroup.se",
+	address: "Stockholm, Sverige",
+	websiteUrl: "https://sonvicegroup.se",
+};
+
+const SITE_URL = COMPANY.websiteUrl;
 const canonicalPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
 const canonicalURL = `${SITE_URL}${canonicalPath}`;
 
@@ -259,11 +280,11 @@ const t = isEn ? {
 					<div>
 						<h4 class="text-[11px] font-extrabold text-white uppercase tracking-[0.2em] mb-5">{t.footerServices}</h4>
 						<ul class="space-y-3.5 text-sm">
-							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcMoving}</a></li>
-							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcCleaning}</a></li>
-							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcWindows}</a></li>
-							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcRoof}</a></li>
-							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcGarden}</a></li>
+							<li><a href={isEn ? "/en/moving-services" : "/flyttjanster"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcMoving}</a></li>
+							<li><a href={isEn ? "/en/home-cleaning" : "/hemstadning"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcCleaning}</a></li>
+							<li><a href={isEn ? "/en/window-cleaning" : "/fonsterputsning"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcWindows}</a></li>
+							<li><a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcRoof}</a></li>
+							<li><a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcGarden}</a></li>
 							<li><a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcTruck}</a></li>
 						</ul>
 					</div>
@@ -275,8 +296,8 @@ const t = isEn ? {
 							<li><a href={isEn ? "/en/about-us" : "/om-oss"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.about}</a></li>
 							<li><a href={isEn ? "/en/contact" : "/contact"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.contact}</a></li>
 							<li><a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.careers}</a></li>
-							<li><a href="mailto:info@sonvicegroup.se" class="text-slate-400 hover:text-accent font-medium transition-colors">info@sonvicegroup.se</a></li>
-							<li><a href="tel:081234567" class="text-slate-400 hover:text-accent font-medium transition-colors">08-123 45 67</a></li>
+							<li><a href={`mailto:${COMPANY.email}`} class="text-slate-400 hover:text-accent font-medium transition-colors">{COMPANY.email}</a></li>
+							<li><a href={COMPANY.phoneLink} class="text-slate-400 hover:text-accent font-medium transition-colors">{COMPANY.phone}</a></li>
 						</ul>
 					</div>
 
@@ -298,7 +319,7 @@ const t = isEn ? {
 							</li>
 						</ul>
 						<div class="mt-6 pt-4 border-t border-slate-800">
-							<span class="text-xs text-slate-500">Stockholm, Sverige</span>
+							<span class="text-xs text-slate-500">{COMPANY.address}</span>
 						</div>
 					</div>
 				</div>
@@ -307,7 +328,7 @@ const t = isEn ? {
 			<!-- Bottom bar -->
 			<div class="border-t border-slate-900 bg-primary-dark/20">
 				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-500 space-y-2">
-					<p>© {new Date().getFullYear()} Sonvice Group AB · Org.nr 559XXX-XXXX · Innehar F-skattsedel</p>
+					<p>© {new Date().getFullYear()} {COMPANY.name} · Org.nr {COMPANY.orgNr} · Innehar F-skattsedel</p>
 					<p class="space-x-3">
 						<a href={isEn ? "/en/privacy" : "/integritetspolicy"} class="hover:text-accent transition-colors font-medium">{isEn ? "Privacy Policy" : "Integritetspolicy"}</a>
 						<span>·</span>

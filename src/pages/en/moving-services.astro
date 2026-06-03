@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import flyttImg from '../../images/Flyttjänster.png';
+---
+
+<Layout title="Moving Services Stockholm | Sonvice Group" description="Professional moving services in Stockholm for homes and businesses. Packing, transport, loading, and carrying with Trygg-Hansa insurance and RUT tax credit.">
+<main class="relative overflow-hidden">
+
+	<!-- ═══════════════════ HERO ═══════════════════ -->
+	<section class="relative bg-white pt-12 pb-20 md:py-28 bg-grid-pattern">
+		<div class="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-glow-teal rounded-full blur-[90px] -z-10 pointer-events-none animate-float-slow"></div>
+		<div class="absolute top-[30%] right-[10%] w-[350px] h-[350px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none animate-float-delay"></div>
+
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<div class="lg:col-span-7 space-y-7 reveal-on-scroll">
+					<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs">
+						<span class="text-xs font-bold text-slate-600 tracking-wider uppercase">Safe & Hassle-Free Relocation</span>
+					</div>
+					
+					<h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-text-heading leading-[1.08]">
+						Professional
+						<span class="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">moving services in Stockholm</span>
+					</h1>
+					
+					<p class="text-lg text-text-body leading-relaxed max-w-xl">
+						We take care of your entire move from start to finish. With trained staff, secure moving trucks, and full Trygg-Hansa liability insurance, we guarantee a smooth and damage-free relocation at competitive prices.
+					</p>
+
+					<div class="flex flex-wrap items-center gap-4 pt-2">
+						<a href="/en/contact?service=moving" class="inline-flex items-center gap-2 px-7 py-4 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-sm">
+							Request a free quote
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+						</a>
+						<a href="tel:081234567" class="inline-flex items-center gap-2 px-6 py-4 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+							Call 08-123 45 67
+						</a>
+					</div>
+
+					<div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-5 border-t border-slate-100 text-sm text-slate-500">
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+							Trygg-Hansa insurance
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							50% RUT tax credit directly
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+							No hidden fees
+						</span>
+					</div>
+				</div>
+
+				<div class="lg:col-span-5 relative reveal-on-scroll delay-200">
+					<div class="absolute -inset-4 border border-dashed border-slate-200/80 rounded-3xl -z-10 pointer-events-none"></div>
+					<div class="tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-slate-50 border border-slate-200/60 shadow-md">
+						<img src={flyttImg.src} alt="Professional moving services in Stockholm" class="w-full h-full object-cover transition-transform duration-700 tilt-inner" />
+					</div>
+					<div class="absolute -bottom-6 -left-6 md:bottom-8 md:-left-8 glass-panel rounded-xl shadow-lg p-5 border border-slate-200/80 max-w-[200px]">
+						<div class="text-2xl font-extrabold text-accent">fr. 450 kr</div>
+						<div class="text-xs text-text-heading font-bold uppercase tracking-wider mt-1">per hour</div>
+						<p class="text-[10px] text-text-muted mt-1 leading-normal">After RUT tax credit (incl. VAT & truck).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ WHAT'S INCLUDED ═══════════════════ -->
+	<section class="py-20 md:py-28 bg-surface-cool relative overflow-hidden border-t border-slate-100">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Scope of Service</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">What is included?</h2>
+				<p class="text-text-body text-base leading-relaxed">We customize each move to your needs, but our core services and add-ons cover everything required.</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-on-scroll delay-100">
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-7 hover:-translate-y-1 transition-all border border-slate-200/80">
+					<div class="text-3xl mb-4">📦</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Packing & Materials</h3>
+					<p class="text-xs text-text-body leading-relaxed">We pack your items securely and professionally. We can supply moving boxes, bubble wrap, and wrapping paper.</p>
+				</div>
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-7 hover:-translate-y-1 transition-all border border-slate-200/80">
+					<div class="text-3xl mb-4">💪</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Loading & Carrying</h3>
+					<p class="text-xs text-text-body leading-relaxed">Experienced movers load heavy furniture, appliances, and boxes safely without damaging walls or staircases.</p>
+				</div>
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-7 hover:-translate-y-1 transition-all border border-slate-200/80">
+					<div class="text-3xl mb-4">🚛</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Safe Transport</h3>
+					<p class="text-xs text-text-body leading-relaxed">Our trucks are modern, clean, and fully equipped with straps and blankets to secure your cargo in transit.</p>
+				</div>
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-7 hover:-translate-y-1 transition-all border border-slate-200/80">
+					<div class="text-3xl mb-4">🛠️</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Assembly</h3>
+					<p class="text-xs text-text-body leading-relaxed">We disassemble large beds, tables, and wardrobes at your old address, and assemble them at your new home.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ RUT TAX CREDIT ═══════════════════ -->
+	<section class="py-20 bg-surface-warm relative border-t border-slate-100">
+		<div class="absolute bottom-0 right-10 w-[450px] h-[450px] bg-glow-amber rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+					<span class="text-xs font-bold text-accent uppercase tracking-widest">Tax Deduction</span>
+					<h2 class="text-3xl font-bold text-text-heading tracking-tight">RUT tax credit on moving services</h2>
+					<p class="text-sm text-text-body leading-relaxed">
+						As a private individual residing and paying tax in Sweden, you are entitled to the RUT tax credit, reducing the labor cost of moving services by <strong>50%</strong>. This applies to residential moving, temporary storage coordination, and packing services.
+					</p>
+					<div class="space-y-3 text-xs text-text-body">
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>We deduct 50% of the labor cost directly from your invoice.</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>We handle all the administration and paperwork with Skatteverket.</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>You just need to provide your Swedish personal number (personnummer) at booking.</span>
+						</div>
+					</div>
+				</div>
+				<div class="lg:col-span-6 reveal-on-scroll delay-200">
+					<div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-xs space-y-4">
+						<h3 class="font-bold text-text-heading text-lg">Price calculation example</h3>
+						<div class="space-y-2 text-xs border-b border-slate-100 pb-4">
+							<div class="flex justify-between">
+								<span>Labor cost (3 hours, 2 movers + truck)</span>
+								<span class="font-mono">2,700 SEK</span>
+							</div>
+							<div class="flex justify-between text-slate-400">
+								<span>Travel fee (not eligible for RUT)</span>
+								<span class="font-mono">495 SEK</span>
+							</div>
+						</div>
+						<div class="space-y-2 text-xs pt-2">
+							<div class="flex justify-between text-teal-600 font-bold">
+								<span>RUT deduction (50% of labor cost)</span>
+								<span class="font-mono">-1,350 SEK</span>
+							</div>
+							<div class="flex justify-between text-sm font-extrabold text-text-heading pt-2 border-t border-slate-100">
+								<span>Your total price to pay (incl. VAT)</span>
+								<span class="font-mono text-accent">1,845 SEK</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ FAQ ═══════════════════ -->
+	<section class="bg-white py-20 md:py-28 border-t border-slate-100">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="text-center mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest font-mono">FAQ</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-2 mb-4">Frequently Asked Questions</h2>
+			</div>
+
+			<div class="space-y-1 reveal-on-scroll">
+				{[
+					{
+						q: 'Are moving boxes included in the price?',
+						a: 'We can deliver high-quality boxes to your doorstep before moving day for a small fee, or lend them for free if you choose our full moving package. Just ask us during quote requests.'
+					},
+					{
+						q: 'What happens if something gets damaged during the move?',
+						a: 'We are fully insured with Trygg-Hansa. In the rare event that an accident occurs and your items are damaged, our liability insurance covers losses up to 10 million SEK.'
+					},
+					{
+						q: 'How long does a standard move take?',
+						a: 'Relocating a 2-room apartment of 50-60 sqm typically takes about 3-5 hours for two movers and one truck. A larger house can take a full day or two days.'
+					},
+					{
+						q: 'Do you carry out moves during weekends?',
+						a: 'Yes, we carry out relocations on Saturdays by arrangement so that you do not need to take time off from work.'
+					}
+				].map((faq, idx) => (
+					<div class="border-b border-slate-100 last:border-b-0">
+						<button
+							id={`faq-btn-${idx}`}
+							class="faq-trigger w-full flex justify-between items-center py-5 text-left font-bold text-text-heading hover:text-accent transition-colors cursor-pointer outline-none"
+							aria-expanded="false"
+						>
+							<span class="text-base md:text-lg pr-4">{faq.q}</span>
+							<span class="faq-icon text-text-muted flex-shrink-0 text-2xl font-light transition-transform duration-300">+</span>
+						</button>
+						<div id={`faq-content-${idx}`} class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+							<div class="pb-5 text-text-body text-base leading-relaxed">
+								{faq.a}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ CTA ═══════════════════ -->
+	<section class="py-20 bg-[#040a18] relative">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+		<div class="max-w-3xl mx-auto px-6 text-center reveal-on-scroll">
+			<h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-5">Ready to move?</h2>
+			<p class="text-slate-400 text-base leading-relaxed mb-8 max-w-lg mx-auto">Get in touch with us today for a free, no-obligation quote. We normally respond within 24 hours.</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/en/contact?service=moving" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-lg shadow-teal-900/30">
+					Get a quote
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+				<a href="tel:081234567" class="inline-flex items-center gap-2 px-6 py-4 rounded-lg border border-slate-700 text-sm font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+					Call us
+				</a>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.initGlowCards) window.initGlowCards();
+		if (window.initTiltCards) window.initTiltCards();
+
+		// FAQ accordion toggle
+		document.querySelectorAll('.faq-trigger').forEach(trigger => {
+			trigger.addEventListener('click', () => {
+				const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+				const contentId = trigger.id.replace('btn', 'content');
+				const content = document.getElementById(contentId);
+				const icon = trigger.querySelector('.faq-icon');
+
+				document.querySelectorAll('.faq-trigger').forEach(ot => {
+					if (ot !== trigger) {
+						ot.setAttribute('aria-expanded', 'false');
+						const oId = ot.id.replace('btn', 'content');
+						const oC = document.getElementById(oId);
+						if (oC) oC.style.maxHeight = null;
+						const oI = ot.querySelector('.faq-icon');
+						if (oI) oI.textContent = '+';
+					}
+				});
+
+				trigger.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+				if (content) content.style.maxHeight = isExpanded ? null : content.scrollHeight + 'px';
+				if (icon) {
+					icon.textContent = isExpanded ? '+' : '−';
+				}
+			});
+		});
+	});
+</script>
+</Layout>

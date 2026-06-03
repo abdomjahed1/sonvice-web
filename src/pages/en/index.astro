@@ -192,8 +192,8 @@ import flyttImg from '../../images/Flyttjänster.png';
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 450 SEK/hr</span>
-						<a href="/en/contact" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
-							Quote <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+						<a href="/en/moving-services" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</a>
 					</div>
 				</div>
@@ -211,8 +211,8 @@ import flyttImg from '../../images/Flyttjänster.png';
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 195 SEK/hr</span>
-						<a href="/en/contact" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
-							Quote <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+						<a href="/en/home-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</a>
 					</div>
 				</div>
@@ -230,8 +230,8 @@ import flyttImg from '../../images/Flyttjänster.png';
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 390 SEK fixed</span>
-						<a href="/en/contact" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
-							Quote <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+						<a href="/en/window-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</a>
 					</div>
 				</div>
@@ -249,8 +249,8 @@ import flyttImg from '../../images/Flyttjänster.png';
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 1 900 SEK</span>
-						<a href="/en/contact" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
-							Quote <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+						<a href="/en/roof-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</a>
 					</div>
 				</div>
@@ -268,8 +268,8 @@ import flyttImg from '../../images/Flyttjänster.png';
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 295 SEK/hr</span>
-						<a href="/en/contact" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
-							Quote <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+						<a href="/en/gardening" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</a>
 					</div>
 				</div>
@@ -808,7 +808,7 @@ import flyttImg from '../../images/Flyttjänster.png';
 		}, { threshold: 0.5 });
 		procSteps.forEach(el => procObserver.observe(el));
 
-		// --- Canvas Particle System ---
+		// --- Canvas Particle System (Optimized with IntersectionObserver) ---
 		const canvas = document.getElementById('hero-particles');
 		if (canvas) {
 			const ctx = canvas.getContext('2d');
@@ -838,7 +838,22 @@ import flyttImg from '../../images/Flyttjänster.png';
 				vy: (Math.random() - 0.5) * 0.4,
 				r: Math.random() * 2 + 1,
 			}));
+
+			let isVisible = true;
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					const wasVisible = isVisible;
+					isVisible = entry.isIntersecting;
+					if (isVisible && !wasVisible) {
+						// Resume animation loop
+						drawFrame();
+					}
+				});
+			}, { threshold: 0.05 });
+			observer.observe(canvas);
+
 			const drawFrame = () => {
+				if (!isVisible) return;
 				ctx.clearRect(0, 0, W, H);
 				particles.forEach(p => {
 					p.x += p.vx;

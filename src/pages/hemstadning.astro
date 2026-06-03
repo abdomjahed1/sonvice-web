@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import hemstadningImg from '../images/Hemstädning.jpg';
+---
+
+<Layout title="Hemstädning Stockholm | Sonvice Group" description="Professionell hemstädning i Stockholm med abonnemang eller engångstillfällen. Utbildad personal, 100% nöjd-kund-garanti och direkt RUT-avdrag.">
+<main class="relative overflow-hidden">
+
+	<!-- ═══════════════════ HERO ═══════════════════ -->
+	<section class="relative bg-white pt-12 pb-20 md:py-28 bg-grid-pattern">
+		<div class="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-glow-teal rounded-full blur-[90px] -z-10 pointer-events-none animate-float-slow"></div>
+		<div class="absolute top-[30%] right-[10%] w-[350px] h-[350px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none animate-float-delay"></div>
+
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<div class="lg:col-span-7 space-y-7 reveal-on-scroll">
+					<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs">
+						<span class="text-xs font-bold text-slate-600 tracking-wider uppercase">Skinande Rent Hem</span>
+					</div>
+					
+					<h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-text-heading leading-[1.08]">
+						Professionell
+						<span class="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">hemstädning i Stockholm</span>
+					</h1>
+					
+					<p class="text-lg text-text-body leading-relaxed max-w-xl">
+						Luta dig tillbaka och låt oss göra jobbet. Vi erbjuder regelbunden hemstädning (veckovis, varannan vecka eller månadsvis) och engångsstädningar med utbildad personal, samma städare varje gång och 100% nöjd-kund-garanti.
+					</p>
+
+					<div class="flex flex-wrap items-center gap-4 pt-2">
+						<a href="/contact?service=hemstadning" class="inline-flex items-center gap-2 px-7 py-4 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-sm">
+							Begär gratis offert
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+						</a>
+						<a href="tel:081234567" class="inline-flex items-center gap-2 px-6 py-4 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+							Ring 08-123 45 67
+						</a>
+					</div>
+
+					<div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-5 border-t border-slate-100 text-sm text-slate-500">
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+							Trygg-Hansa ansvarsförsäkring
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							100% Nöjd-Kund-Garanti
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+							Ingen bindningstid på abonnemang
+						</span>
+					</div>
+				</div>
+
+				<div class="lg:col-span-5 relative reveal-on-scroll delay-200">
+					<div class="absolute -inset-4 border border-dashed border-slate-200/80 rounded-3xl -z-10 pointer-events-none"></div>
+					<div class="tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-slate-50 border border-slate-200/60 shadow-md">
+						<img src={hemstadningImg.src} alt="Professionell städhjälp i hemmet" class="w-full h-full object-cover transition-transform duration-700 tilt-inner" />
+					</div>
+					<div class="absolute -bottom-6 -left-6 md:bottom-8 md:-left-8 glass-panel rounded-xl shadow-lg p-5 border border-slate-200/80 max-w-[200px]">
+						<div class="text-2xl font-extrabold text-accent">fr. 195 kr</div>
+						<div class="text-xs text-text-heading font-bold uppercase tracking-wider mt-1">per timme</div>
+						<p class="text-[10px] text-text-muted mt-1 leading-normal">Efter RUT-avdrag (inkl. moms & material).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ VAD INGÅR ═══════════════════ -->
+	<section class="py-20 md:py-28 bg-surface-cool relative overflow-hidden border-t border-slate-100">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest font-mono">Checklista</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">Vad ingår i hemstädningen?</h2>
+				<p class="text-text-body text-base">Vi rengör alla rum med noggrannhet. Här är vår standardchecklista:</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll delay-100">
+				<!-- Alla Rum -->
+				<div class="bg-white rounded-2xl p-7 shadow-xs border border-slate-200/80">
+					<div class="text-2xl mb-4 font-bold text-accent">🏠 Alla Bostadsrum</div>
+					<ul class="space-y-3 text-xs text-text-body">
+						<li class="flex gap-2">✓ <span>Dammtorkning av alla fria ytor, bord, hyllor och belysning.</span></li>
+						<li class="flex gap-2">✓ <span>Dammsugning av golv, mattor samt under möbler där vi kommer åt.</span></li>
+						<li class="flex gap-2">✓ <span>Moppning av alla golv med anpassat rengöringsmedel.</span></li>
+						<li class="flex gap-2">✓ <span>Torkning av dörrar, dörrkarmar, eluttag och strömbrytare.</span></li>
+						<li class="flex gap-2">✓ <span>Tömning av papperskorgar.</span></li>
+					</ul>
+				</div>
+				<!-- Kök -->
+				<div class="bg-white rounded-2xl p-7 shadow-xs border border-slate-200/80">
+					<div class="text-2xl mb-4 font-bold text-accent">🍳 Köket</div>
+					<ul class="space-y-3 text-xs text-text-body">
+						<li class="flex gap-2">✓ <span>Rengöring av diskbänk, blandare och kakel.</span></li>
+						<li class="flex gap-2">✓ <span>Utvändig avtorkning av spis, ugn, mikrovågsugn, kyl och frys.</span></li>
+						<li class="flex gap-2">✓ <span>Avtorkning av köksluckor och lådor utvändigt.</span></li>
+						<li class="flex gap-2">✓ <span>Rengöring av fläkt och fläktfilter utvändigt.</span></li>
+						<li class="flex gap-2">✓ <span>Avtorkning av hushållsmaskiner och matbord.</span></li>
+					</ul>
+				</div>
+				<!-- Badrum -->
+				<div class="bg-white rounded-2xl p-7 shadow-xs border border-slate-200/80">
+					<div class="text-2xl mb-4 font-bold text-accent">🚿 Badrum & Toalett</div>
+					<ul class="space-y-3 text-xs text-text-body">
+						<li class="flex gap-2">✓ <span>Rengöring och desinficering av toalettstol och handfat.</span></li>
+						<li class="flex gap-2">✓ <span>Rengöring av duschkabin, badkar, blandare och glasväggar.</span></li>
+						<li class="flex gap-2">✓ <span>Avtorkning av kakel och speglar.</span></li>
+						<li class="flex gap-2">✓ <span>Rengöring av badrumsskåp utvändigt.</span></li>
+						<li class="flex gap-2">✓ <span>Avtorkning av tvättmaskin och torktumlare utvändigt.</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ RUT INFO ═══════════════════ -->
+	<section class="py-20 bg-surface-warm relative border-t border-slate-100">
+		<div class="absolute bottom-0 left-10 w-[450px] h-[450px] bg-glow-amber rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+					<span class="text-xs font-bold text-accent uppercase tracking-widest">RUT-avdrag</span>
+					<h2 class="text-3xl font-bold text-text-heading tracking-tight">Hemstädning till halva priset</h2>
+					<p class="text-sm text-text-body leading-relaxed">
+						RUT-avdraget ger dig skatterabatt på <strong>50%</strong> av arbetskostnaden för hemstädning. Det innebär att du bara betalar hälften av städkostnaden. Skatteverket medger upp till 75 000 kr i RUT/ROT per person och år.
+					</p>
+					<div class="space-y-3 text-xs text-text-body">
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>Vi drar av RUT-rabatten direkt på varje månadsfaktura.</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>Vi sköter all administration och kontakt med Skatteverket.</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<span class="text-emerald-600">✓</span> <span>Abonnemanget har ingen bindningstid – du kan pausa eller avboka när du vill.</span>
+						</div>
+					</div>
+				</div>
+				<div class="lg:col-span-6 reveal-on-scroll delay-200">
+					<div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-xs space-y-4">
+						<h3 class="font-bold text-text-heading text-lg">Månadsabonnemang (exempel)</h3>
+						<div class="space-y-2 text-xs border-b border-slate-100 pb-4">
+							<div class="flex justify-between">
+								<span>Städning varannan vecka (4 timmar/tillfälle = 8 tim/mån)</span>
+								<span class="font-mono">3 120 kr</span>
+							</div>
+							<div class="flex justify-between text-slate-400">
+								<span>Städmaterial och miljöavgift (inkluderat)</span>
+								<span class="font-mono">0 kr</span>
+							</div>
+						</div>
+						<div class="space-y-2 text-xs pt-2">
+							<div class="flex justify-between text-teal-600 font-bold">
+								<span>RUT-avdrag (50% skatterabatt på arbetet)</span>
+								<span class="font-mono">-1 560 kr</span>
+							</div>
+							<div class="flex justify-between text-sm font-extrabold text-text-heading pt-2 border-t border-slate-100">
+								<span>Ditt pris att betala per månad</span>
+								<span class="font-mono text-accent">1 560 kr</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ FAQ ═══════════════════ -->
+	<section class="bg-white py-20 md:py-28 border-t border-slate-100">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="text-center mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest font-mono">FAQ</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-2 mb-4">Vanliga frågor om hemstädning</h2>
+			</div>
+
+			<div class="space-y-1 reveal-on-scroll">
+				{[
+					{
+						q: 'Får jag samma städare varje gång?',
+						a: 'Ja, absolut. Vi strävar alltid efter att du ska få samma städare vid varje tillfälle. Det ger ökad trygghet, effektivare städning och städaren lär känna ditt hem och dina preferenser. Vid sjukdom eller semester erbjuder vi en vikarie eller att flytta tillfället.'
+					},
+					{
+						q: 'Hur fungerar nyckelhanteringen?',
+						a: 'Vi hanterar dina nycklar på ett säkert sätt. Nycklarna kvitteras ut och förvaras i ett kodat nyckelskåp. De är märkta med en unik kod (inte med ditt namn eller adress) för maximal säkerhet.'
+					},
+					{
+						q: 'Måste jag vara hemma när ni städar?',
+						a: 'Nej, du behöver inte vara hemma. Många av våra kunder är på jobbet eller gör andra aktiviteter medan vi städar. Det räcker att vi har tillgång till nycklar eller att du släpper in oss när vi kommer.'
+					},
+					{
+						q: 'Ingår städmaterial?',
+						a: 'Ja, för abonnemangskunder och fasta uppdrag ingår miljöanpassat städmaterial i timpriset. Vi tar med oss allt som behövs så att du slipper tänka på det.'
+					}
+				].map((faq, idx) => (
+					<div class="border-b border-slate-100 last:border-b-0">
+						<button
+							id={`faq-btn-${idx}`}
+							class="faq-trigger w-full flex justify-between items-center py-5 text-left font-bold text-text-heading hover:text-accent transition-colors cursor-pointer outline-none"
+							aria-expanded="false"
+						>
+							<span class="text-base md:text-lg pr-4">{faq.q}</span>
+							<span class="faq-icon text-text-muted flex-shrink-0 text-2xl font-light transition-transform duration-300">+</span>
+						</button>
+						<div id={`faq-content-${idx}`} class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+							<div class="pb-5 text-text-body text-base leading-relaxed">
+								{faq.a}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ CTA ═══════════════════ -->
+	<section class="py-20 bg-[#040a18] relative">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+		<div class="max-w-3xl mx-auto px-6 text-center reveal-on-scroll">
+			<h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-5">Njut av ett renare hem</h2>
+			<p class="text-slate-400 text-base leading-relaxed mb-8 max-w-lg mx-auto">Kontakta oss idag för att boka ett förutsättningslöst hembesök eller få en snabb offert för regelbunden hemstädning.</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/contact?service=hemstadning" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-lg shadow-teal-900/30">
+					Få offert direkt
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+				<a href="tel:081234567" class="inline-flex items-center gap-2 px-6 py-4 rounded-lg border border-slate-700 text-sm font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+					Ring oss
+				</a>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.initGlowCards) window.initGlowCards();
+		if (window.initTiltCards) window.initTiltCards();
+
+		// FAQ accordion toggle
+		document.querySelectorAll('.faq-trigger').forEach(trigger => {
+			trigger.addEventListener('click', () => {
+				const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+				const contentId = trigger.id.replace('btn', 'content');
+				const content = document.getElementById(contentId);
+				const icon = trigger.querySelector('.faq-icon');
+
+				document.querySelectorAll('.faq-trigger').forEach(ot => {
+					if (ot !== trigger) {
+						ot.setAttribute('aria-expanded', 'false');
+						const oId = ot.id.replace('btn', 'content');
+						const oC = document.getElementById(oId);
+						if (oC) oC.style.maxHeight = null;
+						const oI = ot.querySelector('.faq-icon');
+						if (oI) oI.textContent = '+';
+					}
+				});
+
+				trigger.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+				if (content) content.style.maxHeight = isExpanded ? null : content.scrollHeight + 'px';
+				if (icon) {
+					icon.textContent = isExpanded ? '+' : '−';
+				}
+			});
+		});
+	});
+</script>
+</Layout>
