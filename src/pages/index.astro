@@ -123,6 +123,9 @@ import flyttImg from '../images/Flyttjänster.png';
 		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
 		<div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/80 to-transparent"></div>
 		
+		<!-- Subtle ambient glowing blob behind the steps -->
+		<div class="absolute top-[20%] left-[-10%] w-[450px] h-[450px] bg-glow-teal rounded-full blur-[100px] pointer-events-none -z-5"></div>
+		
 		<div class="max-w-6xl mx-auto px-6">
 			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
 				<span class="text-xs font-bold text-accent uppercase tracking-widest">Så enkelt är det</span>
@@ -138,8 +141,16 @@ import flyttImg from '../images/Flyttjänster.png';
 				<!-- Step 1 -->
 				<div id="process-step-1" class="process-connector relative text-center reveal-on-scroll">
 					<div class="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-teal-200 mb-6 mx-auto">1</div>
-					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
-						<div class="text-4xl mb-4">📋</div>
+					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card group">
+						<div class="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-100/80 flex items-center justify-center mb-5 text-accent mx-auto group-hover:scale-105 transition-transform duration-300">
+							<svg class="w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								<polyline points="14 2 14 8 20 8"></polyline>
+								<line x1="16" y1="13" x2="8" y2="13"></line>
+								<line x1="16" y1="17" x2="8" y2="17"></line>
+								<polyline points="10 9 9 9 8 9"></polyline>
+							</svg>
+						</div>
 						<h3 class="text-lg font-bold text-text-heading mb-2">Kontakta oss</h3>
 						<p class="text-sm text-text-body leading-relaxed">Fyll i vårt formulär eller ring oss. Berätta vad du behöver hjälp med — flytt, städning eller annat.</p>
 					</div>
@@ -148,8 +159,12 @@ import flyttImg from '../images/Flyttjänster.png';
 				<!-- Step 2 -->
 				<div id="process-step-2" class="process-connector relative text-center reveal-on-scroll delay-200">
 					<div class="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-teal-200 mb-6 mx-auto">2</div>
-					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
-						<div class="text-4xl mb-4">💬</div>
+					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card group">
+						<div class="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-100/80 flex items-center justify-center mb-5 text-accent mx-auto group-hover:scale-105 transition-transform duration-300">
+							<svg class="w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+							</svg>
+						</div>
 						<h3 class="text-lg font-bold text-text-heading mb-2">Få en offert</h3>
 						<p class="text-sm text-text-body leading-relaxed">Inom 24 timmar skickar vi en skräddarsydd offert utan dolda kostnader. Inga förpliktelser.</p>
 					</div>
@@ -158,8 +173,13 @@ import flyttImg from '../images/Flyttjänster.png';
 				<!-- Step 3 -->
 				<div class="relative text-center reveal-on-scroll delay-400">
 					<div class="inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-teal-200 mb-6 mx-auto">3</div>
-					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
-						<div class="text-4xl mb-4">✅</div>
+					<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card group">
+						<div class="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-100/80 flex items-center justify-center mb-5 text-accent mx-auto group-hover:scale-105 transition-transform duration-300">
+							<svg class="w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+							</svg>
+						</div>
 						<h3 class="text-lg font-bold text-text-heading mb-2">Vi sköter resten</h3>
 						<p class="text-sm text-text-body leading-relaxed">Vårt utbildade team anländer i tid och utför arbetet professionellt. Du betalar enkelt med RUT-avdrag.</p>
 					</div>
@@ -323,14 +343,26 @@ import flyttImg from '../images/Flyttjänster.png';
 			<div class="glass-panel bg-white/95 rounded-3xl p-8 md:p-10 border border-slate-200/80 shadow-xl max-w-2xl mx-auto reveal-on-scroll delay-100">
 				<!-- Service Tabs -->
 				<div class="grid grid-cols-3 gap-2 p-1.5 bg-slate-100 rounded-xl mb-8">
-					<button id="calc-tab-moving" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-accent bg-white shadow-xs focus:outline-none" data-service="moving">
-						📦 Flytthjälp
+					<button id="calc-tab-moving" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-accent bg-white shadow-xs focus:outline-none flex items-center justify-center gap-1.5" data-service="moving">
+						<svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+							<polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+							<line x1="12" y1="22.08" x2="12" y2="12"></line>
+						</svg>
+						<span>Flytthjälp</span>
 					</button>
-					<button id="calc-tab-cleaning" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none" data-service="cleaning">
-						✨ Hemstädning
+					<button id="calc-tab-cleaning" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="cleaning">
+						<svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9 12 2"></polygon>
+						</svg>
+						<span>Hemstädning</span>
 					</button>
-					<button id="calc-tab-roof" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none" data-service="roof">
-						🏠 Takrengöring
+					<button id="calc-tab-roof" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="roof">
+						<svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+							<polyline points="9 22 9 12 15 12 15 22"></polyline>
+						</svg>
+						<span>Takrengöring</span>
 					</button>
 				</div>
 

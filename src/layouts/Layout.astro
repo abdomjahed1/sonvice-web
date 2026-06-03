@@ -188,16 +188,16 @@ const t = isEn ? {
 
 				<!-- Desktop nav -->
 				<nav class="hidden lg:flex items-center gap-8">
-					<a href={isEn ? "/en" : "/"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en" : "") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+					<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en" : "") ? "active" : ""}`}>
 						{t.home}
 					</a>
-					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "active" : ""}`}>
 						{t.about}
 					</a>
-					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "active" : ""}`}>
 						{t.truckRental}
 					</a>
-					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "active" : ""}`}>
 						{t.careers}
 					</a>
 
@@ -253,7 +253,7 @@ const t = isEn ? {
 		</header>
 
 		<!-- Page content -->
-		<div class="flex-grow w-full pt-[72px]">
+		<div class="flex-grow w-full pt-[72px] page-fade-in">
 			<slot />
 		</div>
 

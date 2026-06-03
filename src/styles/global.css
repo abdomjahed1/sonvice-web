@@ -324,3 +324,85 @@
   height: 40px;
   background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
 }
+
+/* ══════════════════════════════════════════════════════
+   ── Custom Thin Glowing Scrollbar ──
+   ══════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 9999px;
+  border: 2px solid var(--color-surface-body);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ══════════════════════════════════════════════════════
+   ── Animated Navigation Links ──
+   ══════════════════════════════════════════════════════ */
+.nav-link {
+  position: relative;
+  color: var(--color-text-body);
+  padding: 4px 0;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), #10b981);
+  transform: scale-x(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  color: var(--color-text-heading);
+}
+
+.nav-link:hover::after {
+  transform: scale-x(1);
+  transform-origin: left;
+}
+
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.nav-link.active::after {
+  transform: scale-x(1);
+  transform-origin: left;
+}
+
+/* ══════════════════════════════════════════════════════
+   ── Page Fluid Entrance Transition ──
+   ══════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-fade-in {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
