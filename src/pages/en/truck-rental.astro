@@ -1,0 +1,636 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import truckImg from '../../images/trucks/transparent_truck.png';
+import truck2Img from '../../images/trucks/truck2.webp';
+---
+
+<Layout title="Light Truck Rental | Sonvice Group" description="Rent a modern Iveco Daily 2019 light truck in Stockholm. B-license, tail lift, insurance included. Flexible rental periods from 1 000 kr/day.">
+<main class="relative overflow-hidden">
+
+	<!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+	<section class="relative bg-white pt-12 pb-24 md:py-32 bg-grid-pattern">
+		<!-- Glowing ambient light -->
+		<div class="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-glow-teal rounded-full blur-[90px] -z-10 pointer-events-none animate-float-slow"></div>
+		<div class="absolute top-[20%] right-[10%] w-[350px] h-[350px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none animate-float-delay"></div>
+
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<!-- Text Side (col-span-7) -->
+				<div class="lg:col-span-7 space-y-8 reveal-on-scroll">
+					<!-- Styled Opener Badge -->
+					<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs">
+						<span class="relative flex h-2 w-2">
+							<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+							<span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+						</span>
+						<span class="text-xs font-bold text-slate-600 tracking-wider uppercase">Truck Rental Stockholm</span>
+					</div>
+
+					<h1 class="text-4xl md:text-5xl lg:text-[3.8rem] font-extrabold tracking-tight text-text-heading leading-[1.05]">
+						Light Truck Rental <br/>
+						<span class="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– hassle-free transport</span>
+					</h1>
+					
+					<p class="text-lg text-text-body leading-relaxed max-w-xl">
+						Need to move furniture, deliver goods, or transport bulky items? Rent our modern Iveco Daily — no special license required. Tail lift, insurance, and peace of mind included.
+					</p>
+
+					<div class="flex flex-wrap items-center gap-4 pt-2">
+						<a href="/en/contact?service=lastbil" class="inline-flex items-center gap-2 px-7 py-4 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-sm cursor-pointer">
+							Book now
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+						</a>
+						<a href="tel:081234567" class="inline-flex items-center gap-2 px-6 py-4 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+							Call 08-123 45 67
+						</a>
+					</div>
+
+					<!-- Trust Strip -->
+					<div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 border-t border-slate-100 text-sm text-slate-500">
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+							Insurance Included
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							B-License Only
+						</span>
+						<span class="flex items-center gap-2 font-medium">
+							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+							Tail Lift Included
+						</span>
+					</div>
+				</div>
+
+				<!-- Image Side (col-span-5) -->
+				<div class="lg:col-span-5 relative reveal-on-scroll delay-200">
+					<!-- Geometric background outline decorative element -->
+					<div class="absolute -inset-4 border border-dashed border-slate-200/80 rounded-3xl -z-10 pointer-events-none"></div>
+					
+					<div class="tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-slate-50 border border-slate-200/60 shadow-md">
+						<img src={truckImg.src} alt="Iveco Daily light truck rental" class="w-full h-full object-contain transition-transform duration-700 tilt-inner" />
+					</div>
+					
+					<!-- Interactive Floating Stat Panel -->
+					<div class="absolute -bottom-6 -left-6 md:bottom-8 md:-left-8 glass-panel rounded-xl shadow-lg p-5 border border-slate-200/80 max-w-[200px]">
+						<div class="text-3xl font-extrabold text-accent">1 000 kr</div>
+						<div class="text-xs text-text-heading font-bold uppercase tracking-wider mt-1">From / day</div>
+						<p class="text-[10px] text-text-muted mt-1 leading-normal">Incl. 130 km free mileage & insurance.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ TRUST TICKER MARQUEE ═══════════════════ -->
+	<div class="relative w-full py-6 bg-slate-900 border-y border-slate-800 overflow-hidden z-10">
+		<div class="animate-marquee whitespace-nowrap flex items-center gap-16 text-slate-300 font-bold uppercase tracking-wider text-xs">
+			<span>🚛 Modern Iveco Daily 2019</span>
+			<span>🛡️ Insurance Up To SEK 300,000</span>
+			<span>🪜 Rear Tail Lift Included</span>
+			<span>🪪 B-License Is Enough</span>
+			<span>⛽ Low Fuel Consumption</span>
+			<span>📏 130 km Free Mileage</span>
+			<span>⏱️ Flexible Rental Periods</span>
+			
+			<!-- Duplicate for seamless scrolling -->
+			<span>🚛 Modern Iveco Daily 2019</span>
+			<span>🛡️ Insurance Up To SEK 300,000</span>
+			<span>🪜 Rear Tail Lift Included</span>
+			<span>🪪 B-License Is Enough</span>
+			<span>⛽ Low Fuel Consumption</span>
+			<span>📏 130 km Free Mileage</span>
+			<span>⏱️ Flexible Rental Periods</span>
+		</div>
+	</div>
+
+	<!-- ═══════════════════ ABOUT THE SERVICE ═══════════════════ -->
+	<section class="bg-surface-cool py-20 md:py-28 relative overflow-hidden">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+		<div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/80 to-transparent"></div>
+
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<!-- Text Side -->
+				<div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+					<span class="text-xs font-bold text-accent uppercase tracking-widest">The Service</span>
+					<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight">Rent a modern light truck — no hassle</h2>
+					<p class="text-base text-text-body leading-relaxed">
+						Our Iveco Daily 35-160 Chassis Cab is a modern 2019 model with automatic transmission (Hi-Matic) and low fuel consumption. It's perfect for private moves, deliveries, or transporting large items.
+					</p>
+					<p class="text-base text-text-body leading-relaxed">
+						The truck comes equipped with a <strong class="text-text-heading">rear tail lift</strong> for easy loading, and you only need a standard <strong class="text-text-heading">B driving license</strong> to operate it. Every rental includes comprehensive insurance coverage up to SEK 300,000.
+					</p>
+					<div class="flex flex-wrap gap-3 pt-2">
+						<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent-soft text-accent text-xs font-bold border border-accent/15">
+							<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							Automatic
+						</span>
+						<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent-soft text-accent text-xs font-bold border border-accent/15">
+							<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							Tail Lift
+						</span>
+						<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent-soft text-accent text-xs font-bold border border-accent/15">
+							<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							B-License
+						</span>
+						<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent-soft text-accent text-xs font-bold border border-accent/15">
+							<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							Insured
+						</span>
+					</div>
+				</div>
+
+				<!-- Image Side -->
+				<div class="lg:col-span-5 relative reveal-on-scroll delay-200">
+					<div class="tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-slate-50 border border-slate-200/60 shadow-md">
+						<img src={truck2Img.src} alt="Iveco Daily truck side view" class="w-full h-full object-cover transition-transform duration-700 tilt-inner" />
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ ADVANTAGES SECTION ═══════════════════ -->
+	<section class="bg-surface-warm py-20 md:py-28 relative">
+		<!-- Subtle ambient warm background glow -->
+		<div class="absolute bottom-0 right-10 w-[450px] h-[450px] bg-glow-amber rounded-full blur-[100px] pointer-events-none"></div>
+
+		<div class="max-w-6xl mx-auto px-6">
+			
+			<!-- Section Header -->
+			<div class="max-w-2xl mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Advantages</span>
+				<h2 class="text-3xl md:text-5xl font-bold text-text-heading tracking-tight mt-3 mb-4">
+					Why rent from us?
+				</h2>
+				<p class="text-text-body text-base leading-relaxed">
+					Everything you need for a smooth and stress-free rental experience — all included in one simple price.
+				</p>
+			</div>
+
+			<!-- Advantages Grid -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+				
+				<!-- Advantage 1 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">🚛</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Modern Iveco Daily 2019</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							Automatic transmission (Hi-Matic) with low fuel consumption. Comfortable to drive even on longer distances.
+						</p>
+					</div>
+				</div>
+
+				<!-- Advantage 2 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">🪜</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Rear Lift Included</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							The built-in hydraulic tail lift makes loading and unloading heavy items effortless — no ramps needed.
+						</p>
+					</div>
+				</div>
+
+				<!-- Advantage 3 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">🪪</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">B Driving License Enough</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							No special commercial license required. Anyone with a standard B-license can drive this truck.
+						</p>
+					</div>
+				</div>
+
+				<!-- Advantage 4 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">📅</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Flexible Rental Periods</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							Rent for 1 day, 3 days, a full week, or longer. We adapt to your schedule and needs.
+						</p>
+					</div>
+				</div>
+
+				<!-- Advantage 5 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">🛡️</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Insurance Included</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							Comprehensive coverage up to SEK 300,000. Deductible is SEK 5,000. Drive with complete peace of mind.
+						</p>
+					</div>
+				</div>
+
+				<!-- Advantage 6 -->
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+					<div>
+						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 mb-6 group-hover:scale-105 transition-transform duration-300">
+							<span class="text-2xl">📏</span>
+						</div>
+						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">130 km Free Mileage</h3>
+						<p class="text-sm text-text-body leading-relaxed">
+							Every rental includes 130 km of free mileage. Additional kilometers charged at only 6 SEK/km.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ PRICING SECTION ═══════════════════ -->
+	<section class="py-20 md:py-28 bg-white relative overflow-hidden bg-grid-pattern border-t border-slate-100">
+		<div class="absolute top-[30%] left-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] pointer-events-none"></div>
+		
+		<div class="max-w-5xl mx-auto px-6 relative">
+			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Pricing</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">
+					Simple, transparent pricing
+				</h2>
+				<p class="text-text-body text-base leading-relaxed">
+					Choose the rental period that suits you. All prices include insurance and 130 km free mileage.
+				</p>
+			</div>
+
+			<!-- Pricing Cards Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll delay-100">
+				
+				<!-- 1 Day -->
+				<div class="bg-gradient-to-br from-teal-700 to-emerald-800 rounded-2xl p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+					<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl"></div>
+					<div>
+						<span class="text-[10px] font-bold text-teal-200 uppercase tracking-widest bg-teal-900/40 px-2.5 py-1 rounded-md">1 Day</span>
+						<div class="mt-6 mb-2">
+							<span class="text-5xl font-extrabold tracking-tight">1 000</span>
+							<span class="text-xl font-bold text-teal-200 ml-1">kr</span>
+						</div>
+						<p class="text-sm text-teal-100/90 leading-relaxed mb-6">
+							Perfect for a quick move or same-day delivery. Pick up in the morning, return by evening.
+						</p>
+						<ul class="space-y-2 mb-8">
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								130 km included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Insurance included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Tail lift included
+							</li>
+						</ul>
+					</div>
+					<a href="/en/contact?service=lastbil&package=1_day" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white text-teal-900 font-bold text-sm hover:bg-teal-50 transition-colors shadow-xs active:scale-[0.98]">
+						Book 1 day
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+				</div>
+
+				<!-- 3 Days — Popular -->
+				<div class="bg-gradient-to-br from-teal-700 to-emerald-800 rounded-2xl p-8 text-white flex flex-col justify-between shadow-xl relative overflow-hidden ring-2 ring-teal-400/50 group hover:-translate-y-1 transition-all duration-300 scale-[1.03]">
+					<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl"></div>
+					<div class="absolute top-0 right-0 px-3 py-1.5 bg-teal-400 text-teal-900 text-[10px] font-extrabold uppercase tracking-widest rounded-bl-xl rounded-tr-2xl">Most popular</div>
+					<div>
+						<span class="text-[10px] font-bold text-teal-200 uppercase tracking-widest bg-teal-900/40 px-2.5 py-1 rounded-md">3 Days</span>
+						<div class="mt-6 mb-2">
+							<span class="text-5xl font-extrabold tracking-tight">2 100</span>
+							<span class="text-xl font-bold text-teal-200 ml-1">kr</span>
+						</div>
+						<p class="text-xs text-teal-300 font-semibold mb-4">Save 900 kr vs. daily rate</p>
+						<p class="text-sm text-teal-100/90 leading-relaxed mb-6">
+							Ideal for weekend projects and bigger moves. Take your time without rushing.
+						</p>
+						<ul class="space-y-2 mb-8">
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								130 km included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Insurance included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Tail lift included
+							</li>
+						</ul>
+					</div>
+					<a href="/en/contact?service=lastbil&package=3_days" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white text-teal-900 font-bold text-sm hover:bg-teal-50 transition-colors shadow-xs active:scale-[0.98]">
+						Book 3 days
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+				</div>
+
+				<!-- 7 Days -->
+				<div class="bg-gradient-to-br from-teal-700 to-emerald-800 rounded-2xl p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+					<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl"></div>
+					<div>
+						<span class="text-[10px] font-bold text-teal-200 uppercase tracking-widest bg-teal-900/40 px-2.5 py-1 rounded-md">7 Days</span>
+						<div class="mt-6 mb-2">
+							<span class="text-5xl font-extrabold tracking-tight">4 500</span>
+							<span class="text-xl font-bold text-teal-200 ml-1">kr</span>
+						</div>
+						<p class="text-xs text-teal-300 font-semibold mb-4">Save 2 500 kr vs. daily rate</p>
+						<p class="text-sm text-teal-100/90 leading-relaxed mb-6">
+							For larger projects, renovations, or when you need the truck for a full week.
+						</p>
+						<ul class="space-y-2 mb-8">
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								130 km included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Insurance included
+							</li>
+							<li class="flex items-center gap-2 text-sm text-teal-100">
+								<svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								Tail lift included
+							</li>
+						</ul>
+					</div>
+					<a href="/en/contact?service=lastbil&package=7_days" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white text-teal-900 font-bold text-sm hover:bg-teal-50 transition-colors shadow-xs active:scale-[0.98]">
+						Book 7 days
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+					</a>
+				</div>
+
+			</div>
+
+			<!-- Mileage Note -->
+			<div class="mt-8 text-center reveal-on-scroll">
+				<p class="text-sm text-text-muted">
+					All prices include <strong class="text-text-heading">130 km free mileage</strong>. Additional distance: <strong class="text-text-heading">6 SEK/km</strong>. Prices incl. VAT.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ VEHICLE INFO SECTION ═══════════════════ -->
+	<section class="bg-surface-cool py-20 md:py-28 relative">
+		<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+		
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Vehicle Specs</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">
+					Iveco Daily 35-160 Chassis Cab
+				</h2>
+				<p class="text-text-body text-base leading-relaxed">
+					2.3 JTD Hi-Matic · Model Year 2019
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-on-scroll delay-100">
+				
+				<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
+					<div class="text-4xl mb-4">⚙️</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Automatic</h3>
+					<p class="text-sm text-text-body leading-relaxed">Hi-Matic automatic gearbox for effortless driving</p>
+				</div>
+
+				<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
+					<div class="text-4xl mb-4">⛽</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Low Fuel</h3>
+					<p class="text-sm text-text-body leading-relaxed">Efficient 2.3 JTD diesel engine with excellent economy</p>
+				</div>
+
+				<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
+					<div class="text-4xl mb-4">🪜</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">Tail Lift</h3>
+					<p class="text-sm text-text-body leading-relaxed">Hydraulic rear lift for loading heavy furniture & appliances</p>
+				</div>
+
+				<div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 glow-card">
+					<div class="text-4xl mb-4">💪</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2">160 HP</h3>
+					<p class="text-sm text-text-body leading-relaxed">Plenty of power for loaded drives and hill climbing</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ INSURANCE & POLICY SECTION ═══════════════════ -->
+	<section class="bg-white py-20 md:py-28 relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+				
+				<!-- Insurance Info -->
+				<div class="lg:col-span-7 space-y-8 reveal-on-scroll">
+					<div>
+						<span class="text-xs font-bold text-accent uppercase tracking-widest">Insurance & Deductible</span>
+						<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">Drive with peace of mind</h2>
+						<p class="text-base text-text-body leading-relaxed">
+							All our rental vehicles are fully insured up to <strong class="text-text-heading">SEK 300,000</strong>. The deductible in case of damage is <strong class="text-text-heading">SEK 5,000</strong>. Roadside assistance is included in every rental — if anything happens on the road, help is just one phone call away.
+						</p>
+					</div>
+
+					<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent">300k</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">SEK Coverage</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent">5 000</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">SEK Deductible</span>
+						</div>
+						<div class="text-center p-5 rounded-xl bg-surface-cool border border-slate-200/60 shadow-xs">
+							<span class="block text-3xl font-extrabold text-accent">24/7</span>
+							<span class="text-xs text-text-muted font-bold uppercase tracking-wider mt-2 block">Roadside Help</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Cancellation Policy -->
+				<div class="lg:col-span-5 p-8 rounded-2xl bg-surface-warm border border-border-warm space-y-6 reveal-on-scroll delay-200">
+					<h3 class="text-xl font-bold text-text-heading border-b border-border-warm pb-4">Cancellation Policy</h3>
+					
+					<div class="space-y-6">
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">2+ days before</h4>
+							<p class="text-sm text-text-body leading-relaxed">Full refund. Cancel without any charges.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">1 day before</h4>
+							<p class="text-sm text-text-body leading-relaxed">50% refund of the total rental cost.</p>
+						</div>
+						
+						<div class="border-l-2 border-accent pl-4 hover:border-teal-500 transition-colors">
+							<h4 class="font-bold text-text-heading text-base mb-1">Same day</h4>
+							<p class="text-sm text-text-body leading-relaxed">No refund. The full cost will be charged.</p>
+						</div>
+					</div>
+
+					<div class="p-4 rounded-xl bg-teal-50/50 border border-teal-100 text-xs text-teal-800 leading-relaxed">
+						<strong>💡 Tip:</strong> Book early to secure your preferred dates, and cancel free of charge up to 2 days before your rental period starts.
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ WHEN IS IT APPROPRIATE SECTION ═══════════════════ -->
+	<section class="bg-surface-cool py-20 md:py-28 relative overflow-hidden">
+		<div class="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] pointer-events-none"></div>
+
+		<div class="max-w-6xl mx-auto px-6 relative">
+			<div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+				<span class="text-xs font-bold text-accent uppercase tracking-widest">Use Cases</span>
+				<h2 class="text-3xl md:text-4xl font-bold text-text-heading tracking-tight mt-3 mb-4">
+					When is it appropriate to rent a truck?
+				</h2>
+				<p class="text-text-body text-base leading-relaxed">
+					Our light truck is the perfect solution for a variety of everyday needs. Here are some common scenarios.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal-on-scroll delay-100">
+				
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">🏠</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">Moving Home</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Relocating to a new apartment or house? Load up the truck with the tail lift and move at your own pace.
+					</p>
+				</div>
+
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">🛋️</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">Furniture Delivery</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Bought new furniture from IKEA or a marketplace? Skip expensive delivery fees and pick it up yourself.
+					</p>
+				</div>
+
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">🏗️</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">Renovation Projects</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Transport building materials, tools, and debris. The tail lift handles even heavy pallets with ease.
+					</p>
+				</div>
+
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">📦</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">E-commerce Deliveries</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Need to deliver large quantities of goods? Ideal for small business owners and online sellers.
+					</p>
+				</div>
+
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">🎪</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">Events & Exhibitions</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Transporting equipment, displays, or inventory for trade fairs, markets, and events.
+					</p>
+				</div>
+
+				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+					<div class="text-4xl mb-4">♻️</div>
+					<h3 class="text-lg font-bold text-text-heading mb-2 group-hover:text-accent transition-colors">Recycling & Clearance</h3>
+					<p class="text-sm text-text-body leading-relaxed">
+						Clearing out a garage, attic, or storage unit? Load everything up and make a single trip to the recycling center.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════ CTA SECTION ═══════════════════ -->
+	<section class="relative bg-surface-dark py-24 md:py-32 overflow-hidden bg-grid-pattern-dark">
+		<!-- Dynamic teal glow blob inside CTA -->
+		<div class="absolute top-[20%] right-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[90px] pointer-events-none opacity-40"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 relative">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+					<h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+						Ready to rent <br/>
+						<span class="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">your truck?</span>
+					</h2>
+					<p class="text-slate-400 text-lg leading-relaxed max-w-xl">
+						Contact us today to reserve the Iveco Daily for your preferred dates. Quick response, flexible scheduling, and no hidden fees.
+					</p>
+					
+					<!-- Live trust badges in dark room -->
+					<div class="flex flex-wrap gap-4 pt-4 text-xs text-slate-400">
+						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
+							🚛 Iveco Daily 2019
+						</span>
+						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
+							🛡️ Insured Up To 300k
+						</span>
+						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
+							🪜 Tail Lift Included
+						</span>
+					</div>
+				</div>
+
+				<div class="lg:col-span-5 reveal-on-scroll delay-200">
+					<!-- Interactive Floating Contact Panel Card -->
+					<div class="glass-panel-dark rounded-2xl p-8 border border-slate-800/80 space-y-6 text-white shadow-xl relative">
+						<h3 class="text-xl font-bold text-white">Book the truck now</h3>
+						<p class="text-sm text-slate-400">Get in touch via our contact form or call us directly to confirm your booking.</p>
+						
+						<a href="/en/contact?service=lastbil" class="w-full py-4 rounded-lg bg-accent hover:bg-accent-hover text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-accent/10 active:scale-[0.98]">
+							Reserve the truck
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+						</a>
+						
+						<div class="text-center">
+							<a href="tel:081234567" class="text-xs text-slate-400 hover:text-white transition-colors">
+								Or call us on <span class="font-bold text-slate-300 underline">08-123 45 67</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<!-- JS: Init glow cards & tilt cards -->
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Initialize Mouse Spotlight Glow Cards
+		if (window.initGlowCards) {
+			window.initGlowCards();
+		}
+		// Initialize 3D Tilt Cards
+		if (window.initTiltCards) {
+			window.initTiltCards();
+		}
+	});
+</script>
+</Layout>

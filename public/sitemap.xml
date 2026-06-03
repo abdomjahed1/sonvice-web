@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sonvicegroup.se/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/om-oss</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/om-oss" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/about-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/om-oss" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en/about-us</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/om-oss" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/about-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/om-oss" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/contact</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/contact" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/contact" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/jobba-hos-oss</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/jobba-hos-oss" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/careers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/jobba-hos-oss" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en/careers</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/jobba-hos-oss" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/careers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/jobba-hos-oss" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/lastbilsuthyrning</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/lastbilsuthyrning" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/truck-rental" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/lastbilsuthyrning" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en/truck-rental</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/lastbilsuthyrning" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/truck-rental" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/lastbilsuthyrning" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/integritetspolicy</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/integritetspolicy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/integritetspolicy" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sonvicegroup.se/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://sonvicegroup.se/integritetspolicy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonvicegroup.se/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonvicegroup.se/integritetspolicy" />
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

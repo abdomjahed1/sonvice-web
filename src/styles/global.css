@@ -227,6 +227,7 @@
 
 #activity-toast.toast-visible {
   transform: translateX(0);
+  pointer-events: auto;
 }
 
 .toast-inner {

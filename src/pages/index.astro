@@ -322,12 +322,15 @@ import flyttImg from '../images/Flyttjänster.png';
 			<!-- Calculator Box -->
 			<div class="glass-panel bg-white/95 rounded-3xl p-8 md:p-10 border border-slate-200/80 shadow-xl max-w-2xl mx-auto reveal-on-scroll delay-100">
 				<!-- Service Tabs -->
-				<div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-100 rounded-xl mb-8">
-					<button id="calc-tab-moving" class="calc-tab py-3 px-4 text-sm font-bold rounded-lg transition-all text-accent bg-white shadow-xs focus:outline-none" data-service="moving">
+				<div class="grid grid-cols-3 gap-2 p-1.5 bg-slate-100 rounded-xl mb-8">
+					<button id="calc-tab-moving" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-accent bg-white shadow-xs focus:outline-none" data-service="moving">
 						📦 Flytthjälp
 					</button>
-					<button id="calc-tab-cleaning" class="calc-tab py-3 px-4 text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none" data-service="cleaning">
+					<button id="calc-tab-cleaning" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none" data-service="cleaning">
 						✨ Hemstädning
+					</button>
+					<button id="calc-tab-roof" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none" data-service="roof">
+						🏠 Takrengöring
 					</button>
 				</div>
 
@@ -335,7 +338,7 @@ import flyttImg from '../images/Flyttjänster.png';
 					<!-- Size Slider -->
 					<div>
 						<div class="flex justify-between items-center mb-2">
-							<label for="calc-size" class="text-sm font-bold text-text-heading">Bostadsstorlek (kvadratmeter)</label>
+							<label for="calc-size" id="calc-size-label" class="text-sm font-bold text-text-heading">Bostadsstorlek (kvadratmeter)</label>
 							<span id="calc-size-val" class="text-base font-extrabold text-accent bg-accent-soft px-3 py-1 rounded-md font-mono">60 m²</span>
 						</div>
 						<input type="range" id="calc-size" min="15" max="250" value="60" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" />
@@ -347,12 +350,15 @@ import flyttImg from '../images/Flyttjänster.png';
 						</div>
 					</div>
 
-					<!-- RUT and details warning info -->
+					<!-- RUT/ROT and details warning info -->
 					<div id="calc-info-cleaning" class="hidden p-4 rounded-xl bg-teal-50/50 border border-teal-100 text-xs text-teal-800 leading-relaxed">
-						<strong>✨ Hemstädning & RUT-avdrag:</strong> Skatteverket betalar 50% av arbetskostnaden direkt på fakturan. Vi hanterar hela ansökan åt dig. Priset inkluderar allt städmaterial.
+						<strong>✨ Hemstädning & RUT-avdrag:</strong> Skatteverket betalar 50% av arbestocknaden direkt på fakturan. Vi hanterar hela ansökan åt dig. Priset inkluderar allt städmaterial.
 					</div>
 					<div id="calc-info-moving" class="p-4 rounded-xl bg-slate-50/50 border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
 						<strong>📦 Flytthjälp & Trygg-Hansa:</strong> Vår flytthjälp inkluderar ansvarsförsäkring upp till 10 miljoner kr. Tunga lyft, transport och packmaterial ingår i grunduppskattningen.
+					</div>
+					<div id="calc-info-roof" class="hidden p-4 rounded-xl bg-amber-50/50 border border-amber-100 text-xs text-amber-800 leading-relaxed">
+						<strong>🏠 Takrengöring & ROT-avdrag:</strong> Skatteverket betalar 30% (ROT) av arbetskostnaden direkt på fakturan. Vi hanterar hela ansökan. Minsta debitering är 4 500 kr.
 					</div>
 
 					<!-- Output Price Board -->
@@ -368,6 +374,9 @@ import flyttImg from '../images/Flyttjänster.png';
 						<!-- RUT savings note -->
 						<div id="calc-savings-note" class="text-xs text-teal-300 font-semibold hidden">
 							Ditt pris efter RUT-avdrag (Du sparar <span id="calc-savings-val" class="font-mono">3 900</span> kr)
+						</div>
+						<div id="calc-min-note" class="text-xs text-amber-400 font-semibold hidden mb-1">
+							Minsta debitering 4 500 kr tillämpad (före ROT)
 						</div>
 						<div id="calc-standard-note" class="text-xs text-slate-400">
 							Inkl. moms och försäkring
@@ -579,7 +588,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<div class="lg:col-span-5 reveal-on-scroll delay-200">
 					<!-- Interactive Floating Contact Panel Card -->
 					<div class="glass-panel-dark rounded-2xl p-8 border border-slate-800/80 space-y-6 text-white shadow-xl relative">
-						<h3 class="text-xl font-bold">Få prisförslag direkt</h3>
+						<h3 class="text-xl font-bold text-white">Få prisförslag direkt</h3>
 						<p class="text-sm text-slate-400">Fyll i dina uppgifter på mindre än 1 minut så räknar vi ut ett pris till dig.</p>
 						
 						<a href="/contact" class="w-full py-4 rounded-lg bg-accent hover:bg-accent-hover text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-accent/10 active:scale-[0.98]">
@@ -680,13 +689,17 @@ import flyttImg from '../images/Flyttjänster.png';
 		// --- Pricing Calculator Logic ---
 		const tabMoving = document.getElementById('calc-tab-moving');
 		const tabCleaning = document.getElementById('calc-tab-cleaning');
+		const tabRoof = document.getElementById('calc-tab-roof');
+		const sizeLabel = document.getElementById('calc-size-label');
 		const sizeInput = document.getElementById('calc-size');
 		const sizeVal = document.getElementById('calc-size-val');
 		const priceVal = document.getElementById('calc-price-val');
 		const infoMoving = document.getElementById('calc-info-moving');
 		const infoCleaning = document.getElementById('calc-info-cleaning');
+		const infoRoof = document.getElementById('calc-info-roof');
 		const savingsNote = document.getElementById('calc-savings-note');
 		const savingsVal = document.getElementById('calc-savings-val');
+		const minNote = document.getElementById('calc-min-note');
 		const standardNote = document.getElementById('calc-standard-note');
 		const ctaBtn = document.getElementById('calc-cta-btn');
 
@@ -698,48 +711,91 @@ import flyttImg from '../images/Flyttjänster.png';
 			if (sizeVal) sizeVal.textContent = `${size} m²`;
 
 			let finalPrice = 0;
+			let displaySavings = false;
+			let displayMinApplied = false;
+			let savingsAmount = 0;
+
 			if (currentService === 'moving') {
+				if (sizeLabel) sizeLabel.textContent = 'Bostadsstorlek (kvadratmeter)';
 				// Moving: 1200 base + 45 kr per sqm
 				finalPrice = 1200 + (size * 45);
 				if (infoMoving) infoMoving.classList.remove('hidden');
 				if (infoCleaning) infoCleaning.classList.add('hidden');
+				if (infoRoof) infoRoof.classList.add('hidden');
 				if (savingsNote) savingsNote.classList.add('hidden');
+				if (minNote) minNote.classList.add('hidden');
 				if (standardNote) standardNote.classList.remove('hidden');
-			} else {
+			} else if (currentService === 'cleaning') {
+				if (sizeLabel) sizeLabel.textContent = 'Bostadsstorlek (kvadratmeter)';
 				// Cleaning: 600 base + 30 kr per sqm. RUT-avdrag 50% discount.
 				const basePrice = 600 + (size * 30);
 				finalPrice = basePrice * 0.5; // 50% RUT
+				savingsAmount = basePrice * 0.5;
+				displaySavings = true;
 				if (infoMoving) infoMoving.classList.add('hidden');
 				if (infoCleaning) infoCleaning.classList.remove('hidden');
+				if (infoRoof) infoRoof.classList.add('hidden');
 				if (savingsNote) savingsNote.classList.remove('hidden');
-				if (savingsVal) savingsVal.textContent = Math.round(finalPrice).toLocaleString('sv-SE');
+				if (minNote) minNote.classList.add('hidden');
+				if (standardNote) standardNote.classList.add('hidden');
+			} else if (currentService === 'roof') {
+				if (sizeLabel) sizeLabel.textContent = 'Takstorlek (kvadratmeter)';
+				// Roof cleaning: 56 kr/sqm (gets to ~39 kr/sqm after 30% ROT)
+				// Min charge is 4500 kr before ROT (3150 kr after ROT)
+				let basePrice = size * 56;
+				if (basePrice < 4500) {
+					basePrice = 4500;
+					displayMinApplied = true;
+				}
+				finalPrice = basePrice * 0.7; // 30% ROT
+				savingsAmount = basePrice * 0.3; // 30% savings
+				displaySavings = true;
+
+				if (infoMoving) infoMoving.classList.add('hidden');
+				if (infoCleaning) infoCleaning.classList.add('hidden');
+				if (infoRoof) infoRoof.classList.remove('hidden');
+				if (savingsNote) savingsNote.classList.remove('hidden');
+				if (minNote) {
+					if (displayMinApplied) minNote.classList.remove('hidden');
+					else minNote.classList.add('hidden');
+				}
 				if (standardNote) standardNote.classList.add('hidden');
 			}
 
 			if (priceVal) priceVal.textContent = Math.round(finalPrice).toLocaleString('sv-SE');
+			if (savingsNote && displaySavings && savingsVal) {
+				savingsVal.textContent = Math.round(savingsAmount).toLocaleString('sv-SE');
+				
+				// Update label for ROT or RUT
+				if (currentService === 'roof') {
+					savingsNote.innerHTML = `Ditt pris efter ROT-avdrag (Du sparar <span id="calc-savings-val" class="font-mono">${Math.round(savingsAmount).toLocaleString('sv-SE')}</span> kr)`;
+				} else {
+					savingsNote.innerHTML = `Ditt pris efter RUT-avdrag (Du sparar <span id="calc-savings-val" class="font-mono">${Math.round(savingsAmount).toLocaleString('sv-SE')}</span> kr)`;
+				}
+			}
 			if (ctaBtn) {
 				ctaBtn.setAttribute('href', `/contact?service=${currentService}&size=${size}`);
 			}
 		};
 
-		if (tabMoving && tabCleaning && sizeInput) {
-			tabMoving.addEventListener('click', () => {
-				currentService = 'moving';
-				tabMoving.classList.add('bg-white', 'text-accent', 'shadow-xs');
-				tabMoving.classList.remove('text-slate-500', 'hover:text-slate-800');
-				tabCleaning.classList.remove('bg-white', 'text-accent', 'shadow-xs');
-				tabCleaning.classList.add('text-slate-500', 'hover:text-slate-800');
+		if (tabMoving && tabCleaning && tabRoof && sizeInput) {
+			const setTabActive = (activeTab, inactiveTab1, inactiveTab2, service) => {
+				currentService = service;
+				activeTab.classList.add('bg-white', 'text-accent', 'shadow-xs');
+				activeTab.classList.remove('text-slate-500', 'hover:text-slate-800');
+				
+				inactiveTab1.classList.remove('bg-white', 'text-accent', 'shadow-xs');
+				inactiveTab1.classList.add('text-slate-500', 'hover:text-slate-800');
+				
+				inactiveTab2.classList.remove('bg-white', 'text-accent', 'shadow-xs');
+				inactiveTab2.classList.add('text-slate-500', 'hover:text-slate-800');
+				
 				updateCalculator();
-			});
+			};
 
-			tabCleaning.addEventListener('click', () => {
-				currentService = 'cleaning';
-				tabCleaning.classList.add('bg-white', 'text-accent', 'shadow-xs');
-				tabCleaning.classList.remove('text-slate-500', 'hover:text-slate-800');
-				tabMoving.classList.remove('bg-white', 'text-accent', 'shadow-xs');
-				tabMoving.classList.add('text-slate-500', 'hover:text-slate-800');
-				updateCalculator();
-			});
+			tabMoving.addEventListener('click', () => setTabActive(tabMoving, tabCleaning, tabRoof, 'moving'));
+			tabCleaning.addEventListener('click', () => setTabActive(tabCleaning, tabMoving, tabRoof, 'cleaning'));
+			tabRoof.addEventListener('click', () => setTabActive(tabRoof, tabMoving, tabCleaning, 'roof'));
 
 			sizeInput.addEventListener('input', updateCalculator);
 			updateCalculator();

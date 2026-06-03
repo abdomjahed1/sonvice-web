@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sonvicegroup.se
+
+# Sitemaps
+Sitemap: https://sonvicegroup.se/sitemap.xml

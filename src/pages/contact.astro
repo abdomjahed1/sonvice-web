@@ -117,9 +117,24 @@ import Layout from '../layouts/Layout.astro';
 								<option value="fonsterputs">Fönsterputsning</option>
 								<option value="takrengoring">Takrengöring</option>
 								<option value="tradgard">Trädgårdsvård</option>
+								<option value="lastbil">Lastbilsuthyrning</option>
 								<option value="annat">Annat / Allmän fråga</option>
 							</select>
 						</div>
+					</div>
+
+					<!-- Rent Truck package select (Conditional) -->
+					<div id="truck-package-container" class="hidden transition-all duration-300">
+						<label for="truck-package" class="text-sm font-semibold text-slate-700 mb-2 block">Välj hyresperiod *</label>
+						<select 
+							id="truck-package" 
+							class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
+						>
+							<option value="" disabled selected>Välj paket...</option>
+							<option value="1_day">1 dag (1 000 kr) — Inkl. 130 km</option>
+							<option value="3_days">3 dagar (2 100 kr) — Inkl. fria mil upp till 390 km</option>
+							<option value="7_days">7 dagar (4 500 kr) — Veckohyra, inkl. fria mil upp till 910 km</option>
+						</select>
 					</div>
 					
 					<div>
@@ -152,6 +167,47 @@ import Layout from '../layouts/Layout.astro';
 	document.addEventListener('DOMContentLoaded', () => {
 		if (window.initGlowCards) {
 			window.initGlowCards();
+		}
+
+		const serviceSelect = document.getElementById('service');
+		const truckContainer = document.getElementById('truck-package-container');
+		const truckPackageSelect = document.getElementById('truck-package');
+
+		const checkService = () => {
+			if (serviceSelect && (serviceSelect.value === 'lastbil' || serviceSelect.value === 'truck')) {
+				if (truckContainer) truckContainer.classList.remove('hidden');
+				if (truckPackageSelect) truckPackageSelect.setAttribute('required', 'true');
+			} else {
+				if (truckContainer) truckContainer.classList.add('hidden');
+				if (truckPackageSelect) {
+					truckPackageSelect.removeAttribute('required');
+					truckPackageSelect.value = "";
+				}
+			}
+		};
+
+		if (serviceSelect) {
+			serviceSelect.addEventListener('change', checkService);
+			
+			// Check URL parameters on load to auto-select service/package
+			const urlParams = new URLSearchParams(window.location.search);
+			const serviceParam = urlParams.get('service');
+			const packageParam = urlParams.get('package');
+
+			if (serviceParam) {
+				if (serviceParam === 'lastbil' || serviceParam === 'truck') {
+					serviceSelect.value = 'lastbil';
+				} else {
+					serviceSelect.value = serviceParam;
+				}
+			}
+			
+			checkService();
+
+			if (packageParam && truckPackageSelect) {
+				// Select option matching the query parameter
+				truckPackageSelect.value = packageParam;
+			}
 		}
 	});
 </script>

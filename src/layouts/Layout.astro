@@ -21,16 +21,29 @@ const getLangSwitchUrl = () => {
 		if (cleanPath === "/en/about-us") return "/om-oss";
 		if (cleanPath === "/en/contact") return "/contact";
 		if (cleanPath === "/en/careers") return "/jobba-hos-oss";
+		if (cleanPath === "/en/truck-rental") return "/lastbilsuthyrning";
 		return "/";
 	} else {
 		if (cleanPath === "" || cleanPath === "/") return "/en";
 		if (cleanPath === "/om-oss") return "/en/about-us";
 		if (cleanPath === "/contact") return "/en/contact";
 		if (cleanPath === "/jobba-hos-oss") return "/en/careers";
+		if (cleanPath === "/lastbilsuthyrning") return "/en/truck-rental";
 		return "/en";
 	}
 };
 const switchUrl = getLangSwitchUrl();
+
+const SITE_URL = "https://sonvicegroup.se"; // Cambiar por el dominio final del cliente
+const canonicalPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+const canonicalURL = `${SITE_URL}${canonicalPath}`;
+
+// Alternates for SEO Hreflang
+const svPath = isEn ? switchUrl : canonicalPath;
+const enPath = isEn ? canonicalPath : switchUrl;
+
+const svURL = `${SITE_URL}${svPath}`;
+const enURL = `${SITE_URL}${enPath}`;
 
 const isActive = (path: string) => {
 	const current = pathname.replace(/\/$/, "");
@@ -43,6 +56,7 @@ const t = isEn ? {
 	about: 'About us',
 	contact: 'Contact',
 	careers: 'Careers',
+	truckRental: 'Truck Rental',
 	callUs: 'Call us',
 	footerDesc: 'Your reliable partner for professional moving, cleaning, window washing, gardening, and roof maintenance across the Stockholm region.',
 	footerServices: 'Services',
@@ -53,6 +67,7 @@ const t = isEn ? {
 	svcWindows: 'Window cleaning',
 	svcRoof: 'Roof care',
 	svcGarden: 'Gardening',
+	svcTruck: 'Truck Rental',
 	weekdays: 'Mon – Fri',
 	saturday: 'Saturday',
 	sunday: 'Sunday',
@@ -65,6 +80,7 @@ const t = isEn ? {
 	about: 'Om oss',
 	contact: 'Kontakt',
 	careers: 'Karriär',
+	truckRental: 'Lastbilsuthyrning',
 	callUs: 'Ring oss',
 	footerDesc: 'Din pålitliga partner för professionell flytt, hemstädning, fönsterputsning, trädgårdsvård och takrengöring i hela Stockholmsområdet.',
 	footerServices: 'Tjänster',
@@ -75,6 +91,7 @@ const t = isEn ? {
 	svcWindows: 'Fönsterputsning',
 	svcRoof: 'Takrengöring',
 	svcGarden: 'Trädgårdsvård',
+	svcTruck: 'Lastbilsuthyrning',
 	weekdays: 'Mån – Fre',
 	saturday: 'Lördag',
 	sunday: 'Söndag',
@@ -93,6 +110,26 @@ const t = isEn ? {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+
+		<!-- SEO Canonical and Alternate Languages (Hreflang) -->
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="alternate" hreflang="sv" href={svURL} />
+		<link rel="alternate" hreflang="en" href={enURL} />
+		<link rel="alternate" hreflang="x-default" href={svURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={`${SITE_URL}/mi-logo.png`} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={`${SITE_URL}/mi-logo.png`} />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,8 +173,8 @@ const t = isEn ? {
 					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
 						{t.about}
 					</a>
-					<a href={isEn ? "/en/contact" : "/contact"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/contact" : "/contact") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
-						{t.contact}
+					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
+						{t.truckRental}
 					</a>
 					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "text-accent border-b-2 border-accent pb-0.5" : "text-slate-500 hover:text-text-heading"}`}>
 						{t.careers}
@@ -174,8 +211,8 @@ const t = isEn ? {
 					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.about}
 					</a>
-					<a href={isEn ? "/en/contact" : "/contact"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/contact" : "/contact") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
-						{t.contact}
+					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.truckRental}
 					</a>
 					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.careers}
@@ -227,6 +264,7 @@ const t = isEn ? {
 							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcWindows}</a></li>
 							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcRoof}</a></li>
 							<li><a href={isEn ? "/en" : "/"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcGarden}</a></li>
+							<li><a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcTruck}</a></li>
 						</ul>
 					</div>
 
@@ -268,11 +306,50 @@ const t = isEn ? {
 
 			<!-- Bottom bar -->
 			<div class="border-t border-slate-900 bg-primary-dark/20">
-				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-500">
+				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-500 space-y-2">
 					<p>© {new Date().getFullYear()} Sonvice Group AB · Org.nr 559XXX-XXXX · Innehar F-skattsedel</p>
+					<p class="space-x-3">
+						<a href={isEn ? "/en/privacy" : "/integritetspolicy"} class="hover:text-accent transition-colors font-medium">{isEn ? "Privacy Policy" : "Integritetspolicy"}</a>
+						<span>·</span>
+						<a href="#" id="open-cookie-settings" class="hover:text-accent transition-colors font-medium">{isEn ? "Cookie Settings" : "Cookie-inställningar"}</a>
+					</p>
 				</div>
 			</div>
 		</footer>
+
+		<!-- ═══ Cookie Consent Banner ═══ -->
+		<div id="cookie-banner" class="fixed bottom-24 right-6 z-[9999] max-w-[420px] bg-slate-950/95 backdrop-blur-xl border border-teal-500/25 rounded-2xl p-6 shadow-2xl translate-y-12 opacity-0 pointer-events-none transition-all duration-500">
+			<div class="space-y-4">
+				<div class="flex items-center gap-3">
+					<div class="w-10 h-10 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center text-xl">
+						🍪
+					</div>
+					<div>
+						<h4 class="text-sm font-bold text-white tracking-wide">{isEn ? "Cookie Settings" : "Cookies & Integritet"}</h4>
+						<p class="text-[10px] text-teal-400 font-semibold uppercase tracking-wider">{isEn ? "GDPR Compliance" : "GDPR-Efterlevnad"}</p>
+					</div>
+				</div>
+				<p class="text-xs text-slate-300 leading-relaxed">
+					{isEn 
+						? "We use cookies to improve your experience, analyze traffic, and personalize content. By clicking 'Accept all', you consent to our use of cookies." 
+						: "Vi använder cookies för att förbättra din upplevelse, analysera trafik och anpassa innehåll. Genom att klicka på 'Acceptera alla' godkänner du vår användning av cookies."
+					}
+				</p>
+				<div class="flex items-center justify-between gap-3 pt-2">
+					<a href={isEn ? "/en/privacy" : "/integritetspolicy"} class="text-xs text-slate-400 hover:text-white underline transition-colors">
+						{isEn ? "Privacy Policy" : "Integritetspolicy"}
+					</a>
+					<div class="flex items-center gap-2">
+						<button id="cookie-decline" class="px-4 py-2 rounded-lg border border-slate-800 hover:border-slate-700 text-xs font-bold text-slate-300 hover:bg-slate-900 transition-all cursor-pointer">
+							{isEn ? "Decline" : "Neka"}
+						</button>
+						<button id="cookie-accept" class="px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-xs font-bold text-white transition-all active:scale-[0.97] cursor-pointer">
+							{isEn ? "Accept all" : "Acceptera alla"}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!-- WhatsApp floating button -->
 		<a href="https://wa.me/34688249310" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[999]">
@@ -489,6 +566,52 @@ const t = isEn ? {
 					showToast();
 					setInterval(showToast, 180000);
 				}, 10000);
+			}
+
+			// --- 10. Cookie Consent Banner Logic ---
+			const cookieBanner = document.getElementById('cookie-banner');
+			const cookieAccept = document.getElementById('cookie-accept');
+			const cookieDecline = document.getElementById('cookie-decline');
+			const openCookieSettings = document.getElementById('open-cookie-settings');
+
+			const showCookieBanner = () => {
+				if (!cookieBanner) return;
+				cookieBanner.style.pointerEvents = 'auto';
+				cookieBanner.classList.remove('translate-y-12', 'opacity-0');
+				cookieBanner.classList.add('translate-y-0', 'opacity-100');
+			};
+
+			const hideCookieBanner = () => {
+				if (!cookieBanner) return;
+				cookieBanner.style.pointerEvents = 'none';
+				cookieBanner.classList.remove('translate-y-0', 'opacity-100');
+				cookieBanner.classList.add('translate-y-12', 'opacity-0');
+			};
+
+			const consent = localStorage.getItem('cookieConsent');
+			if (!consent) {
+				setTimeout(showCookieBanner, 1500);
+			}
+
+			if (cookieAccept) {
+				cookieAccept.addEventListener('click', () => {
+					localStorage.setItem('cookieConsent', 'accepted');
+					hideCookieBanner();
+				});
+			}
+
+			if (cookieDecline) {
+				cookieDecline.addEventListener('click', () => {
+					localStorage.setItem('cookieConsent', 'declined');
+					hideCookieBanner();
+				});
+			}
+
+			if (openCookieSettings) {
+				openCookieSettings.addEventListener('click', (e) => {
+					e.preventDefault();
+					showCookieBanner();
+				});
 			}
 		});
 		</script>
