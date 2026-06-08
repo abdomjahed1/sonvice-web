@@ -335,8 +335,8 @@ import Layout from '../../layouts/Layout.astro';
 			let savingsText = "";
 
 			if (service === 'flytt') {
-				finalPrice = 1200 + (size * 45);
-				detailsText = `Based on ${size} m² area for moving services (incl. VAT and insurance).`;
+				finalPrice = 1500 + (size * 120);
+				detailsText = `Based on ${size} m³ volume for moving services (incl. VAT and insurance).`;
 				showSummary = true;
 			} else if (service === 'hemstadning') {
 				const base = 600 + (size * 30);
@@ -403,10 +403,13 @@ import Layout from '../../layouts/Layout.astro';
 					if (sizeInput) sizeInput.setAttribute('required', 'true');
 					
 					if (service === 'takrengoring') {
-						if (sizeLabel) sizeLabel.textContent = 'Roof size (square meters) *';
+						if (sizeLabel) sizeLabel.innerHTML = 'Roof size (square meters) *';
 						if (sizeInput) sizeInput.placeholder = 'e.g. 120';
+					} else if (service === 'flytt') {
+						if (sizeLabel) sizeLabel.innerHTML = 'Volume (cubic meters) * <span class="text-[11px] text-slate-400 font-normal block mt-1">If unsure, estimate ca 10–15 cubic meters (m³) per room (e.g. 3 rooms = ca 30–45 m³).</span>';
+						if (sizeInput) sizeInput.placeholder = 'e.g. 30';
 					} else {
-						if (sizeLabel) sizeLabel.textContent = 'Property size (square meters) *';
+						if (sizeLabel) sizeLabel.innerHTML = 'Property size (square meters) *';
 						if (sizeInput) sizeInput.placeholder = 'e.g. 65';
 					}
 				}
@@ -532,7 +535,8 @@ import Layout from '../../layouts/Layout.astro';
 					if (receiptPhone) receiptPhone.textContent = phoneVal;
 
 					if (sizeVal && sizeContainer && !sizeContainer.classList.contains('hidden')) {
-						if (receiptSize) receiptSize.textContent = `${sizeVal} m²`;
+						const unit = serviceSelect.value === 'flytt' ? 'm³' : 'm²';
+						if (receiptSize) receiptSize.textContent = `${sizeVal} ${unit}`;
 						if (receiptSizeRow) receiptSizeRow.classList.remove('hidden');
 					} else {
 						if (receiptSizeRow) receiptSizeRow.classList.add('hidden');

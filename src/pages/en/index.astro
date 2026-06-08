@@ -360,6 +360,52 @@ import flyttImg from '../../images/Flyttjänster.png';
 				</div>
 
 				<div class="space-y-6">
+					<!-- Volume Estimator (Flytthjälp only) -->
+					<div id="calc-volume-estimator-container" class="space-y-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/60 hidden transition-all duration-300">
+						<div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Volume Estimator (Simplified)</div>
+						<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+							<!-- Antal rum -->
+							<div>
+								<label for="calc-rooms" class="text-[11px] font-semibold text-slate-700 mb-1 block">Number of rooms</label>
+								<select id="calc-rooms" class="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-text-heading outline-none cursor-pointer">
+									<option value="1">1 room</option>
+									<option value="2">2 rooms</option>
+									<option value="3" selected>3 rooms</option>
+									<option value="4">4 rooms</option>
+									<option value="5">5 rooms</option>
+									<option value="6">6 rooms</option>
+									<option value="7">7 rooms</option>
+									<option value="8">8 rooms</option>
+									<option value="9">9 rooms</option>
+									<option value="10">10 rooms</option>
+								</select>
+							</div>
+							
+							<!-- Antal personer -->
+							<div>
+								<label for="calc-persons" class="text-[11px] font-semibold text-slate-700 mb-1 block">Number of people</label>
+								<select id="calc-persons" class="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-text-heading outline-none cursor-pointer">
+									<option value="1">1 person</option>
+									<option value="2" selected>2 people</option>
+									<option value="3">3 people</option>
+									<option value="4">4 people</option>
+									<option value="5">5 people</option>
+									<option value="6">6 people</option>
+								</select>
+							</div>
+							
+							<!-- Livsstil -->
+							<div>
+								<label for="calc-lifestyle" class="text-[11px] font-semibold text-slate-700 mb-1 block">Amount of goods (Lifestyle)</label>
+								<select id="calc-lifestyle" class="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-text-heading outline-none cursor-pointer">
+									<option value="minimalist">🧘 Minimalist</option>
+									<option value="normal" selected>🏠 Normal</option>
+									<option value="samlare">📚 Collector</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
 					<!-- Size Slider -->
 					<div>
 						<div class="flex justify-between items-center mb-2">
@@ -368,10 +414,9 @@ import flyttImg from '../../images/Flyttjänster.png';
 						</div>
 						<input type="range" id="calc-size" min="15" max="250" value="60" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" />
 						<div class="flex justify-between text-[11px] text-slate-400 font-medium mt-1">
-							<span>15 m²</span>
-							<span>100 m²</span>
-							<span>200 m²</span>
-							<span>250 m²</span>
+							<span id="calc-size-min-lbl">15 m²</span>
+							<span id="calc-size-mid-lbl">130 m²</span>
+							<span id="calc-size-max-lbl">250 m²</span>
 						</div>
 					</div>
 
@@ -726,12 +771,39 @@ import flyttImg from '../../images/Flyttjänster.png';
 		const standardNote = document.getElementById('calc-standard-note');
 		const ctaBtn = document.getElementById('calc-cta-btn');
 
+		// Volume estimator references
+		const volumeEstContainer = document.getElementById('calc-volume-estimator-container');
+		const calcRooms = document.getElementById('calc-rooms');
+		const calcPersons = document.getElementById('calc-persons');
+		const calcLifestyle = document.getElementById('calc-lifestyle');
+
+		// Slider limit labels
+		const sizeMinLbl = document.getElementById('calc-size-min-lbl');
+		const sizeMidLbl = document.getElementById('calc-size-mid-lbl');
+		const sizeMaxLbl = document.getElementById('calc-size-max-lbl');
+
 		let currentService = 'moving';
+
+		const calculateEstimatedVolume = () => {
+			if (!calcRooms || !calcPersons || !calcLifestyle) return 30;
+			const rooms = parseInt(calcRooms.value, 10);
+			const persons = parseInt(calcPersons.value, 10);
+			const lifestyle = calcLifestyle.value;
+			
+			let multiplier = 1.0;
+			if (lifestyle === 'minimalist') multiplier = 0.7;
+			else if (lifestyle === 'samlare') multiplier = 1.4;
+
+			const vol = Math.round((rooms * 10 + persons * 4) * multiplier);
+			return Math.max(5, Math.min(120, vol));
+		};
 
 		const updateCalculator = () => {
 			if (!sizeInput) return;
 			const size = parseInt(sizeInput.value, 10);
-			if (sizeVal) sizeVal.textContent = `${size} m²`;
+			
+			const unit = currentService === 'moving' ? 'm³' : 'm²';
+			if (sizeVal) sizeVal.textContent = `${size} ${unit}`;
 
 			let finalPrice = 0;
 			let displaySavings = false;
@@ -739,9 +811,9 @@ import flyttImg from '../../images/Flyttjänster.png';
 			let savingsAmount = 0;
 
 			if (currentService === 'moving') {
-				if (sizeLabel) sizeLabel.textContent = 'Property size (square meters)';
-				// Moving: 1200 base + 45 kr per sqm
-				finalPrice = 1200 + (size * 45);
+				if (sizeLabel) sizeLabel.textContent = 'Volume (cubic meters)';
+				// Moving: 1500 base + 120 kr per m³
+				finalPrice = 1500 + (size * 120);
 				if (infoMoving) infoMoving.classList.remove('hidden');
 				if (infoCleaning) infoCleaning.classList.add('hidden');
 				if (infoRoof) infoRoof.classList.add('hidden');
@@ -801,6 +873,17 @@ import flyttImg from '../../images/Flyttjänster.png';
 			}
 		};
 
+		const updateEstimatedVolume = () => {
+			if (currentService !== 'moving' || !sizeInput) return;
+			const estVol = calculateEstimatedVolume();
+			sizeInput.value = estVol;
+			updateCalculator();
+		};
+
+		if (calcRooms) calcRooms.addEventListener('change', updateEstimatedVolume);
+		if (calcPersons) calcPersons.addEventListener('change', updateEstimatedVolume);
+		if (calcLifestyle) calcLifestyle.addEventListener('change', updateEstimatedVolume);
+
 		if (tabMoving && tabCleaning && tabRoof && sizeInput) {
 			const setTabActive = (activeTab, inactiveTab1, inactiveTab2, service) => {
 				currentService = service;
@@ -812,6 +895,24 @@ import flyttImg from '../../images/Flyttjänster.png';
 				
 				inactiveTab2.classList.remove('bg-white', 'text-accent', 'shadow-xs');
 				inactiveTab2.classList.add('text-slate-500', 'hover:text-slate-800');
+
+				if (service === 'moving') {
+					if (volumeEstContainer) volumeEstContainer.classList.remove('hidden');
+					sizeInput.min = "5";
+					sizeInput.max = "120";
+					sizeMinLbl.textContent = "5 m³";
+					sizeMidLbl.textContent = "60 m³";
+					sizeMaxLbl.textContent = "120 m³";
+					sizeInput.value = calculateEstimatedVolume();
+				} else {
+					if (volumeEstContainer) volumeEstContainer.classList.add('hidden');
+					sizeInput.min = "15";
+					sizeInput.max = "250";
+					sizeMinLbl.textContent = "15 m²";
+					sizeMidLbl.textContent = "130 m²";
+					sizeMaxLbl.textContent = "250 m²";
+					sizeInput.value = "60";
+				}
 				
 				updateCalculator();
 			};
@@ -821,6 +922,16 @@ import flyttImg from '../../images/Flyttjänster.png';
 			tabRoof.addEventListener('click', () => setTabActive(tabRoof, tabMoving, tabCleaning, 'roof'));
 
 			sizeInput.addEventListener('input', updateCalculator);
+
+			// Init defaults for moving
+			if (volumeEstContainer) volumeEstContainer.classList.remove('hidden');
+			sizeInput.min = "5";
+			sizeInput.max = "120";
+			sizeMinLbl.textContent = "5 m³";
+			sizeMidLbl.textContent = "60 m³";
+			sizeMaxLbl.textContent = "120 m³";
+			sizeInput.value = calculateEstimatedVolume();
+
 			updateCalculator();
 		}
 

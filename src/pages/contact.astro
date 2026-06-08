@@ -335,8 +335,8 @@ import Layout from '../layouts/Layout.astro';
 			let savingsText = "";
 
 			if (service === 'flytt') {
-				finalPrice = 1200 + (size * 45);
-				detailsText = `Baserat på ${size} m² boyta för flytthjälp (inkl. moms och försäkring).`;
+				finalPrice = 1500 + (size * 120);
+				detailsText = `Baserat på ${size} m³ volym för flytthjälp (inkl. moms och försäkring).`;
 				showSummary = true;
 			} else if (service === 'hemstadning') {
 				const base = 600 + (size * 30);
@@ -403,10 +403,13 @@ import Layout from '../layouts/Layout.astro';
 					if (sizeInput) sizeInput.setAttribute('required', 'true');
 					
 					if (service === 'takrengoring') {
-						if (sizeLabel) sizeLabel.textContent = 'Takstorlek (kvadratmeter) *';
+						if (sizeLabel) sizeLabel.innerHTML = 'Takstorlek (kvadratmeter) *';
 						if (sizeInput) sizeInput.placeholder = 't.ex. 120';
+					} else if (service === 'flytt') {
+						if (sizeLabel) sizeLabel.innerHTML = 'Volym (kubikmeter) * <span class="text-[11px] text-slate-400 font-normal block mt-1">Om du är osäker, räkna med ca 10–15 kubikmeter (m³) per rum (t.ex. 3 rum = ca 30–45 m³).</span>';
+						if (sizeInput) sizeInput.placeholder = 't.ex. 30';
 					} else {
-						if (sizeLabel) sizeLabel.textContent = 'Bostadsstorlek (kvadratmeter) *';
+						if (sizeLabel) sizeLabel.innerHTML = 'Bostadsstorlek (kvadratmeter) *';
 						if (sizeInput) sizeInput.placeholder = 't.ex. 65';
 					}
 				}
@@ -532,7 +535,8 @@ import Layout from '../layouts/Layout.astro';
 					if (receiptPhone) receiptPhone.textContent = phoneVal;
 
 					if (sizeVal && sizeContainer && !sizeContainer.classList.contains('hidden')) {
-						if (receiptSize) receiptSize.textContent = `${sizeVal} m²`;
+						const unit = serviceSelect.value === 'flytt' ? 'm³' : 'm²';
+						if (receiptSize) receiptSize.textContent = `${sizeVal} ${unit}`;
 						if (receiptSizeRow) receiptSizeRow.classList.remove('hidden');
 					} else {
 						if (receiptSizeRow) receiptSizeRow.classList.add('hidden');
