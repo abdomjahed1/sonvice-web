@@ -366,7 +366,7 @@
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, var(--color-accent), #10b981);
-  transform: scale-x(0);
+  transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -375,17 +375,12 @@
   color: var(--color-text-heading);
 }
 
-.nav-link:hover::after {
-  transform: scale-x(1);
-  transform-origin: left;
-}
-
 .nav-link.active {
   color: var(--color-accent);
 }
 
 .nav-link.active::after {
-  transform: scale-x(1);
+  transform: scaleX(1);
   transform-origin: left;
 }
 
