@@ -158,21 +158,6 @@ const t = isEn ? {
 	</head>
 	<body class="bg-surface-body text-text-body min-h-screen flex flex-col overflow-x-hidden selection:bg-accent selection:text-white">
 
-		<!-- ═══ Activity Toast ═══ -->
-		<div id="activity-toast">
-			<div class="toast-inner">
-				<div class="toast-avatar" id="toast-emoji">🏠</div>
-				<div style="flex:1">
-					<p class="text-xs font-bold text-slate-800" id="toast-name">Anna K.</p>
-					<p class="text-[11px] text-slate-500 leading-tight mt-0.5" id="toast-msg">bokade hemstädning</p>
-					<p class="text-[10px] text-slate-400 mt-1 flex items-center gap-1">
-						<span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
-						<span id="toast-time">nyligen</span>
-					</p>
-				</div>
-				<button id="toast-close" aria-label="Stäng" style="flex-shrink:0;margin-left:8px;background:none;border:none;cursor:pointer;color:#94a3b8;font-size:16px;line-height:1;padding:2px 4px;border-radius:4px;transition:color 0.15s,background 0.15s" onmouseover="this.style.color='#475569';this.style.background='#f1f5f9'" onmouseout="this.style.color='#94a3b8';this.style.background='none'">&#x2715;</button>
-			</div>
-		</div>
 
 		<!-- Scroll Progress Bar -->
 		<div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-accent via-teal-400 to-emerald-500 z-[9999] transition-all duration-75" style="width: 0%"></div>
@@ -528,66 +513,7 @@ const t = isEn ? {
 				};
 				window.initTiltCards();
 
-			// ─── 9. Activity Toast System ───
-			const toastEl = document.getElementById('activity-toast');
-			const toastName = document.getElementById('toast-name');
-			const toastMsg = document.getElementById('toast-msg');
-			const toastTime = document.getElementById('toast-time');
-			const toastEmoji = document.getElementById('toast-emoji');
-			const isEnLang = document.documentElement.lang === 'en';
 
-			const toastsSV = [
-				{ name: 'Anna K.', msg: 'bokade hemstädning', time: 'för 2 timmar sedan', emoji: '✨' },
-				{ name: 'Erik L.', msg: 'begärde offert för flytt', time: 'för 4 timmar sedan', emoji: '📦' },
-				{ name: 'Maria S.', msg: 'bokade fönsterputsning', time: 'i morse', emoji: '🪟' },
-				{ name: 'Johan B.', msg: 'bekräftade takrengöring', time: 'igår', emoji: '🏠' },
-				{ name: 'Sara N.', msg: 'lämnade 5-stjärnig recension', time: 'för 1 dag sedan', emoji: '⭐' },
-				{ name: 'Mikael A.', msg: 'beställde kombinationspaket', time: 'för 3 timmar sedan', emoji: '🎯' },
-			];
-
-			const toastsEN = [
-				{ name: 'Anna K.', msg: 'booked home cleaning', time: '2 hours ago', emoji: '✨' },
-				{ name: 'Erik L.', msg: 'requested a moving quote', time: '4 hours ago', emoji: '📦' },
-				{ name: 'Maria S.', msg: 'booked window washing', time: 'this morning', emoji: '🪟' },
-				{ name: 'Johan B.', msg: 'confirmed roof cleaning', time: 'yesterday', emoji: '🏠' },
-				{ name: 'Sara N.', msg: 'left a 5-star review', time: '1 day ago', emoji: '⭐' },
-				{ name: 'Mikael A.', msg: 'ordered combo package', time: '3 hours ago', emoji: '🎯' },
-			];
-
-			const toasts = isEnLang ? toastsEN : toastsSV;
-
-			if (toastEl && toastName && toastMsg && toastTime && toastEmoji) {
-				let toastIdx = 0;
-				let autoHideTimer = null;
-
-				const hideToast = () => {
-					toastEl.classList.remove('toast-visible');
-					if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
-				};
-
-				const showToast = () => {
-					const t = toasts[toastIdx % toasts.length];
-					toastName.textContent = t.name;
-					toastMsg.textContent = t.msg;
-					toastTime.textContent = t.time;
-					toastEmoji.textContent = t.emoji;
-					toastIdx++;
-
-					toastEl.classList.add('toast-visible');
-					// Auto-hide after 6 seconds
-					autoHideTimer = setTimeout(hideToast, 6000);
-				};
-
-				// Close button
-				const closeBtn = document.getElementById('toast-close');
-				if (closeBtn) closeBtn.addEventListener('click', hideToast);
-
-				// First toast after 10s, then every 3 minutes
-				setTimeout(() => {
-					showToast();
-					setInterval(showToast, 180000);
-				}, 10000);
-			}
 
 			// --- 10. Cookie Consent Banner Logic ---
 			const cookieBanner = document.getElementById('cookie-banner');
