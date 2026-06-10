@@ -1,0 +1,728 @@
+diff --git a/src/pages/en/index.astro b/src/pages/en/index.astro
+index e2718c1..d6478a7 100644
+--- a/src/pages/en/index.astro
++++ b/src/pages/en/index.astro
+@@ -1,10 +1,5 @@
+ ---
+ import Layout from '../../layouts/Layout.astro';
+-import flyttIcon from '../../icons/Flyttjänster.png';
+-import hemstadningIcon from '../../icons/Hemstädning.png';
+-import fonsterputsningIcon from '../../icons/Fönsterputsning.png';
+-import takrengoringIcon from '../../icons/Takrengöring.png';
+-import tradgardsvardIcon from '../../icons/Trädgårdsvård.png';
+ import flyttImg from '../../images/Flyttjänster.png';
+ ---
+ 
+@@ -203,10 +198,23 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+ 				
+ 				<!-- Service Card: Flytt -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/en/moving-services" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={flyttIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-flytt-en)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-flytt-en" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<rect x="2" y="4" width="13" height="12" rx="1.5" />
++								<path d="M15 8h4.5l3.5 3.5V16h-8V8z" />
++								<path d="M16 9h2.5l2 2H16V9z" />
++								<circle cx="5.5" cy="18.5" r="2.5" />
++								<circle cx="17.5" cy="18.5" r="2.5" />
++								<line x1="2" y1="18.5" x2="3" y2="18.5" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Moving Services</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -215,17 +223,28 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 450 SEK/hr</span>
+-						<a href="/en/moving-services" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Hemstädning -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/en/home-cleaning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={hemstadningIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-hemstadning-en)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-hemstadning-en" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
++								<path d="M9 22V12h6v10" />
++								<path d="M19 4v4M17 6h4" />
++								<path d="M7 13v3M5.5 14.5h3" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Home Cleaning</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -234,17 +253,30 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 195 SEK/hr</span>
+-						<a href="/en/home-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Fönsterputsning -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/en/window-cleaning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={fonsterputsningIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-fonsterputsning-en)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-fonsterputsning-en" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<rect x="3" y="3" width="18" height="18" rx="2" />
++								<line x1="3" y1="12" x2="21" y2="12" />
++								<line x1="12" y1="3" x2="12" y2="21" />
++								<path d="M16 6l-6 6" stroke-width="2.5" />
++								<path d="M13 9l3 3" stroke-width="2" />
++								<path d="M5 16c2-1 4-1 6-2s4-1 6-2" stroke-dasharray="2 2" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Window Cleaning</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -253,17 +285,31 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 390 SEK fixed</span>
+-						<a href="/en/window-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Takrengöring -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/en/roof-cleaning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={takrengoringIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-takrengoring-en)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-takrengoring-en" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M3 14l9-9 9 9" stroke-width="2.2" />
++								<path d="M12 5v14" stroke-dasharray="2 2" />
++								<path d="M5 14v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6" />
++								<circle cx="12" cy="10" r="1.5" />
++								<circle cx="8" cy="12" r="1" />
++								<circle cx="16" cy="12" r="1" />
++								<path d="M12 15l-1-2h2z" fill="currentColor" stroke="none" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Roof Cleaning</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -272,17 +318,27 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 1 900 SEK</span>
+-						<a href="/en/roof-cleaning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Trädgårdsvård -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/en/gardening" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={tradgardsvardIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-tradgardsvard-en)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-tradgardsvard-en" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M12 22V8" stroke-width="2" />
++								<path d="M12 12C8.5 8.5 5 9 5 9s.5 3.5 4 7c2 2 3 2 3 2s0-1-1-3z" />
++								<path d="M12 10c3.5-3.5 7-3 7-3s-.5 3.5-4 7c-2 2-3 2-3 2s0-1-1-3z" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Gardening</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -291,11 +347,11 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">From 295 SEK/hr</span>
+-						<a href="/en/gardening" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Read more <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Promo Combo Card -->
+ 				<div class="bg-gradient-to-br from-teal-700 to-emerald-800 rounded-2xl p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+@@ -396,12 +452,31 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 							
+ 							<!-- Livsstil -->
+ 							<div>
+-								<label for="calc-lifestyle" class="text-[11px] font-semibold text-slate-700 mb-1 block">Amount of goods (Lifestyle)</label>
+-								<select id="calc-lifestyle" class="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-text-heading outline-none cursor-pointer">
+-									<option value="minimalist">🧘 Minimalist</option>
+-									<option value="normal" selected>🏠 Normal</option>
+-									<option value="samlare">📚 Collector</option>
+-								</select>
++								<label class="text-[11px] font-semibold text-slate-700 mb-1.5 block">Amount of goods (Lifestyle)</label>
++								<input type="hidden" id="calc-lifestyle" value="normal" />
++								<div class="grid grid-cols-3 gap-1">
++									<!-- Minimalist -->
++									<button type="button" data-lifestyle="minimalist" class="lifestyle-btn flex flex-col items-center justify-center p-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-slate-400 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<rect x="6" y="6" width="12" height="12" rx="1.5" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Minimalist</span>
++									</button>
++									<!-- Normal -->
++									<button type="button" data-lifestyle="normal" class="lifestyle-btn active flex flex-col items-center justify-center p-1.5 rounded-lg border-accent bg-accent-soft text-accent transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-accent mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Normal</span>
++									</button>
++									<!-- Collector -->
++									<button type="button" data-lifestyle="samlare" class="lifestyle-btn flex flex-col items-center justify-center p-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-slate-400 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Collector</span>
++									</button>
++								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+@@ -552,17 +627,33 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 					<a href="/en/contact" class="inline-flex items-center gap-1.5 text-sm font-bold text-accent hover:text-accent-hover transition-colors">Contact us for questions about your area →</a>
+ 				</div>
+ 
+-				<div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200/60 shadow-xs space-y-8 reveal-on-scroll delay-100">
++				<div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200/60 shadow-xs space-y-6 reveal-on-scroll delay-100">
+ 					<div>
+-						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Kronoberg/Kalmar region</h3>
+-						<p class="text-base text-text-body leading-loose">
+-							Växjö · Kalmar · Ljungby · Västervik · Oskarshamn · Nybro · Älmhult · Alvesta · Vimmerby · Mönsterås · Emmaboda · Hultsfred · Tingsryd
+-						</p>
++						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Kronoberg / Kalmar Region</h3>
++						<div class="space-y-2.5">
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Kronoberg:</strong> Växjö · Ljungby · Älmhult · Markaryd · Alvesta · Tingsryd · Lessebo
++							</p>
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Kalmar:</strong> Kalmar · Västervik · Oskarshamn · Nybro · Emmaboda · Vimmerby · Mönsterås · Öland/Borgholm
++							</p>
++						</div>
++					</div>
++					<div class="border-t border-slate-100 pt-6">
++						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Skåne / Blekinge Region</h3>
++						<div class="space-y-2.5">
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Skåne:</strong> Malmö · Helsingborg · Lund · Kristianstad · Landskrona · Trelleborg · Ystad · Ängelholm · Hässleholm · Eslöv · Staffanstorp · Kävlinge
++							</p>
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Blekinge:</strong> Karlskrona · Ronneby · Karlshamn · Sölvesborg · Olofström
++							</p>
++						</div>
+ 					</div>
+ 					<div class="border-t border-slate-100 pt-6">
+ 						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Rest of Sweden (Moves)</h3>
+-						<p class="text-base text-text-body leading-loose">
+-							Uppsala · Södertälje · Norrköping · Linköping · Gothenburg · Malmö · Örebro · Västerås
++						<p class="text-sm text-text-body leading-relaxed">
++							Uppsala · Södertälje · Norrköping · Linköping · Gothenburg · Örebro · Västerås
+ 						</p>
+ 						<p class="text-xs text-text-muted mt-3">Longer distances and international moves are planned in consultation with our logistics manager. Contact us.</p>
+ 					</div>
+@@ -688,6 +779,7 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 		const prevBtn = document.getElementById('prev-testimonial');
+ 		const nextBtn = document.getElementById('next-testimonial');
+ 		let currentIdx = 0;
++		let autoSlideInterval = null;
+ 
+ 		const showSlide = (idx) => {
+ 			slides.forEach((slide, i) => {
+@@ -704,16 +796,36 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 			});
+ 		};
+ 
++		const startAutoSlide = () => {
++			stopAutoSlide();
++			autoSlideInterval = setInterval(() => {
++				currentIdx = (currentIdx + 1) % slides.length;
++				showSlide(currentIdx);
++			}, 8000); // 8 seconds delay
++		};
++
++		const stopAutoSlide = () => {
++			if (autoSlideInterval) {
++				clearInterval(autoSlideInterval);
++				autoSlideInterval = null;
++			}
++		};
++
+ 		if (prevBtn && nextBtn && slides.length) {
+ 			nextBtn.addEventListener('click', () => {
+ 				currentIdx = (currentIdx + 1) % slides.length;
+ 				showSlide(currentIdx);
++				startAutoSlide(); // Reset timer on click
+ 			});
+ 
+ 			prevBtn.addEventListener('click', () => {
+ 				currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+ 				showSlide(currentIdx);
++				startAutoSlide(); // Reset timer on click
+ 			});
++
++			// Start the auto slide on load
++			startAutoSlide();
+ 		}
+ 
+ 		// --- FAQ accordion toggle ---
+@@ -884,6 +996,38 @@ import flyttImg from '../../images/Flyttjänster.png';
+ 		if (calcPersons) calcPersons.addEventListener('change', updateEstimatedVolume);
+ 		if (calcLifestyle) calcLifestyle.addEventListener('change', updateEstimatedVolume);
+ 
++		// Lifestyle custom buttons logic
++		const lifestyleBtns = document.querySelectorAll('.lifestyle-btn');
++		const lifestyleInput = document.getElementById('calc-lifestyle');
++		if (lifestyleBtns && lifestyleInput) {
++			lifestyleBtns.forEach(btn => {
++				btn.addEventListener('click', () => {
++					// Remove active styling from all buttons
++					lifestyleBtns.forEach(b => {
++						b.classList.remove('border-accent', 'bg-accent-soft', 'text-accent');
++						b.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
++						const svg = b.querySelector('svg');
++						if (svg) {
++							svg.classList.remove('text-accent');
++							svg.classList.add('text-slate-400');
++						}
++					});
++					// Add active styling to clicked button
++					btn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
++					btn.classList.add('border-accent', 'bg-accent-soft', 'text-accent');
++					const svg = btn.querySelector('svg');
++					if (svg) {
++						svg.classList.remove('text-slate-400');
++						svg.classList.add('text-accent');
++					}
++					// Update input value and dispatch change
++					const value = btn.getAttribute('data-lifestyle');
++					lifestyleInput.value = value;
++					lifestyleInput.dispatchEvent(new Event('change'));
++				});
++			});
++		}
++
+ 		if (tabMoving && tabCleaning && tabRoof && sizeInput) {
+ 			const setTabActive = (activeTab, inactiveTab1, inactiveTab2, service) => {
+ 				currentService = service;
+diff --git a/src/pages/index.astro b/src/pages/index.astro
+index b6e3041..5261abf 100644
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -1,10 +1,5 @@
+ ---
+ import Layout from '../layouts/Layout.astro';
+-import flyttIcon from '../icons/Flyttjänster.png';
+-import hemstadningIcon from '../icons/Hemstädning.png';
+-import fonsterputsningIcon from '../icons/Fönsterputsning.png';
+-import takrengoringIcon from '../icons/Takrengöring.png';
+-import tradgardsvardIcon from '../icons/Trädgårdsvård.png';
+ import flyttImg from '../images/Flyttjänster.png';
+ ---
+ 
+@@ -210,10 +205,23 @@ import flyttImg from '../images/Flyttjänster.png';
+ 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+ 				
+ 				<!-- Service Card: Flytt -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/flyttjanster" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={flyttIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-flytt)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-flytt" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<rect x="2" y="4" width="13" height="12" rx="1.5" />
++								<path d="M15 8h4.5l3.5 3.5V16h-8V8z" />
++								<path d="M16 9h2.5l2 2H16V9z" />
++								<circle cx="5.5" cy="18.5" r="2.5" />
++								<circle cx="17.5" cy="18.5" r="2.5" />
++								<line x1="2" y1="18.5" x2="3" y2="18.5" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Flyttjänster</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -222,17 +230,28 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 450 kr/tim</span>
+-						<a href="/flyttjanster" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Hemstädning -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/hemstadning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={hemstadningIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-hemstadning)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-hemstadning" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
++								<path d="M9 22V12h6v10" />
++								<path d="M19 4v4M17 6h4" />
++								<path d="M7 13v3M5.5 14.5h3" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Hemstädning</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -241,17 +260,30 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 195 kr/tim</span>
+-						<a href="/hemstadning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Fönsterputsning -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/fonsterputsning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={fonsterputsningIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-fonsterputsning)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-fonsterputsning" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<rect x="3" y="3" width="18" height="18" rx="2" />
++								<line x1="3" y1="12" x2="21" y2="12" />
++								<line x1="12" y1="3" x2="12" y2="21" />
++								<path d="M16 6l-6 6" stroke-width="2.5" />
++								<path d="M13 9l3 3" stroke-width="2" />
++								<path d="M5 16c2-1 4-1 6-2s4-1 6-2" stroke-dasharray="2 2" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Fönsterputsning</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -260,17 +292,31 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 390 kr fast</span>
+-						<a href="/fonsterputsning" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Takrengöring -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/takrengoring" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={takrengoringIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-takrengoring)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-takrengoring" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M3 14l9-9 9 9" stroke-width="2.2" />
++								<path d="M12 5v14" stroke-dasharray="2 2" />
++								<path d="M5 14v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6" />
++								<circle cx="12" cy="10" r="1.5" />
++								<circle cx="8" cy="12" r="1" />
++								<circle cx="16" cy="12" r="1" />
++								<path d="M12 15l-1-2h2z" fill="currentColor" stroke="none" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Takrengöring</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -279,17 +325,27 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 1 900 kr</span>
+-						<a href="/takrengoring" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Service Card: Trädgårdsvård -->
+-				<div class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
++				<a href="/tradgardsvard" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
+ 					<div>
+-						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-3.5 mb-6 group-hover:scale-105 transition-transform duration-300">
+-							<img src={tradgardsvardIcon.src} alt="" class="w-full h-full object-contain" />
++						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-2 mb-6 group-hover:scale-105 transition-transform duration-300">
++							<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="url(#grad-tradgardsvard)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
++								<defs>
++									<linearGradient id="grad-tradgardsvard" x1="0%" y1="0%" x2="100%" y2="100%">
++										<stop offset="0%" stop-color="var(--color-accent)" />
++										<stop offset="100%" stop-color="#10b981" />
++									</linearGradient>
++								</defs>
++								<path d="M12 22V8" stroke-width="2" />
++								<path d="M12 12C8.5 8.5 5 9 5 9s.5 3.5 4 7c2 2 3 2 3 2s0-1-1-3z" />
++								<path d="M12 10c3.5-3.5 7-3 7-3s-.5 3.5-4 7c-2 2-3 2-3 2s0-1-1-3z" />
++							</svg>
+ 						</div>
+ 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Trädgårdsvård</h3>
+ 						<p class="text-sm text-text-body leading-relaxed mb-6">
+@@ -298,11 +354,11 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					</div>
+ 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
+ 						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 295 kr/tim</span>
+-						<a href="/tradgardsvard" class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
++						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
+ 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+-						</a>
++						</span>
+ 					</div>
+-				</div>
++				</a>
+ 
+ 				<!-- Promo Combo Card -->
+ 				<div class="bg-gradient-to-br from-teal-700 to-emerald-800 rounded-2xl p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+@@ -403,12 +459,31 @@ import flyttImg from '../images/Flyttjänster.png';
+ 							
+ 							<!-- Livsstil -->
+ 							<div>
+-								<label for="calc-lifestyle" class="text-[11px] font-semibold text-slate-700 mb-1 block">Mängd bohag</label>
+-								<select id="calc-lifestyle" class="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-text-heading outline-none cursor-pointer">
+-									<option value="minimalist">🧘 Minimalist</option>
+-									<option value="normal" selected>🏠 Normal</option>
+-									<option value="samlare">📚 Samlare</option>
+-								</select>
++								<label class="text-[11px] font-semibold text-slate-700 mb-1.5 block">Mängd bohag</label>
++								<input type="hidden" id="calc-lifestyle" value="normal" />
++								<div class="grid grid-cols-3 gap-1">
++									<!-- Minimalist -->
++									<button type="button" data-lifestyle="minimalist" class="lifestyle-btn flex flex-col items-center justify-center p-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-slate-400 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<rect x="6" y="6" width="12" height="12" rx="1.5" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Minimalist</span>
++									</button>
++									<!-- Normal -->
++									<button type="button" data-lifestyle="normal" class="lifestyle-btn active flex flex-col items-center justify-center p-1.5 rounded-lg border-accent bg-accent-soft text-accent transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-accent mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Normal</span>
++									</button>
++									<!-- Samlare -->
++									<button type="button" data-lifestyle="samlare" class="lifestyle-btn flex flex-col items-center justify-center p-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors text-center cursor-pointer select-none">
++										<svg class="w-4 h-4 text-slate-400 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++											<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
++										</svg>
++										<span class="text-[9px] font-semibold tracking-tight">Samlare</span>
++									</button>
++								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+@@ -559,17 +634,33 @@ import flyttImg from '../images/Flyttjänster.png';
+ 					<a href="/contact" class="inline-flex items-center gap-1.5 text-sm font-bold text-accent hover:text-accent-hover transition-colors">Kontakta oss för frågor om ditt område →</a>
+ 				</div>
+ 
+-				<div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200/60 shadow-xs space-y-8 reveal-on-scroll delay-100">
++				<div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200/60 shadow-xs space-y-6 reveal-on-scroll delay-100">
+ 					<div>
+-						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Kronoberg/Kalmar region</h3>
+-						<p class="text-base text-text-body leading-loose">
+-							Växjö · Kalmar · Ljungby · Västervik · Oskarshamn · Nybro · Älmhult · Alvesta · Vimmerby · Mönsterås · Emmaboda · Hultsfred · Tingsryd
+-						</p>
++						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Kronoberg / Kalmar Region</h3>
++						<div class="space-y-2.5">
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Kronoberg:</strong> Växjö · Ljungby · Älmhult · Markaryd · Alvesta · Tingsryd · Lessebo
++							</p>
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Kalmar:</strong> Kalmar · Västervik · Oskarshamn · Nybro · Emmaboda · Vimmerby · Mönsterås · Öland/Borgholm
++							</p>
++						</div>
++					</div>
++					<div class="border-t border-slate-100 pt-6">
++						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Skåne / Blekinge Region</h3>
++						<div class="space-y-2.5">
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Skåne:</strong> Malmö · Helsingborg · Lund · Kristianstad · Landskrona · Trelleborg · Ystad · Ängelholm · Hässleholm · Eslöv · Staffanstorp · Kävlinge
++							</p>
++							<p class="text-sm text-text-body leading-relaxed">
++								<strong class="text-accent">Blekinge:</strong> Karlskrona · Ronneby · Karlshamn · Sölvesborg · Olofström
++							</p>
++						</div>
+ 					</div>
+ 					<div class="border-t border-slate-100 pt-6">
+ 						<h3 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-4">Övriga Sverige (Flyttar)</h3>
+-						<p class="text-base text-text-body leading-loose">
+-							Uppsala · Södertälje · Norrköping · Linköping · Göteborg · Malmö · Örebro · Västerås
++						<p class="text-sm text-text-body leading-relaxed">
++							Uppsala · Södertälje · Norrköping · Linköping · Göteborg · Örebro · Västerås
+ 						</p>
+ 						<p class="text-xs text-text-muted mt-3">Längre distanser och utlandsflyttar planeras i samråd med vår logistikchef. Kontakta oss.</p>
+ 					</div>
+@@ -695,6 +786,7 @@ import flyttImg from '../images/Flyttjänster.png';
+ 		const prevBtn = document.getElementById('prev-testimonial');
+ 		const nextBtn = document.getElementById('next-testimonial');
+ 		let currentIdx = 0;
++		let autoSlideInterval = null;
+ 
+ 		const showSlide = (idx) => {
+ 			slides.forEach((slide, i) => {
+@@ -712,16 +804,36 @@ import flyttImg from '../images/Flyttjänster.png';
+ 			});
+ 		};
+ 
++		const startAutoSlide = () => {
++			stopAutoSlide();
++			autoSlideInterval = setInterval(() => {
++				currentIdx = (currentIdx + 1) % slides.length;
++				showSlide(currentIdx);
++			}, 8000); // 8 seconds delay
++		};
++
++		const stopAutoSlide = () => {
++			if (autoSlideInterval) {
++				clearInterval(autoSlideInterval);
++				autoSlideInterval = null;
++			}
++		};
++
+ 		if (prevBtn && nextBtn && slides.length) {
+ 			nextBtn.addEventListener('click', () => {
+ 				currentIdx = (currentIdx + 1) % slides.length;
+ 				showSlide(currentIdx);
++				startAutoSlide(); // Reset timer on click
+ 			});
+ 
+ 			prevBtn.addEventListener('click', () => {
+ 				currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+ 				showSlide(currentIdx);
++				startAutoSlide(); // Reset timer on click
+ 			});
++
++			// Start the auto slide on load
++			startAutoSlide();
+ 		}
+ 
+ 		// --- FAQ accordion toggle ---
+@@ -893,6 +1005,38 @@ import flyttImg from '../images/Flyttjänster.png';
+ 		if (calcPersons) calcPersons.addEventListener('change', updateEstimatedVolume);
+ 		if (calcLifestyle) calcLifestyle.addEventListener('change', updateEstimatedVolume);
+ 
++		// Lifestyle custom buttons logic
++		const lifestyleBtns = document.querySelectorAll('.lifestyle-btn');
++		const lifestyleInput = document.getElementById('calc-lifestyle');
++		if (lifestyleBtns && lifestyleInput) {
++			lifestyleBtns.forEach(btn => {
++				btn.addEventListener('click', () => {
++					// Remove active styling from all buttons
++					lifestyleBtns.forEach(b => {
++						b.classList.remove('border-accent', 'bg-accent-soft', 'text-accent');
++						b.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
++						const svg = b.querySelector('svg');
++						if (svg) {
++							svg.classList.remove('text-accent');
++							svg.classList.add('text-slate-400');
++						}
++					});
++					// Add active styling to clicked button
++					btn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
++					btn.classList.add('border-accent', 'bg-accent-soft', 'text-accent');
++					const svg = btn.querySelector('svg');
++					if (svg) {
++						svg.classList.remove('text-slate-400');
++						svg.classList.add('text-accent');
++					}
++					// Update input value and dispatch change
++					const value = btn.getAttribute('data-lifestyle');
++					lifestyleInput.value = value;
++					lifestyleInput.dispatchEvent(new Event('change'));
++				});
++			});
++		}
++
+ 		if (tabMoving && tabCleaning && tabRoof && sizeInput) {
+ 			const setTabActive = (activeTab, inactiveTab1, inactiveTab2, service) => {
+ 				currentService = service;
