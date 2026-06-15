@@ -29,7 +29,12 @@ import truck2Img from '../../images/trucks/truck2.webp';
 
 					<h1 class="text-4xl md:text-5xl lg:text-[3.8rem] font-extrabold tracking-tight text-text-heading leading-[1.05]">
 						Light Truck Rental <br/>
-						<span class="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– hassle-free transport</span>
+						<span class="cycling-word-container text-accent inline-block mr-2 align-bottom">
+							<span class="cycling-word active bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– hassle-free transport</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– smooth & secure</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– affordable rates</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">– flexible booking</span>
+						</span>
 					</h1>
 					
 					<p class="text-lg text-text-body leading-relaxed max-w-xl">
@@ -633,6 +638,17 @@ import truck2Img from '../../images/trucks/truck2.webp';
 		// Initialize 3D Tilt Cards
 		if (window.initTiltCards) {
 			window.initTiltCards();
+		}
+
+		// --- Word Cycler Logic ---
+		const words = document.querySelectorAll('.cycling-word');
+		if (words.length > 1) {
+			let wordIdx = 0;
+			setInterval(() => {
+				words[wordIdx].classList.remove('active');
+				wordIdx = (wordIdx + 1) % words.length;
+				words[wordIdx].classList.add('active');
+			}, 2500);
 		}
 	});
 </script>

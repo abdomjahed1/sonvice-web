@@ -20,7 +20,12 @@ import hemstadningImg from '../images/Hemstädning.jpg';
 					</div>
 					
 					<h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-text-heading leading-[1.08]">
-						Professionell
+						<span class="cycling-word-container text-accent inline-block mr-2 align-bottom">
+							<span class="cycling-word active bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">Professionell</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">Noggrann</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">Skinande</span>
+							<span class="cycling-word bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">Fräsch</span>
+						</span>
 						<span class="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">hemstädning i Kronoberg/Kalmar</span>
 					</h1>
 					
@@ -259,6 +264,17 @@ import hemstadningImg from '../images/Hemstädning.jpg';
 	document.addEventListener('DOMContentLoaded', () => {
 		if (window.initGlowCards) window.initGlowCards();
 		if (window.initTiltCards) window.initTiltCards();
+
+		// --- Word Cycler Logic ---
+		const words = document.querySelectorAll('.cycling-word');
+		if (words.length > 1) {
+			let wordIdx = 0;
+			setInterval(() => {
+				words[wordIdx].classList.remove('active');
+				wordIdx = (wordIdx + 1) % words.length;
+				words[wordIdx].classList.add('active');
+			}, 2500);
+		}
 
 		// FAQ accordion toggle
 		document.querySelectorAll('.faq-trigger').forEach(trigger => {
