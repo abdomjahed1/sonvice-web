@@ -247,12 +247,40 @@ const t = isEn ? {
 					</a>
 				</nav>
 
-				<!-- Mobile toggle -->
-				<button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-text-heading hover:bg-slate-100/50 transition-all outline-none" aria-label="Menu">
-					<svg id="menu-svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-					</svg>
-				</button>
+				<!-- Mobile Action Group -->
+				<div class="lg:hidden flex items-center gap-3">
+					<!-- Mobile Language Switcher -->
+					<a href={switchUrl} class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white/80 hover:bg-white text-[11px] font-bold text-slate-700 transition-all shadow-xs active:scale-95" aria-label="Switch Language">
+						{isEn ? (
+							<!-- Swedish Flag SVG -->
+							<svg class="w-4.5 h-4.5 rounded-full overflow-hidden border border-slate-100/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="24" height="24" fill="#0052b4" />
+								<rect x="7" width="3" height="24" fill="#ffda44" />
+								<rect y="10.5" width="24" height="3" fill="#ffda44" />
+							</svg>
+							<span>SV</span>
+						) : (
+							<!-- UK Flag SVG -->
+							<svg class="w-4.5 h-4.5 rounded-full overflow-hidden border border-slate-100/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="24" height="24" fill="#00247d" />
+								<path d="M0 0l24 24M0 24l24-24" stroke="#fff" stroke-width="2.5" />
+								<path d="M0 0l24 24M0 24l24-24" stroke="#cf142b" stroke-width="1.2" />
+								<rect x="9.5" width="5" height="24" fill="#fff" />
+								<rect y="9.5" width="24" height="5" fill="#fff" />
+								<rect x="10.5" width="3" height="24" fill="#cf142b" />
+								<rect y="10.5" width="24" height="3" fill="#cf142b" />
+							</svg>
+							<span>EN</span>
+						)}
+					</a>
+
+					<!-- Mobile toggle -->
+					<button id="menu-toggle" class="p-2 rounded-lg text-slate-600 hover:text-text-heading hover:bg-slate-100/50 transition-all outline-none" aria-label="Menu">
+						<svg id="menu-svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+						</svg>
+					</button>
+				</div>
 			</div>
 
 			<!-- Mobile nav -->
