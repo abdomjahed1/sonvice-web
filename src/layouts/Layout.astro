@@ -63,6 +63,20 @@ const canonicalURL = `${SITE_URL}${canonicalPath}`;
 const svPath = isEn ? switchUrl : canonicalPath;
 const enPath = isEn ? canonicalPath : switchUrl;
 
+const isServicesActive = 
+	pathname.includes('/flyttjanster') ||
+	pathname.includes('/hemstadning') ||
+	pathname.includes('/fonsterputsning') ||
+	pathname.includes('/takrengoring') ||
+	pathname.includes('/tradgardsvard') ||
+	pathname.includes('/lastbilsuthyrning') ||
+	pathname.includes('/moving-services') ||
+	pathname.includes('/home-cleaning') ||
+	pathname.includes('/window-cleaning') ||
+	pathname.includes('/roof-cleaning') ||
+	pathname.includes('/gardening') ||
+	pathname.includes('/truck-rental');
+
 const svURL = `${SITE_URL}${svPath}`;
 const enURL = `${SITE_URL}${enPath}`;
 
@@ -74,6 +88,7 @@ const isActive = (path: string) => {
 
 const t = isEn ? {
 	home: 'Home',
+	services: 'Services',
 	about: 'About us',
 	contact: 'Contact',
 	careers: 'Careers',
@@ -98,6 +113,7 @@ const t = isEn ? {
 	contactUs: 'Contact us'
 } : {
 	home: 'Hem',
+	services: 'Tjänster',
 	about: 'Om oss',
 	contact: 'Kontakt',
 	careers: 'Karriär',
@@ -126,7 +142,7 @@ const t = isEn ? {
 <html lang={isEn ? "en" : "sv"}>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon-logo.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -173,9 +189,40 @@ const t = isEn ? {
 
 				<!-- Desktop nav -->
 				<nav class="hidden lg:flex items-center gap-8">
-					<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en" : "") ? "active" : ""}`}>
+					<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "active" : ""}`}>
 						{t.home}
 					</a>
+					
+					<!-- Services Dropdown -->
+					<div class="relative group">
+						<button class={`nav-link flex items-center gap-1 text-[13px] font-semibold tracking-wide bg-transparent border-none outline-none cursor-pointer ${isServicesActive ? "active" : ""}`}>
+							{t.services}
+							<svg class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+							</svg>
+						</button>
+						<div class="absolute left-0 mt-2 w-56 rounded-xl bg-white border border-slate-200/80 shadow-lg p-2 opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 z-50 origin-top-left before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']">
+							<a href={isEn ? "/en/moving-services" : "/flyttjanster"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcMoving}
+							</a>
+							<a href={isEn ? "/en/home-cleaning" : "/hemstadning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcCleaning}
+							</a>
+							<a href={isEn ? "/en/window-cleaning" : "/fonsterputsning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcWindows}
+							</a>
+							<a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcRoof}
+							</a>
+							<a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcGarden}
+							</a>
+							<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcTruck}
+							</a>
+						</div>
+					</div>
+
 					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "active" : ""}`}>
 						{t.about}
 					</a>
@@ -214,6 +261,37 @@ const t = isEn ? {
 					<a href={isEn ? "/en" : "/"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.home}
 					</a>
+					
+					<!-- Mobile Services Dropdown Accordion -->
+					<div class="flex flex-col">
+						<button id="mobile-services-btn" class={`w-full flex items-center justify-between text-[15px] font-semibold p-3 rounded-lg text-slate-700 hover:bg-slate-50 transition-colors outline-none cursor-pointer ${isServicesActive ? "bg-accent-soft/40 text-accent" : ""}`}>
+							<span>{t.services}</span>
+							<svg id="mobile-services-icon" class="w-4 h-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+							</svg>
+						</button>
+						<div id="mobile-services-menu" class="hidden flex-col pl-4 gap-0.5 border-l border-slate-100 ml-5 mt-1 mb-2">
+							<a href={isEn ? "/en/moving-services" : "/flyttjanster"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcMoving}
+							</a>
+							<a href={isEn ? "/en/home-cleaning" : "/hemstadning"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcCleaning}
+							</a>
+							<a href={isEn ? "/en/window-cleaning" : "/fonsterputsning"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcWindows}
+							</a>
+							<a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcRoof}
+							</a>
+							<a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcGarden}
+							</a>
+							<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class="text-sm font-medium p-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-accent transition-colors">
+								{t.svcTruck}
+							</a>
+						</div>
+					</div>
+
 					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.about}
 					</a>
@@ -226,7 +304,7 @@ const t = isEn ? {
 
 					<div class="border-t border-slate-100 mt-3 pt-3 flex items-center justify-between px-3">
 						<a href={switchUrl} class="text-sm font-semibold text-slate-500 hover:text-text-heading transition-colors">
-							{isEn ? '🇸🇪 Svenska' : '🇬🇧 English'}
+							{isEn ? 'Svenska' : 'English'}
 						</a>
 					</div>
 
@@ -313,7 +391,7 @@ const t = isEn ? {
 			<!-- Bottom bar -->
 			<div class="border-t border-slate-900 bg-primary-dark/20">
 				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-500 space-y-2">
-					<p>© {new Date().getFullYear()} {COMPANY.name} · Org.nr {COMPANY.orgNr} · Innehar F-skattsedel</p>
+					<p>© {new Date().getFullYear()} Sonvice Group · Innehar F-skattsedel</p>
 					<p class="space-x-3">
 						<a href={isEn ? "/en/privacy" : "/integritetspolicy"} class="hover:text-accent transition-colors font-medium">{isEn ? "Privacy Policy" : "Integritetspolicy"}</a>
 						<span>·</span>
@@ -327,8 +405,10 @@ const t = isEn ? {
 		<div id="cookie-banner" class="fixed bottom-24 right-6 z-[9999] max-w-[420px] bg-slate-950/95 backdrop-blur-xl border border-teal-500/25 rounded-2xl p-6 shadow-2xl translate-y-12 opacity-0 pointer-events-none transition-all duration-500">
 			<div class="space-y-4">
 				<div class="flex items-center gap-3">
-					<div class="w-10 h-10 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center text-xl">
-						🍪
+					<div class="w-10 h-10 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center">
+						<svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.37a4.5 4.5 0 01-3.53-3.53C17.08 6.04 16.54 3.08 12 3zm-3 8a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6 3a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3 4a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" />
+						</svg>
 					</div>
 					<div>
 						<h4 class="text-sm font-bold text-white tracking-wide">{isEn ? "Cookie Settings" : "Cookies & Integritet"}</h4>
@@ -414,6 +494,20 @@ const t = isEn ? {
 							mobileMenu.classList.add('hidden');
 							menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
 						}
+					});
+				}
+
+				// --- 3.1 Mobile Services Accordion toggle ---
+				const mobileServicesBtn = document.getElementById('mobile-services-btn');
+				const mobileServicesMenu = document.getElementById('mobile-services-menu');
+				const mobileServicesIcon = document.getElementById('mobile-services-icon');
+				if (mobileServicesBtn && mobileServicesMenu && mobileServicesIcon) {
+					mobileServicesBtn.addEventListener('click', (e) => {
+						e.stopPropagation();
+						mobileServicesMenu.classList.toggle('hidden');
+						mobileServicesMenu.classList.toggle('flex');
+						const isOpen = mobileServicesMenu.classList.contains('flex');
+						mobileServicesIcon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
 					});
 				}
 

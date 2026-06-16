@@ -12,6 +12,15 @@ import takrengoringImg from '../../images/Takrengöring.jpg';
 		<div class="absolute top-[30%] right-[10%] w-[350px] h-[350px] bg-glow-amber rounded-full blur-[70px] -z-10 pointer-events-none animate-float-delay"></div>
 
 		<div class="max-w-6xl mx-auto px-6">
+		<!-- Back button -->
+		<div class="mb-8 reveal-on-scroll">
+			<a href="/en/#services" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-accent transition-colors group">
+				<svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+				</svg>
+				Back to services
+			</a>
+		</div>
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 				
 				<div class="lg:col-span-7 space-y-7 reveal-on-scroll">
@@ -150,26 +159,39 @@ import takrengoringImg from '../../images/Takrengöring.jpg';
 					</div>
 				</div>
 				<div class="lg:col-span-6 reveal-on-scroll delay-200">
-					<div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-xs space-y-4">
-						<h3 class="font-bold text-text-heading text-lg">Price Example (Roof of 120 sqm)</h3>
-						<div class="space-y-2 text-xs border-b border-slate-100 pb-4">
-							<div class="flex justify-between">
-								<span>Roof cleaning & treatment (120 sqm á 56 kr/sqm)</span>
-								<span class="font-mono">6,720 SEK</span>
-							</div>
-							<div class="flex justify-between text-slate-400">
-								<span>Scaffolding and staging fee (not eligible for ROT)</span>
-								<span class="font-mono">990 SEK</span>
-							</div>
+					<div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+						<!-- Highlighted Price Header -->
+						<div class="bg-gradient-to-r from-teal-50 to-emerald-50/30 p-6 border-b border-slate-100 text-center">
+							<span class="text-xs font-bold text-accent uppercase tracking-widest block mb-1">Price Example (Roof of 120 sqm)</span>
+							<div class="text-3xl font-extrabold text-text-heading">5,694 SEK</div>
+							<p class="text-xs text-text-muted mt-1">After 30% ROT credit (incl. VAT & materials)</p>
 						</div>
-						<div class="space-y-2 text-xs pt-2">
-							<div class="flex justify-between text-teal-600 font-bold">
-								<span>ROT deduction (30% skatterabatt on labor)</span>
-								<span class="font-mono">-2,016 SEK</span>
+						
+						<!-- Price Breakdown Details -->
+						<div class="p-6 space-y-4">
+							<div class="text-xs text-text-muted font-bold uppercase tracking-wider mb-2">Cost breakdown</div>
+							
+							<div class="space-y-3 text-sm">
+								<div class="flex justify-between text-text-body">
+									<span>Roof cleaning & treatment <span class="text-xs text-text-muted block mt-0.5">(120 sqm á 56 SEK/sqm)</span></span>
+									<span class="font-semibold text-text-heading">6,720 SEK</span>
+								</div>
+								
+								<div class="flex justify-between text-text-body">
+									<span>Scaffolding and staging fee <span class="text-xs text-text-muted block mt-0.5">(not eligible for ROT)</span></span>
+									<span class="font-semibold text-text-heading">990 SEK</span>
+								</div>
+								
+								<div class="flex justify-between text-teal-600 font-medium pt-2 border-t border-slate-100">
+									<span>ROT deduction <span class="text-xs text-teal-500">(30% tax discount on labor)</span></span>
+									<span class="font-semibold">-2,016 SEK</span>
+								</div>
 							</div>
-							<div class="flex justify-between text-sm font-extrabold text-text-heading pt-2 border-t border-slate-100">
-								<span>Your total price to pay (incl. VAT)</span>
-								<span class="font-mono text-accent">5,694 SEK</span>
+							
+							<div class="bg-slate-50 rounded-xl p-4 mt-4 text-center">
+								<p class="text-xs text-text-body leading-relaxed">
+									Prices include VAT, materials, and staging. We manage the application details directly with Skatteverket.
+								</p>
 							</div>
 						</div>
 					</div>
