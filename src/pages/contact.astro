@@ -83,6 +83,8 @@ import Layout from '../layouts/Layout.astro';
 
 				<div id="form-container" class="transition-all duration-300">
 					<form id="contact-form" class="space-y-6">
+						<!-- Web3Forms Integration -->
+						<input type="hidden" name="access_key" value="d23d6104-1a1b-4ffd-a91a-87cfeff7192f" />
 						
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div>
@@ -90,6 +92,7 @@ import Layout from '../layouts/Layout.astro';
 								<input 
 									type="text" 
 									id="name" 
+									name="name"
 									required 
 									placeholder="Ditt namn" 
 									class="w-full px-4 py-3.5 rounded-lg bg-slate-50/50 border border-slate-200 focus:border-accent focus:ring-4 focus:ring-accent/10 focus:bg-white outline-none transition-all duration-300 text-sm text-text-heading placeholder-slate-400 shadow-inner-xs" 
@@ -101,6 +104,7 @@ import Layout from '../layouts/Layout.astro';
 								<input 
 									type="email" 
 									id="email" 
+									name="email"
 									required 
 									placeholder="namn@exempel.se" 
 									class="w-full px-4 py-3.5 rounded-lg bg-slate-50/50 border border-slate-200 focus:border-accent focus:ring-4 focus:ring-accent/10 focus:bg-white outline-none transition-all duration-300 text-sm text-text-heading placeholder-slate-400 shadow-inner-xs" 
@@ -114,6 +118,7 @@ import Layout from '../layouts/Layout.astro';
 								<input 
 									type="tel" 
 									id="phone" 
+									name="phone"
 									placeholder="070-123 45 67" 
 									class="w-full px-4 py-3.5 rounded-lg bg-slate-50/50 border border-slate-200 focus:border-accent focus:ring-4 focus:ring-accent/10 focus:bg-white outline-none transition-all duration-300 text-sm text-text-heading placeholder-slate-400 shadow-inner-xs" 
 								/>
@@ -123,6 +128,7 @@ import Layout from '../layouts/Layout.astro';
 								<label for="service" class="text-sm font-semibold text-slate-700 mb-2 block">Önskad tjänst *</label>
 								<select 
 									id="service" 
+									name="service"
 									required 
 									class="w-full px-4 py-3.5 rounded-lg bg-slate-50/50 border border-slate-200 focus:border-accent focus:ring-4 focus:ring-accent/10 focus:bg-white outline-none transition-all duration-300 text-sm text-text-heading placeholder-slate-400 cursor-pointer shadow-inner-xs"
 								>
@@ -144,6 +150,7 @@ import Layout from '../layouts/Layout.astro';
 							<input 
 								type="number" 
 								id="size-input" 
+								name="size"
 								min="1" 
 								max="999"
 								placeholder="t.ex. 65" 
@@ -156,6 +163,7 @@ import Layout from '../layouts/Layout.astro';
 							<label for="truck-package" class="text-sm font-semibold text-slate-700 mb-2 block">Välj hyresperiod *</label>
 							<select 
 								id="truck-package" 
+								name="truck_package"
 								class="w-full px-4 py-3.5 rounded-lg bg-slate-50/50 border border-slate-200 focus:border-accent focus:ring-4 focus:ring-accent/10 focus:bg-white outline-none transition-all duration-300 text-sm text-text-heading placeholder-slate-400 cursor-pointer shadow-inner-xs"
 							>
 								<option value="" disabled selected>Välj paket...</option>
@@ -170,6 +178,7 @@ import Layout from '../layouts/Layout.astro';
 							<label for="message" class="text-sm font-semibold text-slate-700 mb-2 block">Beskrivning av uppdraget *</label>
 							<textarea 
 								id="message" 
+								name="message"
 								rows="4" 
 								required 
 								placeholder="Beskriv önskat datum för utförande, antal rum eller andra detaljer." 
@@ -494,7 +503,6 @@ import Layout from '../layouts/Layout.astro';
 				const honeyVal = document.getElementById('honeypot')?.value;
 				if (honeyVal) {
 					console.warn('Silent discard: bot submission detected (honeypot filled)');
-					// Behave as if submission succeeded to avoid alerting the bot
 					formContainer.classList.add('hidden');
 					if (priceSummaryContainer) priceSummaryContainer.classList.add('hidden');
 					successContainer.classList.remove('hidden');
@@ -518,53 +526,85 @@ import Layout from '../layouts/Layout.astro';
 				if (btnIcon) btnIcon.classList.add('hidden');
 				if (btnSpinner) btnSpinner.classList.remove('hidden');
 
-				// Simulate network submission delay
-				setTimeout(() => {
-					// Gather data
-					const nameVal = document.getElementById('name').value;
-					const emailVal = document.getElementById('email').value;
-					const phoneVal = document.getElementById('phone').value || 'Ej angivet';
-					const serviceVal = serviceSelect.options[serviceSelect.selectedIndex].text;
-					const sizeVal = sizeInput ? sizeInput.value : '';
-					const packageVal = truckPackageSelect && !truckPackageSelect.parentElement.classList.contains('hidden') && truckPackageSelect.value ? truckPackageSelect.options[truckPackageSelect.selectedIndex].text : '';
+				// Gather data
+				const nameVal = document.getElementById('name').value;
+				const emailVal = document.getElementById('email').value;
+				const phoneVal = document.getElementById('phone').value || 'Ej angivet';
+				const serviceVal = serviceSelect.options[serviceSelect.selectedIndex].text;
+				const sizeVal = sizeInput ? sizeInput.value : '';
+				const packageVal = truckPackageSelect && !truckPackageSelect.parentElement.classList.contains('hidden') && truckPackageSelect.value ? truckPackageSelect.options[truckPackageSelect.selectedIndex].text : '';
 
-					// Populate success content
-					if (successClientName) successClientName.textContent = nameVal;
-					if (successClientEmail) successClientEmail.textContent = emailVal;
-					if (receiptService) receiptService.textContent = serviceVal;
-					if (receiptPhone) receiptPhone.textContent = phoneVal;
+				// Populate success content
+				if (successClientName) successClientName.textContent = nameVal;
+				if (successClientEmail) successClientEmail.textContent = emailVal;
+				if (receiptService) receiptService.textContent = serviceVal;
+				if (receiptPhone) receiptPhone.textContent = phoneVal;
 
-					if (sizeVal && sizeContainer && !sizeContainer.classList.contains('hidden')) {
-						const unit = serviceSelect.value === 'flytt' ? 'm³' : 'm²';
-						if (receiptSize) receiptSize.textContent = `${sizeVal} ${unit}`;
-						if (receiptSizeRow) receiptSizeRow.classList.remove('hidden');
+				if (sizeVal && sizeContainer && !sizeContainer.classList.contains('hidden')) {
+					const unit = serviceSelect.value === 'flytt' ? 'm³' : 'm²';
+					if (receiptSize) receiptSize.textContent = `${sizeVal} ${unit}`;
+					if (receiptSizeRow) receiptSizeRow.classList.remove('hidden');
+				} else {
+					if (receiptSizeRow) receiptSizeRow.classList.add('hidden');
+				}
+
+				if (packageVal) {
+					if (receiptPackage) receiptPackage.textContent = packageVal;
+					if (receiptPackageRow) receiptPackageRow.classList.remove('hidden');
+				} else {
+					if (receiptPackageRow) receiptPackageRow.classList.add('hidden');
+				}
+
+				// Price estimation receipt
+				if (priceSummaryContainer && !priceSummaryContainer.classList.contains('hidden') && summaryPrice) {
+					if (receiptPrice) receiptPrice.textContent = `ca ${summaryPrice.textContent} kr`;
+					if (receiptPriceRow) receiptPriceRow.classList.remove('hidden');
+				} else {
+					if (receiptPriceRow) receiptPriceRow.classList.add('hidden');
+				}
+
+				// Construct form data for Web3Forms post
+				const formData = new FormData(contactForm);
+				
+				// Append price estimation info to message so the email has the calculated price
+				if (priceSummaryContainer && !priceSummaryContainer.classList.contains('hidden') && summaryPrice) {
+					const estimationInfo = `\n\n--- Offertkalkyl på webben ---\nBeräknat pris: ca ${summaryPrice.textContent} kr\nDesglose: ${summaryDetails.textContent}`;
+					formData.set('message', formData.get('message') + estimationInfo);
+				}
+
+				// Submit to Web3Forms
+				fetch('https://api.web3forms.com/submit', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						// Transition to success state
+						formContainer.classList.add('hidden');
+						if (priceSummaryContainer) priceSummaryContainer.classList.add('hidden');
+						successContainer.classList.remove('hidden');
+						successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 					} else {
-						if (receiptSizeRow) receiptSizeRow.classList.add('hidden');
+						alert('Det uppstod ett fel vid inskickandet. Vänligen försök igen och kontakta oss på info@sonvicegroup.se.');
+						// Reset button state
+						submitBtn.removeAttribute('disabled');
+						submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+						if (btnText) btnText.textContent = 'Skicka förfrågan';
+						if (btnIcon) btnIcon.classList.remove('hidden');
+						if (btnSpinner) btnSpinner.classList.add('hidden');
 					}
-
-					if (packageVal) {
-						if (receiptPackage) receiptPackage.textContent = packageVal;
-						if (receiptPackageRow) receiptPackageRow.classList.remove('hidden');
-					} else {
-						if (receiptPackageRow) receiptPackageRow.classList.add('hidden');
-					}
-
-					// Price estimation receipt
-					if (priceSummaryContainer && !priceSummaryContainer.classList.contains('hidden') && summaryPrice) {
-						if (receiptPrice) receiptPrice.textContent = `ca ${summaryPrice.textContent} kr`;
-						if (receiptPriceRow) receiptPriceRow.classList.remove('hidden');
-					} else {
-						if (receiptPriceRow) receiptPriceRow.classList.add('hidden');
-					}
-
-					// Transition to success state
-					formContainer.classList.add('hidden');
-					if (priceSummaryContainer) priceSummaryContainer.classList.add('hidden');
-					successContainer.classList.remove('hidden');
-
-					// Scroll to top of card smoothly
-					successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-				}, 1200);
+				})
+				.catch(error => {
+					console.error('Error submitting form:', error);
+					alert('Ett nätverksfel uppstod. Vänligen kontrollera din anslutning och försök igen.');
+					// Reset button state
+					submitBtn.removeAttribute('disabled');
+					submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+					if (btnText) btnText.textContent = 'Skicka förfrågan';
+					if (btnIcon) btnIcon.classList.remove('hidden');
+					if (btnSpinner) btnSpinner.classList.add('hidden');
+				});
 			});
 		}
 	});

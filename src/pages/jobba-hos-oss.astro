@@ -108,13 +108,18 @@ import Layout from '../layouts/Layout.astro';
 						<h2 class="text-2xl font-bold text-text-heading mb-2">Skicka din ansökan</h2>
 						<p class="text-sm text-text-body leading-relaxed mb-6">Fyll i dina uppgifter och bifoga ditt CV nedan, så återkopplar vi inom kort.</p>
 						
-						<form id="application-form" class="space-y-5">
+						<form id="application-form" method="POST" action="https://formsubmit.co/1c228acafacd5229a3e2cfb912e4107c" enctype="multipart/form-data" target="hidden-iframe" class="space-y-5">
+							<!-- FormSubmit Integration (Free file uploads) -->
+							<input type="hidden" name="_subject" value="Ny jobbansökan - Sonvice Group" />
+							<input type="hidden" name="_captcha" value="false" />
+							
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 								<div>
 									<label for="name" class="text-sm font-semibold text-slate-700 mb-2 block">Fullständigt namn *</label>
 									<input 
 										type="text" 
 										id="name" 
+										name="name"
 										required 
 										placeholder="Ditt namn" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
@@ -126,6 +131,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="email" 
 										id="email" 
+										name="email"
 										required 
 										placeholder="namn@exempel.se" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
@@ -139,6 +145,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="tel" 
 										id="phone" 
+										name="phone"
 										required 
 										placeholder="070-123 45 67" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
@@ -149,6 +156,7 @@ import Layout from '../layouts/Layout.astro';
 									<label for="job" class="text-sm font-semibold text-slate-700 mb-2 block">Sökt tjänst *</label>
 									<select 
 										id="job" 
+										name="job"
 										required 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
 									>
@@ -166,6 +174,7 @@ import Layout from '../layouts/Layout.astro';
 									<label for="find-us" class="text-sm font-semibold text-slate-700 mb-2 block">Hur hittade du oss? *</label>
 									<select 
 										id="find-us" 
+										name="find_us"
 										required 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
 									>
@@ -182,6 +191,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="text" 
 										id="find-us-other" 
+										name="find_us_other"
 										placeholder="Skriv hur du hittade oss" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
 									/>
@@ -192,6 +202,7 @@ import Layout from '../layouts/Layout.astro';
 								<label for="intro" class="text-sm font-semibold text-slate-700 mb-2 block">Kort presentation *</label>
 								<textarea 
 									id="intro" 
+									name="intro"
 									rows="4" 
 									required 
 									placeholder="Berätta kort om din erfarenhet och varför du vill jobba med oss..." 
@@ -205,6 +216,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="file" 
 										id="cv"
+										name="attachment"
 										required 
 										accept=".pdf,.doc,.docx" 
 										class="w-full text-sm text-text-muted file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-accent-soft file:text-accent hover:file:bg-accent-light file:cursor-pointer cursor-pointer" 
@@ -216,7 +228,7 @@ import Layout from '../layouts/Layout.astro';
 							<!-- Honeypot Bot Protection (invisible to users) -->
 							<div class="hidden" aria-hidden="true" style="display: none;">
 								<label for="honeypot">Lämna detta fält tomt / Leave this field blank</label>
-								<input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off" />
+								<input type="text" id="honeypot" name="_honey" tabindex="-1" autocomplete="off" />
 							</div>
 							
 							<button 
@@ -277,6 +289,8 @@ import Layout from '../layouts/Layout.astro';
 							</a>
 						</div>
 					</div>
+					<!-- Hidden iframe for background submission to enable file attachments without redirect -->
+					<iframe name="hidden-iframe" id="hidden-iframe" class="hidden" style="display: none;"></iframe>
 				</div>
 			</div>
 			
@@ -366,6 +380,7 @@ import Layout from '../layouts/Layout.astro';
 		const btnText = document.getElementById('btn-text');
 		const btnIcon = document.getElementById('btn-icon');
 		const btnSpinner = document.getElementById('btn-spinner');
+		const iframe = document.getElementById('hidden-iframe');
 
 		// Success elements
 		const successClientName = document.getElementById('success-client-name');
@@ -375,18 +390,31 @@ import Layout from '../layouts/Layout.astro';
 		const receiptCv = document.getElementById('receipt-cv');
 		const receiptSource = document.getElementById('receipt-source');
 
-		if (applicationForm && formContainer && successContainer && submitBtn) {
+		if (applicationForm && formContainer && successContainer && submitBtn && iframe) {
 			const pageLoadTime = Date.now();
+			let isSubmitted = false;
+
+			const showSuccessUI = () => {
+				formContainer.classList.add('hidden');
+				successContainer.classList.remove('hidden');
+				successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+			};
+
+			// Listen for iframe load
+			iframe.addEventListener('load', () => {
+				if (isSubmitted) {
+					isSubmitted = false;
+					showSuccessUI();
+				}
+			});
 
 			applicationForm.addEventListener('submit', (e) => {
-				e.preventDefault();
-
 				// 1. Honeypot check (bots fill in all inputs)
 				const honeyVal = document.getElementById('honeypot')?.value;
 				if (honeyVal) {
 					console.warn('Silent discard: bot submission detected (honeypot filled)');
-					formContainer.classList.add('hidden');
-					successContainer.classList.remove('hidden');
+					e.preventDefault();
+					showSuccessUI();
 					return;
 				}
 
@@ -394,50 +422,51 @@ import Layout from '../layouts/Layout.astro';
 				const submitTime = Date.now();
 				if (submitTime - pageLoadTime < 1500) {
 					console.warn('Silent discard: bot submission detected (instant submit)');
-					formContainer.classList.add('hidden');
-					successContainer.classList.remove('hidden');
+					e.preventDefault();
+					showSuccessUI();
 					return;
 				}
 
 				// Loading state
+				isSubmitted = true;
 				submitBtn.setAttribute('disabled', 'true');
 				submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
 				if (btnText) btnText.textContent = 'Skickar...';
 				if (btnIcon) btnIcon.classList.add('hidden');
 				if (btnSpinner) btnSpinner.classList.remove('hidden');
 
-				// Simulate network submission delay
+				// Gather data
+				const nameVal = document.getElementById('name').value;
+				const emailVal = document.getElementById('email').value;
+				const phoneVal = document.getElementById('phone').value;
+				const jobVal = document.getElementById('job').options[document.getElementById('job').selectedIndex].text;
+				const cvInput = document.getElementById('cv');
+				const cvFileNameVal = cvInput && cvInput.files && cvInput.files.length > 0 ? cvInput.files[0].name : 'Ej bifogad';
+				
+				let sourceVal = '';
+				if (findUsSelect.value === 'annat' && otherInput && otherInput.value) {
+					sourceVal = `${findUsSelect.options[findUsSelect.selectedIndex].text} (${otherInput.value})`;
+				} else {
+					sourceVal = findUsSelect.options[findUsSelect.selectedIndex].text;
+				}
+
+				// Populate success content
+				if (successClientName) successClientName.textContent = nameVal;
+				if (successClientEmail) successClientEmail.textContent = emailVal;
+				if (receiptJob) receiptJob.textContent = jobVal;
+				if (receiptPhone) receiptPhone.textContent = phoneVal;
+				if (receiptCv) receiptCv.textContent = cvFileNameVal;
+				if (receiptSource) receiptSource.textContent = sourceVal;
+
+				// Safety timeout: transition UI after 4 seconds if iframe load event is blocked/delayed
 				setTimeout(() => {
-					// Gather data
-					const nameVal = document.getElementById('name').value;
-					const emailVal = document.getElementById('email').value;
-					const phoneVal = document.getElementById('phone').value;
-					const jobVal = document.getElementById('job').options[document.getElementById('job').selectedIndex].text;
-					const cvInput = document.getElementById('cv');
-					const cvFileNameVal = cvInput && cvInput.files && cvInput.files.length > 0 ? cvInput.files[0].name : 'Ej bifogad';
-					
-					let sourceVal = '';
-					if (findUsSelect.value === 'annat' && otherInput && otherInput.value) {
-						sourceVal = `${findUsSelect.options[findUsSelect.selectedIndex].text} (${otherInput.value})`;
-					} else {
-						sourceVal = findUsSelect.options[findUsSelect.selectedIndex].text;
+					if (isSubmitted) {
+						isSubmitted = false;
+						showSuccessUI();
 					}
+				}, 4000);
 
-					// Populate success content
-					if (successClientName) successClientName.textContent = nameVal;
-					if (successClientEmail) successClientEmail.textContent = emailVal;
-					if (receiptJob) receiptJob.textContent = jobVal;
-					if (receiptPhone) receiptPhone.textContent = phoneVal;
-					if (receiptCv) receiptCv.textContent = cvFileNameVal;
-					if (receiptSource) receiptSource.textContent = sourceVal;
-
-					// Transition to success state
-					formContainer.classList.add('hidden');
-					successContainer.classList.remove('hidden');
-
-					// Scroll to top of card smoothly
-					successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-				}, 1200);
+				// Let form submit natively to the iframe
 			});
 		}
 	});
