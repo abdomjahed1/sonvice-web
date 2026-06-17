@@ -5,7 +5,7 @@ import hemstadningIcon from '../icons/Hemstädning.png';
 import fonsterputsningIcon from '../icons/Fönsterputsning.png';
 import takrengoringIcon from '../icons/Takrengöring.png';
 import tradgardsvardIcon from '../icons/Trädgårdsvård.png';
-import flyttImg from '../images/Flyttjänster.png';
+import flyttImg from '../images/Flyttjänster.webp';
 ---
 
 <Layout title="Sonvice Group | Professionell Flytt & Städning i Kronoberg/Kalmar" description="Premium flytt- och städtjänster i Kronoberg/Kalmar. Vi erbjuder bohagsflytt, hemstädning, fönsterputs och takvård med nöjd-kund-garanti.">
@@ -80,7 +80,7 @@ import flyttImg from '../images/Flyttjänster.png';
 					<div class="absolute -inset-4 border border-dashed border-slate-200/80 rounded-3xl -z-10 pointer-events-none"></div>
 					
 					<div class="tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-slate-50 border border-slate-200/60 shadow-md">
-						<img src={flyttImg.src} alt="Sonvice Group flytthjälp" class="w-full h-full object-cover transition-transform duration-700 tilt-inner" />
+						<img src={flyttImg.src} width={flyttImg.width} height={flyttImg.height} alt="Sonvice Group flytthjälp" class="w-full h-full object-cover transition-transform duration-700 tilt-inner" loading="eager" fetchpriority="high" />
 					</div>
 					
 					<!-- Interactive Floating Stat Panel -->
@@ -255,7 +255,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<a href="/flyttjanster" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
 					<div>
 						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-0.5 mb-6 group-hover:scale-105 transition-transform duration-300">
-							<img src={flyttIcon.src} alt="" class="w-full h-full object-contain" />
+							<img src={flyttIcon.src} width={flyttIcon.width} height={flyttIcon.height} alt="" class="w-full h-full object-contain" />
 						</div>
 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Flyttjänster</h3>
 						<p class="text-sm text-text-body leading-relaxed mb-6">
@@ -263,7 +263,7 @@ import flyttImg from '../images/Flyttjänster.png';
 						</p>
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
-						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 450 kr/tim</span>
+						<span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Från 450 kr/tim</span>
 						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</span>
@@ -274,7 +274,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<a href="/hemstadning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
 					<div>
 						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-0.5 mb-6 group-hover:scale-105 transition-transform duration-300">
-							<img src={hemstadningIcon.src} alt="" class="w-full h-full object-contain" />
+							<img src={hemstadningIcon.src} width={hemstadningIcon.width} height={hemstadningIcon.height} alt="" class="w-full h-full object-contain" />
 						</div>
 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Hemstädning</h3>
 						<p class="text-sm text-text-body leading-relaxed mb-6">
@@ -282,7 +282,7 @@ import flyttImg from '../images/Flyttjänster.png';
 						</p>
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
-						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 195 kr/tim</span>
+						<span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Från 195 kr/tim</span>
 						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</span>
@@ -293,7 +293,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<a href="/fonsterputsning" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
 					<div>
 						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-0.5 mb-6 group-hover:scale-105 transition-transform duration-300">
-							<img src={fonsterputsningIcon.src} alt="" class="w-full h-full object-contain" />
+							<img src={fonsterputsningIcon.src} width={fonsterputsningIcon.width} height={fonsterputsningIcon.height} alt="" class="w-full h-full object-contain" />
 						</div>
 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Fönsterputsning</h3>
 						<p class="text-sm text-text-body leading-relaxed mb-6">
@@ -301,7 +301,7 @@ import flyttImg from '../images/Flyttjänster.png';
 						</p>
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
-						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 390 kr fast</span>
+						<span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Från 390 kr fast</span>
 						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</span>
@@ -312,7 +312,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<a href="/takrengoring" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
 					<div>
 						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-0.5 mb-6 group-hover:scale-105 transition-transform duration-300">
-							<img src={takrengoringIcon.src} alt="" class="w-full h-full object-contain" />
+							<img src={takrengoringIcon.src} width={takrengoringIcon.width} height={takrengoringIcon.height} alt="" class="w-full h-full object-contain" />
 						</div>
 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Takrengöring</h3>
 						<p class="text-sm text-text-body leading-relaxed mb-6">
@@ -320,7 +320,7 @@ import flyttImg from '../images/Flyttjänster.png';
 						</p>
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
-						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 1 900 kr</span>
+						<span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Från 1 900 kr</span>
 						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</span>
@@ -331,7 +331,7 @@ import flyttImg from '../images/Flyttjänster.png';
 				<a href="/tradgardsvard" class="glow-card glass-panel bg-white/90 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group no-underline">
 					<div>
 						<div class="w-14 h-14 rounded-xl bg-accent-soft flex items-center justify-center border border-accent/15 p-0.5 mb-6 group-hover:scale-105 transition-transform duration-300">
-							<img src={tradgardsvardIcon.src} alt="" class="w-full h-full object-contain" />
+							<img src={tradgardsvardIcon.src} width={tradgardsvardIcon.width} height={tradgardsvardIcon.height} alt="" class="w-full h-full object-contain" />
 						</div>
 						<h3 class="text-xl font-bold text-text-heading mb-3 group-hover:text-accent transition-colors">Trädgårdsvård</h3>
 						<p class="text-sm text-text-body leading-relaxed mb-6">
@@ -339,7 +339,7 @@ import flyttImg from '../images/Flyttjänster.png';
 						</p>
 					</div>
 					<div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-2">
-						<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Från 295 kr/tim</span>
+						<span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Från 295 kr/tim</span>
 						<span class="text-sm font-bold text-accent group-hover:text-accent-hover flex items-center gap-1 transition-colors">
 							Läs mer <span class="group-hover:translate-x-0.5 transition-transform">→</span>
 						</span>
@@ -481,7 +481,7 @@ import flyttImg from '../images/Flyttjänster.png';
 							<span id="calc-size-val" class="text-base font-extrabold text-accent bg-accent-soft px-3 py-1 rounded-md font-mono">60 m²</span>
 						</div>
 						<input type="range" id="calc-size" min="15" max="250" value="60" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" />
-						<div class="flex justify-between text-[11px] text-slate-400 font-medium mt-1">
+						<div class="flex justify-between text-[11px] text-slate-500 font-medium mt-1">
 							<span id="calc-size-min-lbl">15 m²</span>
 							<span id="calc-size-mid-lbl">130 m²</span>
 							<span id="calc-size-max-lbl">250 m²</span>
@@ -607,8 +607,8 @@ import flyttImg from '../images/Flyttjänster.png';
 						"Otroligt professionellt bemötande! Hela flytten gick otroligt smidigt och ingenting skadades. Kan varmt rekommendera Sonvice Group!"
 					</p>
 					<div>
-						<h4 class="font-bold text-text-heading text-sm">Johan Andersson</h4>
-						<p class="text-xs text-text-muted mt-0.5">Bohagsflytt · Täby</p>
+						<h3 class="font-bold text-text-heading text-sm">Johan Andersson</h3>
+						<p class="text-xs text-slate-500 mt-0.5">Bohagsflytt · Täby</p>
 					</div>
 				</div>
 
@@ -623,8 +623,8 @@ import flyttImg from '../images/Flyttjänster.png';
 						"Har haft regelbunden hemstädning i över ett år nu. Alltid skinande rent hemma och personalen är fantastiskt trevlig och flexibel."
 					</p>
 					<div>
-						<h4 class="font-bold text-text-heading text-sm">Maria Lindqvist</h4>
-						<p class="text-xs text-text-muted mt-0.5">Hemstädning · Vasastan</p>
+						<h3 class="font-bold text-text-heading text-sm">Maria Lindqvist</h3>
+						<p class="text-xs text-slate-500 mt-0.5">Hemstädning · Vasastan</p>
 					</div>
 				</div>
 
@@ -639,17 +639,17 @@ import flyttImg from '../images/Flyttjänster.png';
 						"Gjorde rent vårt tegeltak som var fullt med mossa och smuts. Resultatet är makalöst bra, taket ser ut som nytt! Snabbt arbetat."
 					</p>
 					<div>
-						<h4 class="font-bold text-text-heading text-sm">Kalle Bergström</h4>
-						<p class="text-xs text-text-muted mt-0.5">Takrengöring · Nacka</p>
+						<h3 class="font-bold text-text-heading text-sm">Kalle Bergström</h3>
+						<p class="text-xs text-slate-500 mt-0.5">Takrengöring · Nacka</p>
 					</div>
 				</div>
 
 				<!-- Controls -->
 				<div class="flex items-center gap-3 absolute bottom-6 right-6 md:bottom-12 md:right-12 z-20">
-					<button id="prev-testimonial" class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-xs outline-none cursor-pointer">
+					<button id="prev-testimonial" aria-label="Föregående omdöme" class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-xs outline-none cursor-pointer">
 						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
 					</button>
-					<button id="next-testimonial" class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-xs outline-none cursor-pointer">
+					<button id="next-testimonial" aria-label="Nästa omdöme" class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-xs outline-none cursor-pointer">
 						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
 					</button>
 				</div>
