@@ -58,7 +58,7 @@ import flyttImg from '../../images/Flyttjänster.webp';
 					</div>
 
 					<!-- Trust Strip -->
-					<div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 border-t border-slate-100 text-sm text-slate-500">
+					<div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 border-t border-slate-100 text-sm text-slate-600">
 						<span class="flex items-center gap-2 font-medium">
 							<svg class="w-4.5 h-4.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
 							Trygg-Hansa Insured
@@ -386,13 +386,13 @@ import flyttImg from '../../images/Flyttjänster.webp';
 						</svg>
 						<span>Moving Help</span>
 					</button>
-					<button id="calc-tab-cleaning" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="cleaning">
+					<button id="calc-tab-cleaning" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-600 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="cleaning">
 						<svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9 12 2"></polygon>
 						</svg>
 						<span>Home Cleaning</span>
 					</button>
-					<button id="calc-tab-roof" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="roof">
+					<button id="calc-tab-roof" class="calc-tab py-3 px-2 text-[11px] md:text-sm font-bold rounded-lg transition-all text-slate-600 hover:text-slate-800 focus:outline-none flex items-center justify-center gap-1.5" data-service="roof">
 						<svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
 							<polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -404,7 +404,7 @@ import flyttImg from '../../images/Flyttjänster.webp';
 				<div class="space-y-6">
 					<!-- Volume Estimator (Flytthjälp only) -->
 					<div id="calc-volume-estimator-container" class="space-y-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/60 hidden transition-all duration-300">
-						<div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Volume Estimator (Simplified)</div>
+						<div class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-1">Volume Estimator (Simplified)</div>
 						<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 							<!-- Antal rum -->
 							<div>
@@ -474,7 +474,7 @@ import flyttImg from '../../images/Flyttjänster.webp';
 							<span id="calc-size-val" class="text-base font-extrabold text-accent bg-accent-soft px-3 py-1 rounded-md font-mono">60 m²</span>
 						</div>
 						<input type="range" id="calc-size" min="15" max="250" value="60" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" />
-						<div class="flex justify-between text-[11px] text-slate-500 font-medium mt-1">
+						<div class="flex justify-between text-[11px] text-slate-600 font-medium mt-1">
 							<span id="calc-size-min-lbl">15 m²</span>
 							<span id="calc-size-mid-lbl">130 m²</span>
 							<span id="calc-size-max-lbl">250 m²</span>
@@ -495,7 +495,7 @@ import flyttImg from '../../images/Flyttjänster.webp';
 					<!-- Output Price Board -->
 					<div class="bg-slate-900 rounded-2xl p-6 text-center text-white relative overflow-hidden shadow-inner shadow-black/10">
 						<div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-emerald-500/10 pointer-events-none"></div>
-						<span class="text-xs text-slate-400 font-bold uppercase tracking-wider block mb-1">Estimated Price</span>
+						<span class="text-xs text-slate-300 font-bold uppercase tracking-wider block mb-1">Estimated Price</span>
 						
 						<!-- Price Value -->
 						<div class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2">
@@ -509,7 +509,7 @@ import flyttImg from '../../images/Flyttjänster.webp';
 						<div id="calc-min-note" class="text-xs text-amber-400 font-semibold hidden mb-1">
 							Minimum charge of 4,500 kr applied (before ROT)
 						</div>
-						<div id="calc-standard-note" class="text-xs text-slate-400">
+						<div id="calc-standard-note" class="text-xs text-slate-300">
 							Incl. VAT and insurance
 						</div>
 					</div>
@@ -1030,13 +1030,13 @@ import flyttImg from '../../images/Flyttjänster.webp';
 			const setTabActive = (activeTab, inactiveTab1, inactiveTab2, service) => {
 				currentService = service;
 				activeTab.classList.add('bg-white', 'text-accent', 'shadow-xs');
-				activeTab.classList.remove('text-slate-500', 'hover:text-slate-800');
+				activeTab.classList.remove('text-slate-600', 'hover:text-slate-800');
 				
 				inactiveTab1.classList.remove('bg-white', 'text-accent', 'shadow-xs');
-				inactiveTab1.classList.add('text-slate-500', 'hover:text-slate-800');
+				inactiveTab1.classList.add('text-slate-600', 'hover:text-slate-800');
 				
 				inactiveTab2.classList.remove('bg-white', 'text-accent', 'shadow-xs');
-				inactiveTab2.classList.add('text-slate-500', 'hover:text-slate-800');
+				inactiveTab2.classList.add('text-slate-600', 'hover:text-slate-800');
 
 				if (service === 'moving') {
 					if (volumeEstContainer) volumeEstContainer.classList.remove('hidden');
