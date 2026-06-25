@@ -485,14 +485,57 @@ const t = isEn ? {
 			</div>
 		</div>
 
-		<!-- WhatsApp floating button -->
-		<a href="https://wa.me/34688249310" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[999]">
-			<div class="w-12 h-12 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
-				<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">
+		<!-- Floating Contact Menu Widget -->
+		<div id="contact-menu-container" class="fixed bottom-6 right-6 z-[999] flex flex-col items-center gap-3">
+			
+			<!-- Submenu Items (vertical stack above main button) -->
+			<!-- SMS Button -->
+			<a href="sms:+34688249310" class="contact-menu-item w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-4 scale-75 pointer-events-none relative group" aria-label="SMS">
+				<!-- Tooltip -->
+				<span class="absolute right-14 px-2.5 py-1 rounded bg-slate-900/90 text-white text-[11px] font-bold tracking-wide whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm">SMS</span>
+				<!-- SMS Icon SVG -->
+				<svg aria-hidden="true" class="w-5.5 h-5.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+				</svg>
+			</a>
+
+			<!-- Messenger Button -->
+			<a href="https://m.me/sonvicegroup" target="_blank" rel="noopener noreferrer" class="contact-menu-item w-12 h-12 rounded-full bg-gradient-to-tr from-[#006AFF] via-[#00B2FE] to-[#FF26B9] hover:brightness-110 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-4 scale-75 pointer-events-none relative group" aria-label="Messenger">
+				<!-- Tooltip -->
+				<span class="absolute right-14 px-2.5 py-1 rounded bg-slate-900/90 text-white text-[11px] font-bold tracking-wide whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm">Messenger</span>
+				<!-- Messenger Icon SVG -->
+				<svg aria-hidden="true" class="w-5.5 h-5.5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.9 1.15 5.5 3.08 7.4V23l3.65-2a10.43 10.43 0 003.27.5c5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2zm1.08 12.3l-2.56-2.72-5 2.72 5.5-5.83 2.56 2.72 5-2.72z" />
+				</svg>
+			</a>
+
+			<!-- WhatsApp Button -->
+			<a href="https://wa.me/34688249310" target="_blank" rel="noopener noreferrer" class="contact-menu-item w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-4 scale-75 pointer-events-none relative group" aria-label="WhatsApp">
+				<!-- Tooltip -->
+				<span class="absolute right-14 px-2.5 py-1 rounded bg-slate-900/90 text-white text-[11px] font-bold tracking-wide whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm">WhatsApp</span>
+				<!-- WhatsApp Icon SVG -->
+				<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5.5 h-5.5 fill-white">
 					<path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.91 1.12-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.77.36-.26.29-1 1-.97 2.44.03 1.44 1.03 2.83 1.18 3.03.15.19 2.03 3.1 4.92 4.35.69.29 1.22.46 1.64.59.69.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM16.02 3C8.84 3 3 8.82 3 16c0 2.53.74 4.98 2.13 7.09L3 29l6.11-2.02A12.94 12.94 0 0016.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.67c-2.14 0-4.23-.57-6.06-1.66l-.43-.26-3.63 1.2 1.19-3.54-.28-.46a10.63 10.63 0 01-1.63-5.64c0-5.89 4.79-10.68 10.68-10.68S26.7 10.42 26.7 16.3s-4.79 10.37-10.68 10.37z"/>
 				</svg>
-			</div>
-		</a>
+			</a>
+
+			<!-- Main Toggle Button -->
+			<button id="contact-menu-toggle" class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-emerald-500 shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer relative group z-10 border border-teal-400/20" aria-label="Toggle contact options">
+				<!-- Pulse effect -->
+				<span class="absolute inset-0 rounded-full bg-accent/30 animate-ping -z-10 group-hover:animate-none"></span>
+				
+				<!-- Chat Icon (visible when closed) -->
+				<svg id="contact-toggle-chat-icon" aria-hidden="true" class="w-6 h-6 text-white transition-all duration-300 rotate-0 scale-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+				</svg>
+				
+				<!-- Close Icon (visible when open) -->
+				<svg id="contact-toggle-close-icon" aria-hidden="true" class="w-6 h-6 text-white absolute transition-all duration-300 rotate-90 scale-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+			
+		</div>
 
 		<!-- Scripts -->
 		<script is:inline>
@@ -700,6 +743,69 @@ const t = isEn ? {
 				openCookieSettings.addEventListener('click', (e) => {
 					e.preventDefault();
 					showCookieBanner();
+				});
+			}
+
+			// --- 11. Floating Contact Menu Widget ---
+			const contactMenuContainer = document.getElementById('contact-menu-container');
+			const contactMenuToggle = document.getElementById('contact-menu-toggle');
+			const contactToggleChatIcon = document.getElementById('contact-toggle-chat-icon');
+			const contactToggleCloseIcon = document.getElementById('contact-toggle-close-icon');
+			const contactMenuItems = document.querySelectorAll('.contact-menu-item');
+
+			if (contactMenuContainer && contactMenuToggle && contactToggleChatIcon && contactToggleCloseIcon) {
+				const toggleContactMenu = (show) => {
+					const isCurrentlyOpen = contactMenuContainer.classList.contains('open');
+					const shouldShow = show !== undefined ? show : !isCurrentlyOpen;
+
+					if (shouldShow) {
+						contactMenuContainer.classList.add('open');
+						// Rotate and hide chat icon, show close icon
+						contactToggleChatIcon.classList.remove('rotate-0', 'scale-100');
+						contactToggleChatIcon.classList.add('rotate-90', 'scale-0');
+						contactToggleCloseIcon.classList.remove('rotate-90', 'scale-0');
+						contactToggleCloseIcon.classList.add('rotate-0', 'scale-100');
+
+						// Reveal items with stagger delay
+						contactMenuItems.forEach((item, index) => {
+							item.classList.remove('opacity-0', 'translate-y-4', 'scale-75', 'pointer-events-none');
+							item.classList.add('opacity-100', 'translate-y-0', 'scale-100', 'pointer-events-auto');
+							// Stagger delay: bottom first, top last
+							item.style.transitionDelay = `${(contactMenuItems.length - 1 - index) * 60}ms`;
+						});
+					} else {
+						contactMenuContainer.classList.remove('open');
+						// Rotate and show chat icon, hide close icon
+						contactToggleChatIcon.classList.remove('rotate-90', 'scale-0');
+						contactToggleChatIcon.classList.add('rotate-0', 'scale-100');
+						contactToggleCloseIcon.classList.remove('rotate-0', 'scale-100');
+						contactToggleCloseIcon.classList.add('rotate-90', 'scale-0');
+
+						// Hide items
+						contactMenuItems.forEach((item) => {
+							item.classList.remove('opacity-100', 'translate-y-0', 'scale-100', 'pointer-events-auto');
+							item.classList.add('opacity-0', 'translate-y-4', 'scale-75', 'pointer-events-none');
+							item.style.transitionDelay = '0ms';
+						});
+					}
+				};
+
+				contactMenuToggle.addEventListener('click', (e) => {
+					e.stopPropagation();
+					toggleContactMenu();
+				});
+
+				// Close when clicking individual menu items
+				contactMenuItems.forEach(item => {
+					item.addEventListener('click', (e) => {
+						e.stopPropagation();
+						toggleContactMenu(false);
+					});
+				});
+
+				// Close when clicking anywhere else
+				document.addEventListener('click', () => {
+					toggleContactMenu(false);
 				});
 			}
 		});
