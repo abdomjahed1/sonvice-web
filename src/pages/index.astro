@@ -7,6 +7,7 @@ import takrengoringIcon from '../icons/Takrengöring.webp';
 import tradgardsvardIcon from '../icons/Trädgårdsvård.webp';
 import flyttImg from '../images/Flyttjänster.webp';
 import bgImg from '../images/web-background.webp';
+import bgImgMobile from '../images/web-backround-mobile.webp';
 ---
 
 <Layout title="Sonvice Group | Professionell Flytt & Städning i Kronoberg/Kalmar" description="Premium flytt- och städtjänster i Kronoberg/Kalmar. Vi erbjuder bohagsflytt, hemstädning, fönsterputs och takvård med nöjd-kund-garanti.">
@@ -14,8 +15,10 @@ import bgImg from '../images/web-background.webp';
 
 	<!-- ═══════════════════ HERO SECTION ═══════════════════ -->
 	<section class="relative pt-12 pb-24 md:py-32 bg-white overflow-hidden">
-		<!-- Background Image Container -->
-		<div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImg.src})` }}></div>
+		<!-- Mobile Background Image Container -->
+		<div class="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden" style={{ backgroundImage: `url(${bgImgMobile.src})` }}></div>
+		<!-- Desktop Background Image Container -->
+		<div class="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImg.src})` }}></div>
 		<!-- Readable Gradient Overlay -->
 		<div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/50 to-white/85"></div>
 		<!-- Canvas Particle Background -->
