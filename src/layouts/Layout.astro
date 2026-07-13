@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import swedenMap from '../images/sweden-map.webp';
 
 interface Props {
 	title?: string;
@@ -376,9 +377,22 @@ const t = isEn ? {
 							<img src="/mi-logo.png" alt="" aria-hidden="true" class="h-10 w-auto object-contain brightness-0 invert" width="133" height="40" loading="lazy" />
 							<span class="text-base font-bold text-white tracking-tight">Sonvice Group</span>
 						</div>
-						<p class="text-sm text-slate-400 leading-relaxed max-w-xs">
+						<p class="text-sm text-slate-400 leading-relaxed max-w-xs mb-6">
 							{t.footerDesc}
 						</p>
+						
+						<!-- Coverage Map -->
+						<div class="border border-slate-800/80 rounded-xl overflow-hidden bg-slate-950/40 p-3 max-w-[200px]">
+							<span class="text-[9px] font-bold text-accent uppercase tracking-wider block mb-2">{isEn ? "Coverage Area" : "Verksamhetsområde"}</span>
+							<img src={swedenMap.src} width={swedenMap.width} height={swedenMap.height} alt="Coverage map of Sweden: Kronoberg & Kalmar" class="w-full h-auto object-contain opacity-90" loading="lazy" />
+							<div class="flex items-center gap-2 mt-2">
+								<span class="flex h-1.5 w-1.5 relative">
+									<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+									<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
+								</span>
+								<span class="text-[9px] font-medium text-slate-400">Kronoberg / Kalmar</span>
+							</div>
+						</div>
 					</div>
 
 					<!-- Col 2: Services -->
