@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import swedenMap from '../images/sweden-map.webp';
 
 interface Props {
 	title?: string;
@@ -382,16 +381,15 @@ const t = isEn ? {
 						</p>
 						
 						<!-- Coverage Map -->
-						<div class="border border-slate-800/80 rounded-xl overflow-hidden bg-slate-950/40 p-3 max-w-[200px]">
-							<span class="text-[9px] font-bold text-accent uppercase tracking-wider block mb-2">{isEn ? "Coverage Area" : "Verksamhetsområde"}</span>
-							<img src={swedenMap.src} width={swedenMap.width} height={swedenMap.height} alt="Coverage map of Sweden: Kronoberg & Kalmar" class="w-full h-auto object-contain opacity-90" loading="lazy" />
-							<div class="flex items-center gap-2 mt-2">
-								<span class="flex h-1.5 w-1.5 relative">
-									<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-									<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
-								</span>
-								<span class="text-[9px] font-medium text-slate-400">Kronoberg / Kalmar</span>
-							</div>
+						<div class="border border-slate-800/80 rounded-xl overflow-hidden bg-slate-950/40 p-1.5 max-w-[260px] w-full">
+							<span class="text-[9px] font-bold text-accent uppercase tracking-wider block mb-1.5 px-1">{isEn ? "Coverage Area" : "Verksamhetsområde"}</span>
+							<iframe 
+								src="https://maps.google.com/maps?q=Kronoberg%20%26%20Kalmar%20County,%20Sweden&t=&z=7&ie=UTF8&iwloc=&output=embed" 
+								class="w-full h-40 rounded-lg border-0 opacity-85 hover:opacity-100 transition-all invert-[90%] hue-rotate-180" 
+								allowfullscreen="" 
+								loading="lazy" 
+								referrerpolicy="no-referrer-when-downgrade">
+							</iframe>
 						</div>
 					</div>
 
