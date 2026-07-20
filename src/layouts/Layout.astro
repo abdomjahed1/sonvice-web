@@ -22,6 +22,7 @@ const getLangSwitchUrl = () => {
 		if (cleanPath === "/en/contact") return "/contact";
 		if (cleanPath === "/en/careers") return "/jobba-hos-oss";
 		if (cleanPath === "/en/truck-rental") return "/lastbilsuthyrning";
+		if (cleanPath === "/en/storage") return "/magasinering";
 		if (cleanPath === "/en/moving-services") return "/flyttjanster";
 		if (cleanPath === "/en/home-cleaning") return "/hemstadning";
 		if (cleanPath === "/en/window-cleaning") return "/fonsterputsning";
@@ -34,6 +35,7 @@ const getLangSwitchUrl = () => {
 		if (cleanPath === "/contact") return "/en/contact";
 		if (cleanPath === "/jobba-hos-oss") return "/en/careers";
 		if (cleanPath === "/lastbilsuthyrning") return "/en/truck-rental";
+		if (cleanPath === "/magasinering") return "/en/storage";
 		if (cleanPath === "/flyttjanster") return "/en/moving-services";
 		if (cleanPath === "/hemstadning") return "/en/home-cleaning";
 		if (cleanPath === "/fonsterputsning") return "/en/window-cleaning";
@@ -93,8 +95,9 @@ const t = isEn ? {
 	contact: 'Contact',
 	careers: 'Careers',
 	truckRental: 'Truck Rental',
+	storage: 'Storage',
 	callUs: 'Call us',
-	footerDesc: 'Your reliable partner for professional moving, cleaning, window washing, gardening, and roof maintenance across the Kronoberg/Kalmar region.',
+	footerDesc: 'Your reliable partner for professional moving, cleaning, storage, window washing, gardening, and roof maintenance across the Kronoberg/Kalmar region.',
 	footerServices: 'Services',
 	footerCompany: 'Company',
 	footerHours: 'Hours',
@@ -104,6 +107,7 @@ const t = isEn ? {
 	svcRoof: 'Roof care',
 	svcGarden: 'Gardening',
 	svcTruck: 'Truck Rental',
+	svcStorage: 'Storage',
 	weekdays: 'Mon – Fri',
 	saturday: 'Saturday',
 	sunday: 'Sunday',
@@ -118,8 +122,9 @@ const t = isEn ? {
 	contact: 'Kontakt',
 	careers: 'Karriär',
 	truckRental: 'Lastbilsuthyrning',
+	storage: 'Magasinering',
 	callUs: 'Ring oss',
-	footerDesc: 'Din pålitliga partner för professionell flytt, hemstädning, fönsterputsning, trädgårdsvård och takrengöring i hela Kronoberg/Kalmar-området.',
+	footerDesc: 'Din pålitliga partner för professionell flytt, hemstädning, magasinering, fönsterputsning, trädgårdsvård och takrengöring i hela Kronoberg/Kalmar-området.',
 	footerServices: 'Tjänster',
 	footerCompany: 'Företag',
 	footerHours: 'Öppettider',
@@ -129,6 +134,7 @@ const t = isEn ? {
 	svcRoof: 'Takrengöring',
 	svcGarden: 'Trädgårdsvård',
 	svcTruck: 'Lastbilsuthyrning',
+	svcStorage: 'Magasinering',
 	weekdays: 'Mån – Fre',
 	saturday: 'Lördag',
 	sunday: 'Söndag',
@@ -229,6 +235,9 @@ const t = isEn ? {
 
 					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "active" : ""}`}>
 						{t.truckRental}
+					</a>
+					<a href={isEn ? "/en/storage" : "/magasinering"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/storage" : "/magasinering") ? "active" : ""}`}>
+						{t.storage}
 					</a>
 					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "active" : ""}`}>
 						{t.careers}
@@ -344,6 +353,9 @@ const t = isEn ? {
 					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.truckRental}
 					</a>
+					<a href={isEn ? "/en/storage" : "/magasinering"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/storage" : "/magasinering") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
+						{t.storage}
+					</a>
 					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`text-[15px] font-semibold p-3 rounded-lg transition-colors ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "bg-accent-soft text-accent" : "text-slate-700 hover:bg-slate-50"}`}>
 						{t.careers}
 					</a>
@@ -394,6 +406,7 @@ const t = isEn ? {
 							<li><a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcRoof}</a></li>
 							<li><a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcGarden}</a></li>
 							<li><a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcTruck}</a></li>
+							<li><a href={isEn ? "/en/storage" : "/magasinering"} class="text-slate-400 hover:text-accent font-medium transition-colors">{t.svcStorage}</a></li>
 						</ul>
 					</div>
 
