@@ -165,10 +165,22 @@ const t = isEn ? {
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Sonvice Group" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${SITE_URL}/mi-logo.png`} />
+
+		<!-- Google Site Name Structured Data -->
+		<script type="application/ld+json" is:inline>
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "Sonvice Group",
+				"alternateName": ["Sonvice", "Sonvice Group AB"],
+				"url": "https://sonvicegroup.se/"
+			}
+		</script>
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
