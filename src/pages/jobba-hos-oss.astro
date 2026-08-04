@@ -113,6 +113,10 @@ import Layout from '../layouts/Layout.astro';
 							<input type="hidden" name="_subject" value="[Jobb] Ny jobbansökan från sonvicegroup.se" />
 							<input type="hidden" name="_captcha" value="false" />
 							<input type="hidden" name="_spam" value="false" />
+							<input type="hidden" name="_template" value="table" />
+							<input type="hidden" name="_from_name" value="Sonvice Group Karriär" />
+							<input type="hidden" id="formatted-job" name="Sökt Tjänst" />
+							<input type="hidden" id="formatted-find-us" name="Hur de hittade oss" />
 							
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 								<div>
@@ -120,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="text" 
 										id="name" 
-										name="name"
+										name="Sökandes Namn"
 										required 
 										placeholder="Ditt namn" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
@@ -146,7 +150,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="tel" 
 										id="phone" 
-										name="phone"
+										name="Telefonnummer"
 										required 
 										placeholder="070-123 45 67" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
@@ -157,7 +161,7 @@ import Layout from '../layouts/Layout.astro';
 									<label for="job" class="text-sm font-semibold text-slate-700 mb-2 block">Sökt tjänst *</label>
 									<select 
 										id="job" 
-										name="job"
+										name="raw_job"
 										required 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
 									>
@@ -175,7 +179,7 @@ import Layout from '../layouts/Layout.astro';
 									<label for="find-us" class="text-sm font-semibold text-slate-700 mb-2 block">Hur hittade du oss? *</label>
 									<select 
 										id="find-us" 
-										name="find_us"
+										name="raw_find_us"
 										required 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent outline-none transition-colors text-sm text-text-heading placeholder-text-muted cursor-pointer"
 									>
@@ -192,7 +196,7 @@ import Layout from '../layouts/Layout.astro';
 									<input 
 										type="text" 
 										id="find-us-other" 
-										name="find_us_other"
+										name="raw_find_us_other"
 										placeholder="Skriv hur du hittade oss" 
 										class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-accent focus:bg-slate-50/20 outline-none transition-all text-sm text-text-heading placeholder-text-muted" 
 									/>
@@ -203,7 +207,7 @@ import Layout from '../layouts/Layout.astro';
 								<label for="intro" class="text-sm font-semibold text-slate-700 mb-2 block">Kort presentation *</label>
 								<textarea 
 									id="intro" 
-									name="intro"
+									name="Kort presentation"
 									rows="4" 
 									required 
 									placeholder="Berätta kort om din erfarenhet och varför du vill jobba med oss..." 
@@ -458,6 +462,26 @@ import Layout from '../layouts/Layout.astro';
 				if (receiptPhone) receiptPhone.textContent = phoneVal;
 				if (receiptCv) receiptCv.textContent = cvFileNameVal;
 				if (receiptSource) receiptSource.textContent = sourceVal;
+
+				// Set hidden formatted inputs for FormSubmit
+				const fmtJob = document.getElementById('formatted-job');
+				if (fmtJob) fmtJob.value = jobVal;
+
+				const fmtFindUs = document.getElementById('formatted-find-us');
+				if (fmtFindUs) fmtFindUs.value = sourceVal;
+
+				// Disable raw select inputs temporarily so they aren't submitted
+				const jobSelect = document.getElementById('job');
+				if (jobSelect) jobSelect.setAttribute('disabled', 'true');
+				if (findUsSelect) findUsSelect.setAttribute('disabled', 'true');
+				if (otherInput) otherInput.setAttribute('disabled', 'true');
+
+				// Re-enable raw selects shortly after native submission has fired
+				setTimeout(() => {
+					if (jobSelect) jobSelect.removeAttribute('disabled');
+					if (findUsSelect) findUsSelect.removeAttribute('disabled');
+					if (otherInput) otherInput.removeAttribute('disabled');
+				}, 100);
 
 				// Safety timeout: transition UI after 4 seconds if iframe load event is blocked/delayed
 				setTimeout(() => {
