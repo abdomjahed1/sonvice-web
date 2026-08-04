@@ -112,6 +112,7 @@ import Layout from '../layouts/Layout.astro';
 							<!-- FormSubmit Integration (Free file uploads) -->
 							<input type="hidden" name="_subject" value="[Jobb] Ny jobbansökan från sonvicegroup.se" />
 							<input type="hidden" name="_captcha" value="false" />
+							<input type="hidden" name="_spam" value="false" />
 							
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 								<div>
@@ -418,9 +419,9 @@ import Layout from '../layouts/Layout.astro';
 					return;
 				}
 
-				// 2. Time-trap check (bots submit instantaneously, e.g. < 1.5 seconds)
+				// 2. Time-trap check (bots submit instantaneously, e.g. < 0.8 seconds)
 				const submitTime = Date.now();
-				if (submitTime - pageLoadTime < 1500) {
+				if (submitTime - pageLoadTime < 800) {
 					console.warn('Silent discard: bot submission detected (instant submit)');
 					e.preventDefault();
 					showSuccessUI();
