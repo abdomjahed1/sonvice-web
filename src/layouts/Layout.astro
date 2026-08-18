@@ -213,7 +213,7 @@ const t = isEn ? {
 				</a>
 
 				<!-- Desktop nav -->
-				<nav class="hidden lg:flex items-center gap-8">
+				<nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
 					<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "active" : ""}`}>
 						{t.home}
 					</a>
@@ -286,7 +286,7 @@ const t = isEn ? {
 					</a>
 
 					<!-- CTA Button -->
-					<a href={isEn ? "/en/contact" : "/contact"} class="ml-2 inline-flex items-center gap-2 text-[13px] font-bold px-5 py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm active:scale-[0.98]">
+					<a href={isEn ? "/en/contact" : "/contact"} class="ml-1 xl:ml-2 inline-flex items-center gap-1.5 xl:gap-2 text-[13px] font-bold px-3 py-2 xl:px-5 xl:py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm active:scale-[0.98] whitespace-nowrap">
 						{t.contactUs}
 						<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 					</a>
