@@ -50,8 +50,8 @@ const switchUrl = getLangSwitchUrl();
 const COMPANY = {
 	name: "Hemtaro AB",
 	orgNr: "559XXX-XXXX", // Ändra till riktigt org.nr vid lansering
-	phone: "011-611-23",
-	phoneLink: "tel:01161123",
+	phone: "010-251 51 60",
+	phoneLink: "tel:0102515160",
 	email: "info@hemtaro.se",
 	address: "Kronoberg/Kalmar, Sverige",
 	websiteUrl: "https://hemtaro.se",
@@ -207,9 +207,8 @@ const t = isEn ? {
 		<header id="main-header" class="fixed top-[3px] left-0 right-0 z-50 w-full bg-transparent border-b border-transparent py-4 transition-all duration-300">
 			<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
 				<!-- Logo -->
-				<a href={isEn ? "/en" : "/"} class="flex items-center gap-3" aria-label="Hemtaro Homepage">
-					<img src="/logo.png" alt="" aria-hidden="true" class="h-10 md:h-12 w-auto object-contain transition-transform" width="160" height="48" loading="eager" />
-					<span class="text-lg font-bold tracking-tight text-text-heading">Hemtaro</span>
+				<a href={isEn ? "/en" : "/"} class="flex items-center" aria-label="Hemtaro Homepage">
+					<img src="/logo.png" alt="Hemtaro" class="h-11 md:h-13 w-auto object-contain transition-transform hover:scale-[1.02]" width="160" height="52" loading="eager" />
 				</a>
 
 				<!-- Desktop nav -->
