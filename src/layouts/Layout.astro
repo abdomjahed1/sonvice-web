@@ -206,59 +206,63 @@ const t = isEn ? {
 		<!-- ═══ HEADER (Scroll-based transparent to glassmorphic transition) ═══ -->
 		<header id="main-header" class="fixed top-[3px] left-0 right-0 z-50 w-full bg-transparent border-b border-transparent py-4 transition-all duration-300">
 			<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-				<!-- Logo -->
-				<a href={isEn ? "/en" : "/"} class="flex items-center" aria-label="Hemtaro Homepage">
-					<img src="/logo.png" alt="Hemtaro" class="h-11 md:h-13 w-auto object-contain transition-transform hover:scale-[1.02]" width="160" height="52" loading="eager" />
-				</a>
-
-				<!-- Desktop nav -->
-				<nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
-					<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "active" : ""}`}>
-						{t.home}
+				<!-- Left Group: Logo + Desktop Links -->
+				<div class="flex items-center gap-6 xl:gap-10">
+					<!-- Logo -->
+					<a href={isEn ? "/en" : "/"} class="flex items-center" aria-label="Hemtaro Homepage">
+						<img src="/logo.png" alt="Hemtaro" class="h-11 md:h-13 w-auto object-contain transition-transform hover:scale-[1.02]" width="160" height="52" loading="eager" />
 					</a>
-					
-					<!-- Services Dropdown -->
-					<div class="relative group">
-						<button class={`nav-link flex items-center gap-1 text-[13px] font-semibold tracking-wide bg-transparent border-none outline-none cursor-pointer ${isServicesActive ? "active" : ""}`}>
-							{t.services}
-							<svg aria-hidden="true" class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-							</svg>
-						</button>
-						<div class="absolute left-0 mt-2 w-56 rounded-xl bg-white border border-slate-200/80 shadow-lg p-2 opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 z-50 origin-top-left before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']">
-							<a href={isEn ? "/en/moving-services" : "/flyttjanster"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
-								{t.svcMoving}
-							</a>
-							<a href={isEn ? "/en/home-cleaning" : "/hemstadning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
-								{t.svcCleaning}
-							</a>
-							<a href={isEn ? "/en/window-cleaning" : "/fonsterputsning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
-								{t.svcWindows}
-							</a>
-							<a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
-								{t.svcRoof}
-							</a>
-							<a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
-								{t.svcGarden}
-							</a>
+
+					<!-- Desktop nav links -->
+					<nav class="hidden lg:flex items-center gap-4 xl:gap-6">
+						<a href={isEn ? "/en" : "/"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en" : "/") || isActive(isEn ? "/en/" : "") ? "active" : ""}`}>
+							{t.home}
+						</a>
+						
+						<!-- Services Dropdown -->
+						<div class="relative group">
+							<button class={`nav-link flex items-center gap-1 text-[13px] font-semibold tracking-wide bg-transparent border-none outline-none cursor-pointer ${isServicesActive ? "active" : ""}`}>
+								{t.services}
+								<svg aria-hidden="true" class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+								</svg>
+							</button>
+							<div class="absolute left-0 mt-2 w-56 rounded-xl bg-white border border-slate-200/80 shadow-lg p-2 opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 z-50 origin-top-left before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']">
+								<a href={isEn ? "/en/moving-services" : "/flyttjanster"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+									{t.svcMoving}
+								</a>
+								<a href={isEn ? "/en/home-cleaning" : "/hemstadning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+									{t.svcCleaning}
+								</a>
+								<a href={isEn ? "/en/window-cleaning" : "/fonsterputsning"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+									{t.svcWindows}
+								</a>
+								<a href={isEn ? "/en/roof-cleaning" : "/takrengoring"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+									{t.svcRoof}
+								</a>
+								<a href={isEn ? "/en/gardening" : "/tradgardsvard"} class="flex items-center px-4 py-2.5 rounded-lg text-[13px] font-medium text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors">
+									{t.svcGarden}
+								</a>
+							</div>
 						</div>
-					</div>
 
-					<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "active" : ""}`}>
-						{t.truckRental}
-					</a>
-					<a href={isEn ? "/en/storage" : "/magasinering"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/storage" : "/magasinering") ? "active" : ""}`}>
-						{t.storage}
-					</a>
-					<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "active" : ""}`}>
-						{t.careers}
-					</a>
-					<a href={isEn ? "/en/about-us" : "/om-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "active" : ""}`}>
-						{t.about}
-					</a>
+						<a href={isEn ? "/en/truck-rental" : "/lastbilsuthyrning"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/truck-rental" : "/lastbilsuthyrning") ? "active" : ""}`}>
+							{t.truckRental}
+						</a>
+						<a href={isEn ? "/en/storage" : "/magasinering"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/storage" : "/magasinering") ? "active" : ""}`}>
+							{t.storage}
+						</a>
+						<a href={isEn ? "/en/careers" : "/jobba-hos-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/careers" : "/jobba-hos-oss") ? "active" : ""}`}>
+							{t.careers}
+						</a>
+						<a href={isEn ? "/en/about-us" : "/om-oss"} class={`nav-link text-[13px] font-semibold tracking-wide ${isActive(isEn ? "/en/about-us" : "/om-oss") ? "active" : ""}`}>
+							{t.about}
+						</a>
+					</nav>
+				</div>
 
-					<div class="w-px h-5 bg-slate-200"></div>
-
+				<!-- Right Actions Group -->
+				<div class="hidden lg:flex items-center gap-3">
 					<!-- Language toggle -->
 					<a href={switchUrl} class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white/80 hover:bg-white text-[11px] font-bold text-slate-700 transition-all shadow-xs active:scale-95" aria-label="Switch Language">
 						{isEn ? (
@@ -285,11 +289,11 @@ const t = isEn ? {
 					</a>
 
 					<!-- CTA Button -->
-					<a href={isEn ? "/en/contact" : "/contact"} class="ml-1 xl:ml-2 inline-flex items-center gap-1.5 xl:gap-2 text-[13px] font-bold px-3 py-2 xl:px-5 xl:py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm active:scale-[0.98] whitespace-nowrap">
+					<a href={isEn ? "/en/contact" : "/contact"} class="inline-flex items-center gap-1.5 xl:gap-2 text-[13px] font-bold px-3 py-2 xl:px-5 xl:py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm active:scale-[0.98] whitespace-nowrap">
 						{t.contactUs}
 						<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 					</a>
-				</nav>
+				</div>
 
 				<!-- Mobile Action Group -->
 				<div class="lg:hidden flex items-center gap-3">
