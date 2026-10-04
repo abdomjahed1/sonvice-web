@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Kontakta oss | Sonvice Group" description="Fyll i vårt kontaktformulär för att begära en kostnadsfri offert för flytt, städning eller övriga hushållstjänster i Kronoberg/Kalmar. Snabb återkoppling!">
+<Layout title="Kontakta oss | Hemtaro" description="Fyll i vårt kontaktformulär för att begära en kostnadsfri offert för flytt, städning eller övriga hushållstjänster i Kronoberg/Kalmar. Snabb återkoppling!">
 <main class="bg-surface-body py-12 md:py-24 bg-grid-pattern relative">
 	<!-- Ambient lights -->
 	<div class="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
 							</div>
 							<div>
 								<div class="text-[11px] text-teal-300 font-bold uppercase tracking-wider mb-0.5">E-post</div>
-								<a href="mailto:info@sonvicegroup.se" class="text-sm font-semibold text-white hover:text-teal-300 transition-colors">info@sonvicegroup.se</a>
+								<a href="mailto:info@hemtaro.se" class="text-sm font-semibold text-white hover:text-teal-300 transition-colors">info@hemtaro.se</a>
 							</div>
 						</div>
 						
@@ -91,8 +91,8 @@ import Layout from '../layouts/Layout.astro';
 					<form id="contact-form" class="space-y-6">
 						<!-- Web3Forms Integration -->
 						<input type="hidden" name="access_key" value="d23d6104-1a1b-4ffd-a91a-87cfeff7192f" />
-						<input type="hidden" name="subject" value="[Webbkontakt] Ny offertförfrågan från sonvicegroup.se" />
-						<input type="hidden" name="from_name" value="Sonvice Group Webb" />
+						<input type="hidden" name="subject" value="[Webbkontakt] Ny offertförfrågan från hemtaro.se" />
+						<input type="hidden" name="from_name" value="Hemtaro Webb" />
 						<input type="hidden" name="title" value="Ny Offertförfrågan" />
 						<input type="hidden" id="formatted-service" name="Önskad Tjänst" />
 						<input type="hidden" id="formatted-truck-package" name="Hyresperiod (Lastbil)" />
@@ -710,7 +710,7 @@ import Layout from '../layouts/Layout.astro';
 						successContainer.classList.remove('hidden');
 						successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 					} else {
-						alert('Det uppstod ett fel vid inskickandet. Vänligen försök igen och kontakta oss på info@sonvicegroup.se.');
+						alert('Det uppstod ett fel vid inskickandet. Vänligen försök igen och kontakta oss på info@hemtaro.se.');
 						// Reset button state
 						submitBtn.removeAttribute('disabled');
 						submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');

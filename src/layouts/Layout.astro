@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { 
-	title = "Sonvice Group | Flytt- och städtjänster i Kronoberg/Kalmar",
+	title = "Hemtaro | Flytt- och städtjänster i Kronoberg/Kalmar",
 	description = "Professionella flyttjänster, hemstädning, fönsterputsning och takrengöring i Kronoberg/Kalmar. 100% nöjd-kund-garanti."
 } = Astro.props;
 
@@ -48,13 +48,13 @@ const switchUrl = getLangSwitchUrl();
 
 // --- Global Business Configuration Metadata ---
 const COMPANY = {
-	name: "Sonvice Group AB",
+	name: "Hemtaro AB",
 	orgNr: "559XXX-XXXX", // Ändra till riktigt org.nr vid lansering
 	phone: "011-611-23",
 	phoneLink: "tel:01161123",
-	email: "info@sonvicegroup.se",
+	email: "info@hemtaro.se",
 	address: "Kronoberg/Kalmar, Sverige",
-	websiteUrl: "https://sonvicegroup.se",
+	websiteUrl: "https://hemtaro.se",
 };
 
 const SITE_URL = COMPANY.websiteUrl;
@@ -165,7 +165,7 @@ const t = isEn ? {
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Sonvice Group" />
+		<meta property="og:site_name" content="Hemtaro" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -176,9 +176,9 @@ const t = isEn ? {
 			{
 				"@context": "https://schema.org",
 				"@type": "WebSite",
-				"name": "Sonvice Group",
-				"alternateName": ["Sonvice", "Sonvice Group AB"],
-				"url": "https://sonvicegroup.se/"
+				"name": "Hemtaro",
+				"alternateName": ["Hemtaro", "Hemtaro AB"],
+				"url": "https://hemtaro.se/"
 			}
 		</script>
 
@@ -207,9 +207,9 @@ const t = isEn ? {
 		<header id="main-header" class="fixed top-[3px] left-0 right-0 z-50 w-full bg-transparent border-b border-transparent py-4 transition-all duration-300">
 			<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
 				<!-- Logo -->
-				<a href={isEn ? "/en" : "/"} class="flex items-center gap-3" aria-label="Sonvice Group Homepage">
+				<a href={isEn ? "/en" : "/"} class="flex items-center gap-3" aria-label="Hemtaro Homepage">
 					<img src="/logo.png" alt="" aria-hidden="true" class="h-10 md:h-12 w-auto object-contain transition-transform" width="160" height="48" loading="eager" />
-					<span class="text-lg font-bold tracking-tight text-text-heading">Sonvice Group</span>
+					<span class="text-lg font-bold tracking-tight text-text-heading">Hemtaro</span>
 				</a>
 
 				<!-- Desktop nav -->
@@ -401,7 +401,7 @@ const t = isEn ? {
 					<div class="md:col-span-2 lg:col-span-1">
 						<div class="flex items-center gap-3 mb-5">
 							<img src="/logo.png" alt="" aria-hidden="true" class="h-10 w-auto object-contain brightness-0 invert" width="133" height="40" loading="lazy" />
-							<span class="text-base font-bold text-white tracking-tight">Sonvice Group</span>
+							<span class="text-base font-bold text-white tracking-tight">Hemtaro</span>
 						</div>
 						<p class="text-sm text-slate-400 leading-relaxed max-w-xs">
 							{t.footerDesc}
@@ -466,7 +466,7 @@ const t = isEn ? {
 			<!-- Bottom bar -->
 			<div class="border-t border-slate-900 bg-primary-dark/20">
 				<div class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-slate-400 space-y-2">
-					<p>© {new Date().getFullYear()} Sonvice Group · Innehar F-skattsedel</p>
+					<p>© {new Date().getFullYear()} Hemtaro · Innehar F-skattsedel</p>
 					<p class="space-x-3">
 						<a href={isEn ? "/en/privacy" : "/integritetspolicy"} class="hover:text-accent transition-colors font-medium">{isEn ? "Privacy Policy" : "Integritetspolicy"}</a>
 						<span>·</span>
@@ -517,7 +517,7 @@ const t = isEn ? {
 			
 			<!-- Submenu Items (vertical stack above main button) -->
 			<!-- Instagram Button -->
-			<a href="https://www.instagram.com/sonvice.group?utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-menu-item w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:brightness-110 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-4 scale-75 pointer-events-none relative group" aria-label="Instagram">
+			<a href="https://www.instagram.com/hemtaro.group?utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-menu-item w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:brightness-110 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-4 scale-75 pointer-events-none relative group" aria-label="Instagram">
 				<!-- Tooltip -->
 				<span class="absolute right-14 px-2.5 py-1 rounded bg-slate-900/90 text-white text-[11px] font-bold tracking-wide whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm">Instagram</span>
 				<!-- Instagram Icon SVG -->

@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Contact us | Sonvice Group" description="Fill in our contact form to request a free quote for moving, cleaning, or other household services in Kronoberg/Kalmar. Fast response!">
+<Layout title="Contact us | Hemtaro" description="Fill in our contact form to request a free quote for moving, cleaning, or other household services in Kronoberg/Kalmar. Fast response!">
 <main class="bg-surface-body py-12 md:py-24 bg-grid-pattern relative">
 	<!-- Ambient lights -->
 	<div class="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[80px] -z-10 pointer-events-none"></div>
@@ -32,7 +32,7 @@ import Layout from '../../layouts/Layout.astro';
 							</div>
 							<div>
 								<div class="text-[11px] text-teal-300 font-bold uppercase tracking-wider mb-0.5">Email</div>
-								<a href="mailto:info@sonvicegroup.se" class="text-sm font-semibold text-white hover:text-teal-300 transition-colors">info@sonvicegroup.se</a>
+								<a href="mailto:info@hemtaro.se" class="text-sm font-semibold text-white hover:text-teal-300 transition-colors">info@hemtaro.se</a>
 							</div>
 						</div>
 						
@@ -91,8 +91,8 @@ import Layout from '../../layouts/Layout.astro';
 					<form id="contact-form" class="space-y-6">
 						<!-- Web3Forms Integration -->
 						<input type="hidden" name="access_key" value="d23d6104-1a1b-4ffd-a91a-87cfeff7192f" />
-						<input type="hidden" name="subject" value="[Web Contact] New quote request from sonvicegroup.se" />
-						<input type="hidden" name="from_name" value="Sonvice Group Web" />
+						<input type="hidden" name="subject" value="[Web Contact] New quote request from hemtaro.se" />
+						<input type="hidden" name="from_name" value="Hemtaro Web" />
 						<input type="hidden" name="title" value="New Quote Request" />
 						<input type="hidden" id="formatted-service" name="Requested Service" />
 						<input type="hidden" id="formatted-truck-package" name="Rental Period (Truck)" />
@@ -710,7 +710,7 @@ import Layout from '../../layouts/Layout.astro';
 						successContainer.classList.remove('hidden');
 						successContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 					} else {
-						alert('Something went wrong during submission. Please try again or email us directly at info@sonvicegroup.se.');
+						alert('Something went wrong during submission. Please try again or email us directly at info@hemtaro.se.');
 						// Reset button state
 						submitBtn.removeAttribute('disabled');
 						submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
