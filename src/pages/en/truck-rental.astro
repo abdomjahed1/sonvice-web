@@ -595,59 +595,26 @@ import bgImgMobile from '../../images/truck-rental-service-background-mobile.web
 		</div>
 	</section>
 
-	<!-- ═══════════════════ CTA SECTION ═══════════════════ -->
-	<section class="relative bg-surface-dark py-24 md:py-32 overflow-hidden bg-grid-pattern-dark">
-		<!-- Dynamic teal glow blob inside CTA -->
-		<div class="absolute top-[20%] right-[-10%] w-[350px] h-[350px] bg-glow-teal rounded-full blur-[90px] pointer-events-none opacity-40"></div>
-		
-		<div class="max-w-6xl mx-auto px-6 relative">
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-				
-				<div class="lg:col-span-7 space-y-6 reveal-on-scroll">
-					<h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-						Ready to rent <br/>
-						<span class="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">your truck?</span>
-					</h2>
-					<p class="text-slate-400 text-lg leading-relaxed max-w-xl">
-						Contact us today to reserve the truck for your preferred dates. Quick response, flexible scheduling, and no hidden fees.
-					</p>
-					
-					<!-- Live trust badges in dark room -->
-					<div class="flex flex-wrap gap-4 pt-4 text-xs text-slate-400">
-						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
-							<svg class="w-3.5 h-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2h-3V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2m10 0a3 3 0 11-6 0m6 0a3 3 0 116 0m-9 0H9m-2 0a3 3 0 126 0"/></svg>
-							Modern Light Truck
-						</span>
-						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
-							<svg class="w-3.5 h-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-							Insured Up To 300k
-						</span>
-						<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800">
-							<svg class="w-3.5 h-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M12 12V3m0 0L8 7m4-4l4 4"/></svg>
-							Tail Lift Included
-						</span>
-					</div>
-				</div>
-
-				<div class="lg:col-span-5 reveal-on-scroll delay-200">
-					<!-- Interactive Floating Contact Panel Card -->
-					<div class="glass-panel-dark rounded-2xl p-8 border border-slate-800/80 space-y-6 text-white shadow-xl relative">
-						<h3 class="text-xl font-bold text-white">Book the truck now</h3>
-						<p class="text-sm text-slate-400">Get in touch via our contact form or call us directly to confirm your booking.</p>
-						
-						<a href="/en/contact?service=lastbil" class="w-full py-4 rounded-lg bg-accent hover:bg-accent-hover text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-accent/10 active:scale-[0.98]">
-							Reserve the truck
-							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-						</a>
-						
-						<div class="text-center">
-							<a href="tel:0102515160" class="text-xs text-slate-400 hover:text-white transition-colors">
-								Or call us on <span class="font-bold text-slate-300 underline">010-251 51 60</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
+	<!-- ═══════════════════ CTA BANNER ═══════════════════ -->
+	<section class="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+		<div class="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+		<div class="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+		<div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal-on-scroll">
+			<span class="text-xs font-bold text-teal-300 uppercase tracking-widest mb-3 inline-block">Need Truck Rental?</span>
+			<h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
+				Ready to Rent Your Light Truck?
+			</h2>
+			<p class="text-slate-300 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+				Contact us today to reserve the truck for your preferred dates. Quick response, flexible scheduling, and no hidden fees.
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/en/contact?service=lastbil" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-white font-bold text-sm hover:bg-accent-hover active:scale-[0.98] transition-all shadow-md">
+					Reserve the truck
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+				<a href="tel:0102515160" class="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-slate-700 bg-slate-800/80 text-white font-bold text-sm hover:bg-slate-700 transition-colors">
+					Call us: 010-251 51 60
+				</a>
 			</div>
 		</div>
 	</section>
