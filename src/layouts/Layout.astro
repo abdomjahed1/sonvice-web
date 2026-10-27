@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+	keywords?: string;
 }
 
 const { 
-	title = "Hemtaro | Flytt- och städtjänster i Kronoberg/Kalmar",
-	description = "Professionella flyttjänster, hemstädning, fönsterputsning och takrengöring i Kronoberg/Kalmar. 100% nöjd-kund-garanti."
+	title = "Hemtaro | Flyttjänster, Hemstädning, Fönsterputsning, Takrengöring & Trädgårdsvård i Kronoberg/Kalmar",
+	description = "Professionella flyttjänster, hemstädning, fönsterputsning, takrengöring, trädgårdsvård, lastbilsuthyrning och magasinering i Kronoberg, Kalmar och Växjö. 100% nöjd-kund-garanti och RUT/ROT-avdrag.",
+	keywords
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -143,6 +145,299 @@ const t = isEn ? {
 	langLabel: 'EN',
 	contactUs: 'Kontakta oss'
 };
+
+// --- Page-Specific Service SEO & Structured Data Catalog ---
+const SERVICE_SEO_MAP: Record<string, {
+	name: string;
+	serviceType: string;
+	alternateNames: string[];
+	description: string;
+	price: string;
+	keywords: string;
+}> = {
+	"/flyttjanster": {
+		name: "Flyttjänster",
+		serviceType: "Flyttjänster & Flytthjälp",
+		alternateNames: ["Flytthjälp", "Flyttfirma", "Bohagsflytt", "Företagsflytt", "Packhjälp", "Bärhjälp", "Flyttransport"],
+		description: "Professionella flyttjänster och flytthjälp i Kronoberg, Kalmar och Växjö för privatpersoner och företag. Bohagsflytt, packning, bärhjälp och säker transport med ansvarsförsäkring och 50% RUT-avdrag.",
+		price: "900",
+		keywords: "flyttjänster, flytthjälp, flyttfirma, bohagsflytt, företagsflytt, flyttjänster Kronoberg, flyttjänster Kalmar, flyttfirma Växjö, flyttfirma Kalmar, bärhjälp, packhjälp, RUT-avdrag flytt, Hemtaro"
+	},
+	"/hemstadning": {
+		name: "Hemstädning",
+		serviceType: "Hemstädning & Städservice",
+		alternateNames: ["Städhjälp", "Städfirma", "Veckostädning", "Flyttstädning", "Storstädning", "Kontorsstädning"],
+		description: "Professionell hemstädning i Kronoberg, Kalmar och Växjö med abonnemang eller engångstillfällen. Utbildad personal, miljövänliga medel, 100% nöjd-kund-garanti och 50% RUT-avdrag.",
+		price: "195",
+		keywords: "hemstädning, städfirma, städhjälp, veckostädning, flyttstädning, storstädning, hemstädning Kronoberg, hemstädning Kalmar, hemstädning Växjö, städfirma Växjö, städfirma Kalmar, RUT-avdrag städning, Hemtaro"
+	},
+	"/fonsterputsning": {
+		name: "Fönsterputsning",
+		serviceType: "Fönsterputsning & Fönsterputs",
+		alternateNames: ["Fönsterputs", "Fönsterputsare", "Putsa fönster", "Fönsterrengöring"],
+		description: "Professionell fönsterputsning i Kronoberg, Kalmar och Växjö för villor, lägenheter, inglasade balkonger och kontor. Ränderfria och kristallklara fönster med RUT-avdrag och nöjd-kund-garanti.",
+		price: "390",
+		keywords: "fönsterputsning, fönsterputs, fönsterputsare, putsa fönster, fönsterputsning Kronoberg, fönsterputsning Kalmar, fönsterputs Växjö, fönsterputs Kalmar, RUT-avdrag fönsterputs, Hemtaro"
+	},
+	"/takrengoring": {
+		name: "Takrengöring",
+		serviceType: "Takrengöring, Taktvätt & Algbehandling",
+		alternateNames: ["Taktvätt", "Takvård", "Mossborttagning tak", "Algbehandling tak", "Rengöra tak"],
+		description: "Skonsam och effektiv takrengöring och taktvätt i Kronoberg, Kalmar och Växjö. Vi tar bort mossa, alger och lav samt behandlar taket för att förhindra återväxt med ROT-avdrag.",
+		price: "1900",
+		keywords: "takrengöring, taktvätt, mossborttagning tak, algbehandling tak, takvård, takrengöring Kronoberg, takrengöring Kalmar, taktvätt Växjö, taktvätt Kalmar, ROT-avdrag takrengöring, Hemtaro"
+	},
+	"/tradgardsvard": {
+		name: "Trädgårdsvård",
+		serviceType: "Trädgårdsvård & Trädgårdsskötsel",
+		alternateNames: ["Trädgårdsskötsel", "Trädgårdshjälp", "Gräsklippning", "Häckklippning", "Ogräsrensning", "Beskärning"],
+		description: "Professionell trädgårdsvård och trädgårdsskötsel i Kronoberg, Kalmar och Växjö. Gräsklippning, häckklippning, ogräsrensning, lövkrattning och beskärning med direkt RUT-avdrag.",
+		price: "295",
+		keywords: "trädgårdsvård, trädgårdsskötsel, trädgårdshjälp, gräsklippning, häckklippning, ogräsrensning, trädgårdsvård Kronoberg, trädgårdsvård Kalmar, trädgårdshjälp Växjö, RUT-avdrag trädgård, Hemtaro"
+	},
+	"/lastbilsuthyrning": {
+		name: "Lastbilsuthyrning",
+		serviceType: "Lastbilsuthyrning & Flyttbilsuthyrning",
+		alternateNames: ["Hyra lätt lastbil", "Hyra flyttbil", "Flyttbilsuthyrning", "Skåpbilsuthyrning"],
+		description: "Hyr lätt lastbil och flyttbil med bakgavellyft i Kronoberg, Kalmar och Växjö. Körs med vanligt B-körkort, försäkring ingår och flexibla hyresperioder.",
+		price: "1000",
+		keywords: "lastbilsuthyrning, hyra lätt lastbil, hyra flyttbil, flyttbilsuthyrning, lastbilsuthyrning Kronoberg, lastbilsuthyrning Kalmar, hyra flyttbil Växjö, hyra lastbil B-körkort, Hemtaro"
+	},
+	"/magasinering": {
+		name: "Magasinering",
+		serviceType: "Magasinering & Möbelförvaring",
+		alternateNames: ["Möbelförvaring", "Förvaring", "Förråd", "Magasinera möbler", "Lagerförvaring"],
+		description: "Säker, uppvärmd och kameraövervakad magasinering och möbelförvaring i Kronoberg, Kalmar och Växjö för privatpersoner och företag.",
+		price: "600",
+		keywords: "magasinering, möbelförvaring, förvaring, hyra förråd, magasinera möbler, magasinering Kronoberg, magasinering Kalmar, magasinering Växjö, Hemtaro"
+	},
+	"/en/moving-services": {
+		name: "Moving Services",
+		serviceType: "Moving & Relocation Services",
+		alternateNames: ["Home Moving", "Office Relocation", "Packing Services", "Moving Company", "Flyttjänster"],
+		description: "Professional moving services in Kronoberg, Kalmar, and Växjö for homes and businesses. Packing, loading, and insured transport with RUT tax deduction.",
+		price: "900",
+		keywords: "moving services, moving company, relocation services, moving Kronoberg, moving Kalmar, moving Växjö, flyttjänster, Hemtaro"
+	},
+	"/en/home-cleaning": {
+		name: "Home Cleaning",
+		serviceType: "Home Cleaning & Maid Services",
+		alternateNames: ["House Cleaning", "Subscription Cleaning", "Move-out Cleaning", "Deep Cleaning", "Hemstädning"],
+		description: "Professional home cleaning in Kronoberg, Kalmar, and Växjö. Regular subscription cleaning or one-off packages with 100% satisfaction guarantee and RUT tax credit.",
+		price: "195",
+		keywords: "home cleaning, house cleaning, cleaning company, cleaning Kronoberg, cleaning Kalmar, cleaning Växjö, hemstädning, Hemtaro"
+	},
+	"/en/window-cleaning": {
+		name: "Window Cleaning",
+		serviceType: "Window Cleaning & Window Washing",
+		alternateNames: ["Window Washing", "Residential Window Cleaning", "Commercial Window Cleaning", "Fönsterputsning"],
+		description: "Professional streak-free window cleaning in Kronoberg, Kalmar, and Växjö for houses, apartments, and offices with RUT tax deduction.",
+		price: "390",
+		keywords: "window cleaning, window washing, window cleaners Kronoberg, window cleaning Kalmar, window cleaning Växjö, fönsterputsning, Hemtaro"
+	},
+	"/en/roof-cleaning": {
+		name: "Roof Cleaning",
+		serviceType: "Roof Cleaning & Moss Removal",
+		alternateNames: ["Roof Washing", "Moss Removal", "Algae Treatment", "Roof Maintenance", "Takrengöring"],
+		description: "Gentle and effective roof cleaning, moss removal, and algae treatment in Kronoberg, Kalmar, and Växjö with ROT tax deduction.",
+		price: "1900",
+		keywords: "roof cleaning, moss removal, algae treatment, roof care Kronoberg, roof cleaning Kalmar, roof cleaning Växjö, takrengöring, Hemtaro"
+	},
+	"/en/gardening": {
+		name: "Gardening",
+		serviceType: "Gardening & Lawn Care Services",
+		alternateNames: ["Gardening Services", "Lawn Mowing", "Hedge Trimming", "Garden Maintenance", "Trädgårdsvård"],
+		description: "Professional gardening services in Kronoberg, Kalmar, and Växjö including lawn mowing, hedge trimming, weeding, and pruning with RUT tax deduction.",
+		price: "295",
+		keywords: "gardening services, lawn mowing, hedge trimming, garden care Kronoberg, gardening Kalmar, gardening Växjö, trädgårdsvård, Hemtaro"
+	},
+	"/en/truck-rental": {
+		name: "Truck Rental",
+		serviceType: "Light Truck & Moving Van Rental",
+		alternateNames: ["Light Truck Rental", "Moving Truck Rental", "Van Rental", "Lastbilsuthyrning"],
+		description: "Rent a modern light moving truck with tail lift in Kronoberg, Kalmar, and Växjö. Standard B-license, insurance included.",
+		price: "1000",
+		keywords: "truck rental, moving van rental, light truck rental Kronoberg, truck rental Kalmar, truck rental Växjö, lastbilsuthyrning, Hemtaro"
+	},
+	"/en/storage": {
+		name: "Storage",
+		serviceType: "Secure Storage & Furniture Warehousing",
+		alternateNames: ["Storage Services", "Furniture Storage", "Heated Storage", "Magasinering"],
+		description: "Safe, heated, humidity-controlled, and 24/7 monitored storage in Kronoberg, Kalmar, and Växjö for individuals and businesses.",
+		price: "600",
+		keywords: "storage services, furniture storage, secure storage Kronoberg, storage Kalmar, storage Växjö, magasinering, Hemtaro"
+	}
+};
+
+const currentService = SERVICE_SEO_MAP[canonicalPath];
+const defaultKeywords = isEn
+	? "Moving services, Home cleaning, Window cleaning, Roof cleaning, Gardening, Truck rental, Storage, Flyttjänster, Hemstädning, Fönsterputsning, Takrengöring, Trädgårdsvård, Lastbilsuthyrning, Magasinering, Kronoberg, Kalmar, Växjö, Hemtaro"
+	: "Flyttjänster, Hemstädning, Fönsterputsning, Takrengöring, Trädgårdsvård, Lastbilsuthyrning, Magasinering, Flytthjälp, Flyttfirma, Städfirma, Fönsterputs, Taktvätt, Trädgårdshjälp, Kronoberg, Kalmar, Växjö, Ljungby, Nybro, Alvesta, Hemtaro";
+const metaKeywords = keywords || currentService?.keywords || defaultKeywords;
+
+const areasServed = [
+	{ "@type": "AdministrativeArea", "name": "Kronobergs län" },
+	{ "@type": "AdministrativeArea", "name": "Kalmar län" },
+	{ "@type": "City", "name": "Växjö" },
+	{ "@type": "City", "name": "Kalmar" },
+	{ "@type": "City", "name": "Ljungby" },
+	{ "@type": "City", "name": "Alvesta" },
+	{ "@type": "City", "name": "Nybro" },
+	{ "@type": "City", "name": "Emmaboda" },
+	{ "@type": "City", "name": "Tingsryd" },
+	{ "@type": "City", "name": "Lessebo" },
+	{ "@type": "City", "name": "Älmhult" },
+	{ "@type": "City", "name": "Markaryd" },
+	{ "@type": "City", "name": "Uppvidinge" },
+	{ "@type": "City", "name": "Oskarshamn" },
+	{ "@type": "City", "name": "Borgholm" },
+	{ "@type": "City", "name": "Mörbylånga" },
+	{ "@type": "City", "name": "Torsås" }
+];
+
+const svCatalogKeys = ["/flyttjanster", "/hemstadning", "/fonsterputsning", "/takrengoring", "/tradgardsvard", "/lastbilsuthyrning", "/magasinering"];
+const enCatalogKeys = ["/en/moving-services", "/en/home-cleaning", "/en/window-cleaning", "/en/roof-cleaning", "/en/gardening", "/en/truck-rental", "/en/storage"];
+const catalogKeys = isEn ? enCatalogKeys : svCatalogKeys;
+
+const offerCatalogItems = catalogKeys.map((pathKey) => {
+	const svc = SERVICE_SEO_MAP[pathKey];
+	return {
+		"@type": "Offer",
+		"url": `${SITE_URL}${pathKey}`,
+		"priceCurrency": "SEK",
+		"price": svc.price,
+		"itemOffered": {
+			"@type": "Service",
+			"@id": `${SITE_URL}${pathKey}#service`,
+			"name": svc.name,
+			"serviceType": svc.serviceType,
+			"alternateName": svc.alternateNames,
+			"description": svc.description,
+			"url": `${SITE_URL}${pathKey}`,
+			"provider": { "@id": `${SITE_URL}/#organization` },
+			"areaServed": areasServed
+		}
+	};
+});
+
+const schemaGraph: any[] = [
+	{
+		"@type": "WebSite",
+		"@id": `${SITE_URL}/#website`,
+		"name": "Hemtaro",
+		"alternateName": ["Hemtaro AB", "Hemtaro Flytt & Städ", "Hemtaro Kronoberg/Kalmar"],
+		"url": `${SITE_URL}/`,
+		"inLanguage": ["sv-SE", "en"],
+		"publisher": { "@id": `${SITE_URL}/#organization` }
+	},
+	{
+		"@type": ["LocalBusiness", "MovingCompany", "HomeAndConstructionBusiness"],
+		"@id": `${SITE_URL}/#organization`,
+		"name": "Hemtaro",
+		"legalName": COMPANY.name,
+		"url": `${SITE_URL}/`,
+		"logo": `${SITE_URL}/logo.png`,
+		"image": `${SITE_URL}/logo.png`,
+		"telephone": "+46102515160",
+		"email": COMPANY.email,
+		"priceRange": "$$",
+		"description": description,
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Växjö & Kalmar",
+			"addressRegion": "Kronoberg & Kalmar",
+			"addressCountry": "SE"
+		},
+		"areaServed": areasServed,
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+				"opens": "08:00",
+				"closes": "18:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Saturday", "Sunday"],
+				"opens": "09:00",
+				"closes": "15:00"
+			}
+		],
+		"sameAs": [
+			"https://www.instagram.com/hemtaro.group",
+			"https://www.facebook.com/share/19CGoykQXb/"
+		],
+		"hasOfferCatalog": {
+			"@type": "OfferCatalog",
+			"name": isEn ? "Hemtaro Services" : "Hemtaro Tjänster",
+			"itemListElement": offerCatalogItems
+		}
+	},
+	{
+		"@type": "ItemList",
+		"@id": `${SITE_URL}/#navigation`,
+		"name": isEn ? "Main Navigation Services" : "Huvudmeny Tjänster",
+		"itemListElement": catalogKeys.map((pathKey, index) => ({
+			"@type": "SiteNavigationElement",
+			"position": index + 1,
+			"name": SERVICE_SEO_MAP[pathKey].name,
+			"description": SERVICE_SEO_MAP[pathKey].description,
+			"url": `${SITE_URL}${pathKey}`
+		}))
+	}
+];
+
+if (currentService) {
+	schemaGraph.push({
+		"@type": "Service",
+		"@id": `${canonicalURL}#service`,
+		"name": currentService.name,
+		"serviceType": currentService.serviceType,
+		"alternateName": currentService.alternateNames,
+		"description": currentService.description,
+		"url": canonicalURL,
+		"provider": { "@id": `${SITE_URL}/#organization` },
+		"areaServed": areasServed,
+		"offers": {
+			"@type": "Offer",
+			"url": canonicalURL,
+			"priceCurrency": "SEK",
+			"price": currentService.price,
+			"availability": "https://schema.org/InStock"
+		}
+	});
+	schemaGraph.push({
+		"@type": "BreadcrumbList",
+		"@id": `${canonicalURL}#breadcrumb`,
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": isEn ? "Home" : "Hem",
+				"item": isEn ? `${SITE_URL}/en` : `${SITE_URL}/`
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": currentService.name,
+				"item": canonicalURL
+			}
+		]
+	});
+}
+
+const structuredDataJson = JSON.stringify({
+	"@context": "https://schema.org",
+	"@graph": schemaGraph
+});
+
+const siteNameSchemaJson = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": "Hemtaro",
+	"alternateName": ["Hemtaro AB", "hemtaro.se"],
+	"url": "https://hemtaro.se/"
+});
 ---
 
 <html lang={isEn ? "en" : "sv"}>
@@ -152,7 +447,13 @@ const t = isEn ? {
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="application-name" content="Hemtaro" />
+		<meta name="apple-mobile-web-app-title" content="Hemtaro" />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={metaKeywords} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="geo.region" content="SE-G;SE-H" />
+		<meta name="geo.placename" content="Kronoberg, Kalmar, Växjö" />
 		
 		<!-- Google Site Verification -->
 		<meta name="google-site-verification" content="t4pAJq5JIg_jfnZuBJZ7vYb4Kai1tDxMxjOIoMilsFg" />
@@ -166,21 +467,18 @@ const t = isEn ? {
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Hemtaro" />
+		<meta property="og:locale" content={isEn ? "en_US" : "sv_SE"} />
+		<meta property="og:locale:alternate" content={isEn ? "sv_SE" : "en_US"} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${SITE_URL}/logo.png`} />
 
-		<!-- Google Site Name Structured Data -->
-		<script type="application/ld+json" is:inline>
-			{
-				"@context": "https://schema.org",
-				"@type": "WebSite",
-				"name": "Hemtaro",
-				"alternateName": ["Hemtaro", "Hemtaro AB"],
-				"url": "https://hemtaro.se/"
-			}
-		</script>
+		<!-- Standalone Google Site Name Structured Data (Forces "Hemtaro" instead of "hemtaro.se") -->
+		<script type="application/ld+json" set:html={siteNameSchemaJson} />
+
+		<!-- Rich Structured Data (LocalBusiness, Services Catalog, Navigation & Breadcrumbs) -->
+		<script type="application/ld+json" set:html={structuredDataJson} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -460,7 +758,7 @@ const t = isEn ? {
 						</p>
 						<div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
 							<!-- Instagram -->
-							<a href="https://www.instagram.com/sonvice.group?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 hover:bg-slate-800 transition-all" aria-label="Instagram">
+							<a href="https://www.instagram.com/hemtaro.group?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 hover:bg-slate-800 transition-all" aria-label="Instagram">
 								<svg aria-hidden="true" class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
 							</a>
 							<!-- Facebook -->
